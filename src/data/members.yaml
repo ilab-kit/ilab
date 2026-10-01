@@ -1,0 +1,78 @@
+# Lab members. photo paths are relative to public/images/ (leave empty for an initials avatar)
+# group: professor | graduate | undergraduate | alumni
+
+- group: professor
+  name: Dong-Soo Choi
+  ko: 최동수
+  title: Ph.D., Associate Professor
+  affiliation: Department of Computer Engineering, Kumoh National Institute of Technology
+  email: choids@kumoh.ac.kr
+  office: "#238, Digital Bldg."
+  photo: members/prof-dong-soo-choi.jpg
+  scholar: https://scholar.google.com/citations?user=lIQVSJsAAAAJ&hl=ko
+  interests: [Immersive VR/AR, Haptics, Transparent Pressure Sensor, 3D Touch Sensor, Vibrotactile Actuator, Focus-tunable Lens]
+  cv:
+    - section: Positions
+      items:
+        - Associate Professor, Kumoh National Institute of Technology (2025.09 – Present)
+        - Assistant Professor, Kumoh National Institute of Technology (2022.03 – 2025.08)
+        - Assistant Professor, Semyung University (2020.09 – 2022.02)
+    - section: Education
+      items:
+        - Ph.D., Interdisciplinary Program in Creative Engineering, Korea University of Technology and Education (2015.03 – 2020.08) · Advisor Prof. Sang-Youn Kim
+        - M.S., Computer Engineering, Korea University of Technology and Education (2013 – 2015) · Advisor Prof. Sang-Youn Kim
+        - B.S., Computer Science and Engineering, Korea University of Technology and Education (2007 – 2013) · Advisor Prof. Sang-Youn Kim
+
+- group: graduate
+  name: Hyeon-Jin Na
+  ko: 나현진
+  title: M.S./Ph.D. Integrated Course
+  affiliation: Department of Computer·AI Convergence Engineering
+  email: na@kumoh.ac.kr
+  photo: members/hyeon-jin-na.jpg
+  interests: [Embedded System, IoT, HCI, Soft Robotics]
+
+- group: graduate
+  name: Ye-Ji Jun
+  ko: 전예지
+  title: M.S. Course
+  affiliation: Department of Computer·AI Convergence Engineering
+  email: junyj@kumoh.ac.kr
+  photo: members/ye-ji-jun.jpg
+  interests: [Haptics]
+
+- group: graduate
+  name: Min-Jun Kim
+  ko: 김민준
+  title: M.S. Course
+  affiliation: Department of Computer·AI Convergence Engineering
+  email: joun2301@kumoh.ac.kr
+  photo: members/min-jun-kim.jpg
+  interests: [Immersive Virtual Reality, Human-Computer Interaction]
+
+- group: undergraduate
+  name: Geun-Hui Kim
+  ko: 김근희
+  title: Undergraduate Researcher
+  affiliation: Department of Software
+  email: 20230097@kumoh.ac.kr
+  photo: members/geun-hui-kim.jpg
+  interests: [Embedded Engineering]
+
+- group: undergraduate
+  name: Kang-Seok Lee
+  ko: 이강석
+  title: Undergraduate Researcher
+  affiliation: Department of Computer Engineering
+  email: dlrkdtjr0116@kumoh.ac.kr
+  interests: [Embedded Systems, Soft Robotics]
+
+- { group: alumni, name: Ju Yeon Park, ko: 박주연 }
+- { group: alumni, name: Jeong-Hun Son, ko: 손정훈 }
+- { group: alumni, name: Min-Gi Shin, ko: 신민기 }
+- { group: alumni, name: Eun-Sol Nam, ko: 남은솔 }
+- { group: alumni, name: Gyo-Woon Gu, ko: 구교운 }
+- { group: alumni, name: Gyeongmi Kim, ko: 김경미 }
+- { group: alumni, name: Hyeonseo Kim, ko: 김현서 }
+- { group: alumni, name: Hongrok Lee, ko: 이홍록 }
+- { group: alumni, name: Duck-Kyu Seo, ko: 서덕규, title: M.E. }

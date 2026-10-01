@@ -1,0 +1,128 @@
+# Research projects. status: ongoing | completed
+
+- title: 생체 연조직 모사 하이브리드 구동형 인공 인대 및 딥러닝 기반 3D 형상 재구성/제어 시스템 개발
+  sponsor: 과학기술정보통신부/한국연구재단/우수연구-신진연구(유형B)
+  status: ongoing
+  start: 2026.03.01
+  end: 2031.02.28
+  ack: NRF##
+- title: 유연 소재 기반 고해상도 다중촉감 인터페이스 모듈 기술
+  sponsor: 과학기술정보통신부/정보통신기획평가원/초감각인지공간컴퓨팅기술개발
+  status: ongoing
+  start: 2025.04.01
+  end: 2028.12.31
+  ack: IITP##
+  partners: KAIST, 한국기술교육대, KIST, 서울대, 비햅틱스
+- title: 가혹환경 바이오 공정 자동화 시스템 제어·운영 SW 개발 및 기능 고도화
+  sponsor: 중소기업벤처부/중소기업기술정보진흥원/산학연CollaboR&D (사업화 단계)
+  status: ongoing
+  start: 2026.04.01
+  end: 2028.03.31
+  ack: TIPA##
+  partners: 충북그리드
+- title: 다개체 제조환경에서의 조작 숙련성 개선을 위한 고정밀 디지털트윈 기술 개발
+  sponsor: 과학기술정보통신부/한국연구재단/기초연구실(심화형)
+  status: ongoing
+  start: 2026.07.01
+  end: 2029.06.30
+  ack: BRL##
+  partners: 금오공대(고성능 과학계산 연구실, 인간중심AX연구실, 몰입형 미디어 및 그래픽스 탐구 연구실)
+- title: 감정 공유 로봇을 위한 피부의 거칠기/강성 표현이 가능한 신축성 햅틱 스킨 개발 및 이를 위한 통합 햅틱 렌더링 기법 연구
+  sponsor: 과학기술정보통신부/한국연구재단/우수신진연구지원사업
+  status: completed
+  start: 2021.03.01
+  end: 2026.02.28
+  ack: NRF##
+- title: 경북 네트워크형 캠퍼스 SW아카데미
+  sponsor: 과학기술정보통신부/정보통신기획평가원/캠퍼스SW아카데미
+  status: completed
+  start: 2022.06.01
+  end: 2025.12.31
+- title: 부식·고온·습도 등 가혹 환경 대응 다관절 로봇 기반 바이오 공정 자동화 시스템
+  sponsor: 중소기업벤처부/중소기업기술정보진흥원/산학연CollaboR&D
+  status: completed
+  start: 2025.05.01
+  end: 2025.12.31
+  ack: TIPA25
+- title: 임플란트 지대주 주문 서비스 UI 설계
+  sponsor: 티에스에스
+  status: completed
+  start: 2025.04.01
+  end: 2025.04.30
+- title: MeAIn:햅틱&생성AI 기반 가상 인터뷰 서비스
+  sponsor: 과학기술정보통신부/한국전파진흥협회/메타버스 랩 지원사업
+  status: completed
+  start: 2023.05.01
+  end: 2024.12.31
+  ack: Meta##
+- title: 전인적발달증진을 위한 햅틱증강현실 기반 오감교육 시스템 개발
+  sponsor: 과학기술정보통신부/정보통신기획평가원/ICT R&D 혁신바우처 지원사업
+  status: completed
+  start: 2023.06.01
+  end: 2024.05.31
+  ack: ICT##
+- title: 안드로이드 UI 개발 및 Web API 통신 기능 개발
+  sponsor: 티에스에스
+  status: completed
+  start: 2024.01.01
+  end: 2024.01.31
+- title: 관성 접촉력 저감을 위한 대면적 안전외피 센서의 제품화 기술 개발
+  sponsor: 산업통산자원부/한국산업기술평가관리원/로봇산업핵심기술개발사업
+  status: completed
+  start: 2020.05.01
+  end: 2020.08.31
+- title: 유전 탄성체 기반 실내 스위치 햅틱 피드백 구현 방안 연구
+  sponsor: 현대엔지비
+  status: completed
+  start: 2020.04.01
+  end: 2020.08.31
+- title: 자동차 디스플레이용 액추에이팅 구현 기술 개발
+  sponsor: 산업통산자원부/한국산업기술평가관리원/소재부품기술개발
+  status: completed
+  start: 2020.04.01
+  end: 2020.08.31
+- title: 상호작용 가상현실 기반 몰입형 교육 훈련 플랫폼
+  sponsor: 교육부/한국연구재단/대학중점연구소지원사업
+  status: completed
+  start: 2019.03.01
+  end: 2020.02.29
+- title: 필름형 투명(≥90%)·고신축성(≥500%) 3D 터치 센서(1kPa~100kPa) 햅틱 액추에이터 ( ~250hz, 최대1N ) 모듈 및 신개념 UI/UX 개발
+  sponsor: 산업통산자원부/한국산업기술평가관리원/우수기술연구센터(ATC)
+  status: completed
+  start: 2017.04.01
+  end: 2020.08.31
+- title: HD 촉감 기술 기반 초실감 콘텐츠 재현 기술 개발
+  sponsor: 과학기술정보통신부/정보통신기술진흥센터/디지털콘텐츠원천기술개발
+  status: completed
+  start: 2017.04.01
+  end: 2018.12.31
+- title: 완구형 교육시스템의 Tangible UX 기술개발
+  sponsor: 보건복지부/한국보건산업진흥원/의료기기기술개발
+  status: completed
+  start: 2015.05.01
+  end: 2017.04.30
+- title: 피에조 Actuator를 이용한 3D Haptic Module 개발
+  sponsor: 중소기업청/한국산업기술평가관리원/첫걸음기술개발사업
+  status: completed
+  start: 2014.10.01
+  end: 2015.09.30
+- title: 디스플레이向 Haptic 재료 및 소자검증
+  sponsor: LG디스플레이
+  status: completed
+  start: 2014.06.01
+  end: 2015.02.28
+- title: 대변형 가변 인버터블 렌즈 연구
+  sponsor: 과학기술정보통신부/한국연구재단/미래유망융합기술 파이오니어 사업
+  status: completed
+  start: 2013.09.17
+  end: 2019.02.28
+- title: 비행시뮬레이터를 위한 통합 햅틱 액츄에이터 개발
+  sponsor: 국방부/민군협력진흥원/민군겸용기술개발사업
+  status: completed
+  start: 2012.09.01
+  end: 2016.12.17
+- title: HI 신기술 연구
+  sponsor: 도시바삼성스토리지테크놀러지코리아
+  status: completed
+  start: 2011.12.31
+  end: 2012.11.30

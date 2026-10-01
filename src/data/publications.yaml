@@ -1,0 +1,523 @@
+# Publications. Newest first within each type.
+# type: journal | journal-other | journal-domestic | conference | conference-domestic
+# Optional: doi, pdf, video, impact, notes (awards etc.), ack (funding code, not shown on site)
+
+- type: journal
+  title: Electret gel interfaces of phthalo blue and plasticized PVC for enhanced vibrotactile actuation
+  authors: Ganesh Shimoga, Eun-jae Shin, Seok-Han Lee, Mruthyunjayachari Chattanahalli Devendrachari, Dong-Soo Choi, Sang-Youn Kim*
+  venue: 'Sensors and Actuators A: Physical, Vol. 398, 117357, Feb. 2026'
+  year: 2026
+  impact: IF 4.9
+- type: journal
+  title: Design of interfacial cobalt oxide on titanium boride hybrid nanocomposites for enhanced electrochemical performance
+  authors: Ramasubba Reddy Palem, Mruthyunjayachari Chattanahalli Devendrachari, Nadavala Siva Kumar, Mohammad Asif, Durga Prasad Pabba, Soo-Hong Lee*, Sang-Youn Kim*, Dong-Soo Choi*
+  venue: Journal of Energy Storage, Vol. 133, 118026, Oct. 2025
+  year: 2025
+  impact: IF 9.8, Top 14%
+- type: journal
+  title: Redox-active phenol red-infused polypyrrole@MWCNT composites for high-performance symmetric supercapacitors
+  authors: Mruthyunjayachari Chattanahalli Devendrachari, Ganesh Shimoga, Yong-Hae Heo, Seok-Han Lee, Ramasubba Reddy Palem, Harish Makri Nimbegondi Kotresh, Sang-Youn Kim*, Dong-Soo Choi*
+  venue: Journal of Energy Storage, Vol. 131, 117518, Sep. 2025
+  year: 2025
+  impact: IF 9.8, Top 14%
+  ack: NRF25, IITP25
+- type: journal
+  title: Enhanced oxygen evolution reaction by controlled assembly of Co3O4 nanorods on TiB2 nanosheets
+  authors: Mruthyunjayachari Chattanahalli Devendrachari, Ramasubba Reddy Palem, Ganesh Shimog, Yong-Hae Heo, Seok-Han Lee, Harish Makri Nimbegondi Kotresh, Sang-Youn Kim*, Dong-Soo Choi*
+  venue: Surfaces and Interfaces, Vol. 51, 104619, 2024
+  year: 2024
+  impact: IF 5.7, Top 17.4%
+  ack: NRF24
+- type: journal
+  title: Cellulose graphitic carbon directed iron oxide interfaced polypyrrole electrode materials for high performance supercapacitors
+  authors: Ramasubba Reddy Palem, Mruthyunjayachari Chattanahalli Devendrachari, Ganesh Shimoga*, Chinna Bathula, Dae-Young Kim, Kyojung Hwang, Soo-Hong Lee, Dong-Soo Choi*, Sang-Youn Kim*
+  venue: International Journal of Biological Macromolecules, Vol. 253, No. 5, 127514, 2023
+  year: 2023
+  impact: IF 7.7, Top 6.4%
+- type: journal
+  title: Advancing Energy Storage Competence through Copper Phthalocyanine Stabilized Titanium Nitride Hybrid Nanocomposites for Symmetric Supercapacitors
+  authors: Mruthyunjayachari Chattanahalli Devendrachari, Ganesh Shimoga, Seok-Han Lee, Yong Hae Heo, Harish Makri Nimbegondi Kotresh, Ramasubba Reddy Palem, SangYoun Kim*, Dong-Soo Choi*
+  venue: ACS Applied Energy Materials, Vol. 6, No.21, 11199-11211, 2023
+  year: 2023
+  impact: IF 5.4, Top 26.9%
+  ack: NRF23
+- type: journal
+  title: Head-Up Haptic Display using Dual-Mode Haptic Actuator for Vehicles
+  authors: Young Hae Heo, Tae-Hoon Kim, Dong-Soo Choi*, and Sang-Youn Kim
+  venue: IEEE Transactions on Industrial Electronics, Vol. 71, No. 3, 2799, 2023
+  year: 2023
+  impact: IF 7.5, Top 2.6%
+- type: journal
+  title: Synergetic effects of Mo2C sphere/SCN nanocatalysts interface for nanomolar detection of uric acid and folic acid in presence of interferences
+  authors: Pattan-Siddappa Ganesh, Mani Govindasamy, Sang-Youn Kim, Dong-Soo Choi, Hyun-U. Ko, Razan Abdullah Alshgari, and Chi-Hsien Huang
+  venue: Ecotoxicology and Environmental Safety, Vol. 253, 114694, 2023
+  year: 2023
+  impact: IF 6.2, Top 8.5%
+- type: journal
+  title: Emotion-interactive empathetic transparent skin cushion with tailored frequency-dependent hydrogel–plasticized nonionic polyvinyl chloride interconnections
+  authors: Dong-Soo Choi†, Jin Woo Bae†, Seok-Han Lee, Jin Ho Song, Da Wan Kim, Seungmoon Choi, Changhyun Pang*, and Sang-Youn Kim*
+  venue: Chemical Engineering Journal, Vol. 442, 136142, 2022
+  year: 2022
+  impact: IF 13.3, Top 3.7%
+- type: journal
+  title: 'Anthraquinone-2-sulfonic acid-Loaded Polyaniline Nanostructures: Construction of Symmetric Supercapacitor Electrodes Thereof'
+  authors: Mruthyunjayachari Chattanahalli Devendrachari, Ganesh Shimoga, Seok-Han Lee, Yong Hae Heo, Harish Makri Nimbegondi Kotresh, Musthafa Ottakam Thotiyl, Sang-Youn Kim*, Dong-Soo Choi*
+  venue: Journal of Energy Storage, Vol. 56, 106033, 2022
+  year: 2022
+  impact: IF 8.9, Top 17%
+  ack: NRF22
+- type: journal
+  title: Soft Bidirectional Haptic I/O Module based on Bi-convex Patterned PVC Gel
+  authors: Dong-Soo Choi, SeongWon Jeong, Seok-Han Lee, SiHo Ryu, and Sang-Youn Kim*
+  venue: Smart Materials and Structures, Vol. 30. No. 4, 2021
+  year: 2021
+  impact: IF 3.7, Top 22.4%
+- type: journal
+  title: Electrically Adaptive and Shape-changeable Invertible Microlens
+  authors: Jin Woo Bae†, Dong-Soo Choi†, In-Ho Yun, Dong-Heon Han, Seung-Ju Oh, Tae-Hoon Kim, Jeong Ho Cho, Liwei Lin*, and Sang-Youn Kim*
+  venue: ACS Applied Materials and Interfaces, Vol. 13, No. 8, 2021
+  year: 2021
+  impact: IF 8.3, Top 15.7%
+- type: journal
+  title: 'Bio-Inspired Soft Robotics: Tunable Photo-Actuation Behavior of Azo Chromophore Containing Liquid Crystalline Elastomers'
+  authors: Ganesh Shimoga, Dong-Soo Choi, and Sang-Youn Kim*
+  venue: Applied Sciences-Basel, Vol. 11, No. 3, 2021
+  year: 2021
+  impact: IF 2.5, Top 24.6%
+- type: journal
+  title: Polypyrrole-Based Metal Nanocomposite Electrode Materials for High-Performance Supercapacitors
+  authors: Ganesh Shimoga†, Ramasubba Reddy Palem†, Dong-Soo Choi, Eun-Jae Shin, Pattan-Siddappa Ganesh, Ganesh Dattatraya Saratale, Rijuta Ganesh Saratale, Soo-Hong Lee, and Sang-Youn Kim*
+  venue: Metals, Vol. 11, No. 6, 2021
+  year: 2021
+  impact: IF 2.6, Top 27.8%
+- type: journal
+  title: Testing and evaluation of electro- vari-focal/chromic lens
+  authors: Tae-Hoon Kim, Hyun-Jeong Kim, Dong-Soo Choi, Yoon-Chae Nah*, and Sang-Youn Kim*
+  venue: Smart Materials and Structures, Vol. 30. 2021
+  year: 2021
+  impact: IF 3.7, Top 22.4%
+- type: journal
+  title: Electrochemical investigations and theoretical studies of biocompatible niacin-modified carbon paste electrode interface for electrochemical sensing of folic acid
+  authors: Pattan-Siddappa Ganesh, Sang-Youn Kim*, Dong-Soo Choi, Savas Kaya*, Goncagül Serdaroğlu, Ganesh Shimoga, Eun-Jae Shin, and Seok-Han Lee
+  venue: Journal of Analytical Science and Technology, Vol. 12, 2021
+  year: 2021
+  impact: 'IF 2.5, Top: 54.7%'
+- type: journal
+  title: Flexible Vibrotactile Actuator based on Dielectric Elastomer for Smart Handheld Devices
+  authors: Yong Hae Heo, Dong-Soo Choi†, Do Eun Kim, and Sang-Youn Kim
+  venue: Applied Sciences-Basel, Vol. 11, No. 24, 12020, 2021
+  year: 2021
+  impact: IF 2.5, Top 24.6%
+- type: journal
+  title: 'Beyond Human Hand: Shape-Adaptive and Reversible Magnetorheological Elastomer-Based Robot Gripper Skin'
+  authors: Dong-Soo Choi, Tae-Hoon Kim, Seok-Han Lee, Changhyun Pang, Jin Woo Bae,* and Sang-Youn Kim*
+  venue: ACS Applied Materials and Interfaces, Vol. 12, No. 39, 2020
+  year: 2020
+  impact: IF 8.3, Top 15.7%
+- type: journal
+  title: Transparent and Soft Haptic Actuator for Interaction with Flexible/deformable Devices
+  authors: Dong-Soo Choi, Seok-Han Lee, and Sang-Youn Kim*
+  venue: IEEE Access, Vol. 8, 2020
+  year: 2020
+  impact: IF 3.4, Top 34.6%
+- type: journal
+  title: A Tiny Haptic Knob Based on Magnetorheological Fluids
+  authors: Yong Hae Heo†, Dong-Soo Choi†, In-Ho Yun and Sang-Youn Kim*
+  venue: Applied Sciences-Basel, Vol. 10, No. 15, 2020
+  year: 2020
+  impact: IF 2.5, Top 24.6%
+- type: journal
+  title: Development of Haptic Stylus for Manipulating Virtual Objects in Mobile Devices
+  authors: Dong-Soo Choi†, In-Ho Yun†, Tae-Hoon Kim, SangKyu Byeon, and Sang-Youn Kim*
+  venue: Actuators, Vol. 9, No. 2, 2020
+  year: 2020
+  impact: IF 2.2, Top 41.2%
+- type: journal
+  title: Transparent Film-Type Vibrotactile Actuator Array and Its Haptic Rendering Using Beat Phenomenon
+  authors: Dong-Soo Choi, Sang-Youn Kim*
+  venue: Sensors, Vol. 19, No. 16, 3490, 2019
+  year: 2019
+  impact: IF 3.4, Top 31.6%
+- type: journal
+  title: Design of Wavy Ag Microwire Array for Mechanically Stable Multimodal Vibrational Haptic Interface
+  authors: Joohoon Kang†, Jae Hoon Park†, Dong-Soo Choi, Do Hwan Kim, Sang-Youn Kim*, and Jeong Ho Cho*
+  venue: Advanced Functional Materials, Vol. 29, No. 35, 1902703, 2019
+  year: 2019
+  impact: IF 18.5, Top 4.34%
+- type: journal
+  title: Design of a Multi-Functional Module for Visually Impaired Persons
+  authors: Dong-Soo Choi†, Tae-Heon Yang†, Won-Chul Bang, and Sang-Youn Kim*
+  venue: International Journal of Precision Engineering and Manufacturing, Vol. 19, No. 11, 2018
+  year: 2018
+  impact: IF 2.6, Top 35%
+- type: journal
+  title: Focus-tunable Double Convex Lens based on Non-ionic Electroactive Gel
+  authors: Dong-Soo Choi, Jaeu Jeong, Eun-Jae Shin and Sang-Youn Kim*
+  venue: Optics Express, Vol. 25, No. 17, 2017
+  year: 2017
+  impact: IF 3.2, Top 30.2%
+- type: journal
+  title: High-Performance PVC Gel for Adaptive Micro-Lenses with Variable Focal Length
+  authors: Jin Woo Bae, Eun-Jae Shin, Jaeu Jeong, Dong-Soo Choi, Jong Eun Lee, Byeong Uk Nam, Liwei Lin*, and Sang-Youn Kim*
+  venue: Scientific Reports, DOI:10.1038/s41598-017-02324-9, 2017
+  year: 2017
+  impact: IF 3.8, Top 18.6%
+- type: journal-other
+  title: Frequency based Tactile Rendering Method for Pin-array Tactile Devices
+  authors: Sang-Youn Kim, Yu-Joon Kim, Dong-Soo Choi, and Byeong-Seok Shin*
+  venue: Journal of Ambient Intelligence and Humanized Computing, 2019
+  year: 2019
+- type: journal-other
+  title: Thin and Tiny Focus-tunable Lens for Mobile Devices and Its Measurement System
+  authors: Dong-Soo Choi, Jaeu Jeong, Eun-Jae Shin, and Sang-Youn Kim*
+  venue: International Journal of Applied Engineering Research, Vol. 12, No. 23, pp.13286-13294, 2017
+  year: 2017
+- type: journal-domestic
+  title: 햅틱 컨트롤러를 활용한 혼합 현실 공포게임 개발
+  authors: 손정훈, 박주연, 남은솔, 전예지, 최동수
+  venue: 한국정보기술학회지, Vol. 24, No.2, pp. 65-74, 2026
+  year: 2026
+  ack: 교내, RISE
+- type: journal-domestic
+  title: 딥러닝과 깊이카메라를 활용한 안정성이 강화된 전동 킥보드
+  authors: 전예지, 나현진, 이홍록, 최동수
+  venue: 한국정보기술학회지, Vol. 23, No.1, pp. 81-90, 2025
+  year: 2025
+- type: journal-domestic
+  title: Development of a haptic communication system for fashion image experience in a virtual environment
+  authors: Jongsun Kim, Dong-Soo Choi, Sang-Youn Kim, Jisoo Ha
+  venue: The Research Journal of the Costume Culture, Vol. 28, No. 5, 705-718, 2020
+  year: 2020
+- type: journal-domestic
+  title: 모바일 가상 환경을 위한 스마트 액추에이터 기반 햅틱 컨트롤러
+  authors: 이석한, 최동수, 이혜선, 김상연
+  venue: Journal of Knowledge Information Technology and Systems (JKITS), Vol. 14, No. 5, pp. 435-444, 2019
+  year: 2019
+- type: journal-domestic
+  title: A Study on Efficiency of the Experience Oriented Self-directed Learning in the VR Vocational Training Contents
+  authors: Jung-Min Shin, Dong-Soo Choi, Sang-Youn Kim, Kyoungbog Jin
+  venue: Journal of Knowledge Information Technology and Systems(KKITS), Vol. 14, No.1, pp 71-80, 2019
+  year: 2019
+- type: journal-domestic
+  title: A Multi-modal Interaction Glove for Immersive Education
+  authors: Dong-Soo Choi, SangKyu Byeon, Sang-Youn Kim, and Jae-Hyub Lee
+  venue: Journal of Knowledge Information Technology and Systems, Vol. 10, No. 6, pp. 619-626, 2015
+  year: 2015
+- type: journal-domestic
+  title: 스키 시뮬레이터를 위한 모션 피드백 플랫폼
+  authors: 박원형, 김유준, 최동수, 김상연
+  venue: Journal of Knowledge Information Technology and Systems, Vol. 9, No. 2, pp. 229-236, 2014
+  year: 2014
+- type: journal-domestic
+  title: 휴대용기기에서의 시 촉각기반의 몰입형 레이싱 게임
+  authors: 진경복, 최동수, 임성민, 김상연
+  venue: Journal of Knowledge Information Technology and Systems, Vol. 9, No. 3, pp. 351-360, 2014
+  year: 2014
+- type: journal-domestic
+  title: 현실감 있는 타일드 디스플레이를 위한 자연스러운 인터랙션에 대한 연구
+  authors: 임성민, 최동수, 김상연, 이재협
+  venue: Journal of Knowledge Information Technology and System, Vol. 9, No. 4, pp. 435-442, 2014
+  year: 2014
+- type: conference
+  title: A Comparative Analysis of HRV Accuracy in ECG and PPG Sensors
+  authors: Hyeon-Jin Na, Dong-Soo Choi
+  venue: 2025 International Conference on Advanced Information Technology (ADINTECH)
+  year: 2025
+  ack: NRF25
+- type: conference
+  title: Head-Up Haptic Display based on Magnetorheological Elastomer
+  authors: Yong Hae Heo, Yuk Gwon Song, Dong-Soo Choi, and Sang-Youn Kim
+  venue: EuroHaptics 2024
+  year: 2024
+- type: conference
+  title: Experimental Setup for Verifying the Funneling Illusion on the Upper Facial Region
+  authors: Ye-Ji Jun, and Dong-Soo Choi
+  venue: 2024 IEEE 18th International Conference on Application of Information and Communication Technologies (AICT)
+  year: 2024
+  ack: Meta24, NRF24
+- type: conference
+  title: A Conceptual Design of a Deep Learning Framework for Emotion-Driven Optimization of Virtual Reality Content
+  authors: Hongrok Lee, Min-Jun Kim, and Dong-Soo Choi
+  venue: International Conference on Innovation, Communication and Engineering 2023 (ICICE 2023)
+  year: 2023
+  ack: Meta23, NRF23
+- type: conference
+  title: Design of Augmented Reality Educational Content Based on a Multi-Modal Approach for Holistic Development in Early Childhood
+  authors: Gyeongmi Kim, Hyeonseo Kim, Ye-Ji Jun, and Dong-Soo Choi
+  venue: International Conference on Innovation, Communication and Engineering 2023 (ICICE 2023)
+  year: 2023
+  ack: Meta23, ICT23
+- type: conference
+  title: Self-deformable Micro-lens based on Plasticized Polyvinyl Chloride
+  authors: Seok-Han Lee, Hyun-Jeong Kim, Dong-Soo Choi, Jin Woo Bae and Sang-Youn Kim
+  venue: 18th IEEE International Conference on Nano/Micro Engineered and Molecular Systems
+- type: conference
+  title: Wireless Dual Mode Haptic Thimble based on Magnetoactive Rubber
+  authors: Yong Hae Heo, Mohammad Shadman Hashem, Gyubin An, Hyun-Jeong Kim, Dong-Soo Choi, Seokhee Jeon, and Sang-Youn Kim
+  venue: 2023 World Haptics Conference (WHC 2023)
+  year: 2023
+- type: conference
+  title: Tiny and Simple View Lighting Module Using a Self-deformable Adaptive Microlens
+  authors: Seok-Han Lee, Dong-Soo Choi, Yong Hae Heo, Hyun-U Ko, and Sang-Youn Kim
+  venue: International Conference on Convergence Content (ICCC 2021)
+  year: 2021
+- type: conference
+  title: Transparent and Soft Vibrotactile Actuator
+  authors: Dong-Soo Choi, Seok-Han Lee, and Sang-Youn Kim
+  venue: The 4th International Conference on Active Materials and Soft Mechatronics (AMSM 2019)
+  year: 2019
+  notes:
+    - Presenter-Oral
+- type: conference
+  title: Transparent and Soft Vibrotactile Actuator based on Silicone Rubber
+  authors: Seok-Han Lee, Dong-Soo Choi, YeongSeok Do, and Sang-Youn Kim
+  venue: 19th International Conference on Control, Automation and Systems (ICCAS 2019)
+  year: 2019
+- type: conference
+  title: Wavy Silicone Rubber based Flexible Vibrotactile Actuator
+  authors: YeongSeok Do, Dong-Soo Choi, Seok-Han Lee, and Sang-Youn Kim
+  venue: 19th International Conference on Control, Automation and Systems (ICCAS 2019)
+  year: 2019
+- type: conference
+  title: Haptic Rendering of Object's Roughness using Inverse Perlin Noise
+  authors: Sang-Youn Kim, Seong-Man Cho, Dong-Soo Choi, and Byeong-Seok Shin
+  venue: International Conference on Big data, IoT, and Cloud computing 2019
+  year: 2019
+  notes:
+    - Presenter-Oral
+- type: conference
+  title: Self-deformable varifocal lens based on electroactive gel
+  authors: Dong-Soo Choi, Ganesh Shimoga, Eun-Jae Shin, and Sang-Youn Kim
+  venue: SPIE Nano-, Bio-, Info-Tech Sensors and 3D Systems 2019
+  year: 2019
+  notes:
+    - Presenter-Oral
+- type: conference
+  title: Design of Haptic Pen for Interaction with Virtual Environment in Mobile Devices
+  authors: Sang-Youn Kim, Inho Yun, Dong-Soo Choi, Sangkyu Byeon, and Byeong-Seok Shin
+  venue: World IT Congress 2019
+  year: 2019
+  notes:
+    - Presenter-Oral
+- type: conference
+  title: Affordable Drilling Interface for Haptic Interaction in Virtual Environment
+  authors: Dong-Soo Choi, SiHo Ryu, YeongSeok Do, Ki-Uk Kyung, Kyeongbok Jin, and Sang-Youn Kim
+  venue: IEEE International Conference on Consumer Electronics (ICCE) 2019
+  year: 2019
+  notes:
+    - Presenter-Oral
+- type: conference
+  title: Conceptual Design of Soft and Transprent Vibrotactile Actuator
+  authors: Dong-Soo Choi and Sang-Youn Kim
+  venue: Asia Haptics 2018
+  year: 2018
+  notes:
+    - Presenter-Demo
+- type: conference
+  title: Conceptual Design of Soft Thin Self-sensing Vibrotactile Actuator
+  authors: SiHo Ryu, Dong-Soo Choi, and Sang-Youn Kim
+  venue: Asia Haptics 2018
+  year: 2018
+  notes:
+    - Best demo nominated
+- type: conference
+  title: New Haptic Rendering for Pin-Array Devices
+  authors: Sang-Youn Kim, Yu-Joon Kim, Dong-Soo Choi, and Byeong-Seok Shin
+  venue: The 2018 International Conference on Future Information Technology, applications and services
+  year: 2018
+  notes:
+    - IFIT 2018
+    - Presenter-Oral
+- type: conference
+  title: Soft Thin Integrated Pressure Sensor and Vibrotactile Actuator
+  authors: SiHo Ryu, Dong-Soo Choi, and Sang-Youn Kim
+  venue: The 3rd International Workshop on Active Materials and Soft Mechatronics (AMSM 2018), pp. ,2018
+  year: 2018
+- type: conference
+  title: Application of Thin Film Focus Tunable Lens
+  authors: Dong-Soo Choi, Eun-Jae Shin, and Sang-Youn Kim
+  venue: 2018 18th International Conference on Control, Automation and Systems (ICCAS 2018), pp. 1388-1390, 2018
+  year: 2018
+  notes:
+    - Presenter-Oral
+- type: conference
+  title: Evaluation of Variable Focus DCX Lens Module for Consumer Electronics
+  authors: Dong-Soo Choi, Jaeu Jeong, and Sang-Youn Kim
+  venue: 2017 17th International Conference on Control, Automation and Systems (ICCAS 2017), pp. 1891-1892, 2017
+  year: 2017
+- type: conference
+  title: A Conceptual Design of a Smart Knob with Torque Feedback for Mobile Applications
+  authors: SangKyu Byeon, Dong-Soo Choi, Won-Hyeong Park, Yu-Joon Kim, Ki-Uk Kyung, and Sang-Youn Kim
+  venue: Asia Haptics, 2014
+  year: 2014
+- type: conference
+  title: A Motion and Haptic System for Immersive Games
+  authors: Sang-Youn Kim, Dong-Soo Choi, Kyeong-Jin Jeon
+  venue: 'LNEE, Vol. 214, pp. 905-914, 2013 (Ubiquitous Information Technologies and Applications: CUTE 2012)'
+  year: 2012
+  notes:
+    - Presenter-Oral
+- type: conference
+  title: A Dragonfly with Traveling Vibrotactile Wave
+  authors: Won-Hyeong Park, Yu-Joon. Kim, Dong-Soo Choi, Sang-Youn Kim
+  venue: IEEE World Haptics Conference 2013, 201
+  year: 2013
+  notes:
+    - Best demo award
+- type: conference
+  title: A Cowboy Game with Motion-Haptic Feedback
+  authors: Sang-Youn Kim, Dong-Soo Choi, Won-Hyung Park
+  venue: 'Communications in Computer and Information Science, Vol. 351, pp. 1-7, 2012 (Computer Applications for Graphics, Grid Computing, and Industrial Environment : CGAG 2012)'
+  year: 2012
+  notes:
+    - Presenter-Oral
+- type: conference-domestic
+  title: 6축 힘/토크 센서의 학습 데이터셋 구축을 위한 데이터 수집 환경 설계
+  authors: 박주연, 전예지, 최동수
+  venue: 2026 한국정보기술학회 하계 종합학술대회
+  year: 2026
+  ack: NRF26
+- type: conference-domestic
+  title: 물리 기반 가상 환경에서 딥러닝 모델을 활용한 재질 자동 매핑 시스템 제안
+  authors: 이강석, 나현진, 최동수
+  venue: 2026 한국정보기술학회 하계 종합학술대회
+  year: 2026
+  ack: NRF26
+- type: conference-domestic
+  title: 자기유변 탄성체 기반 키압 가변 멤브레인 키보드의 개념 설계
+  authors: 나현진, 최동수
+  venue: 2025 한국정보기술학회 하계 종합학술대회
+  year: 2025
+  ack: NRF25
+- type: conference-domestic
+  title: 전동킥보드를 위한 안전 감속 시스템 개발
+  authors: 나현진, 손정훈, 최동수
+  venue: 2025 한국정보기술학회 추계 종합학술대회
+  year: 2025
+  ack: NRF25
+- type: conference-domestic
+  title: 심령사진 콘셉트 혼합현실 공포 게임의 몰입감 향상을 위한 카메라형 햅틱 컨트롤러 개발
+  authors: 전예지, 박주연, 최동수
+  venue: 2025 한국정보기술학회 추계 종합학술대회
+  year: 2025
+  ack: NRF25
+- type: conference-domestic
+  title: 전동 킥보드의 사고 감소를 위한 깊이 카메라와 딥러닝 기반 충돌 사고 예방 시스템 개발
+  authors: 전예지, 이홍록, 최동수
+  venue: 2024 한국정보기술학회 대학생 논문경진대회
+  year: 2024
+  ack: NRF24
+- type: conference-domestic
+  title: 면접자의 시선 처리를 분석하기 위한 HMD 기반의 실시간 시선 추적 프로그램 개념 설계
+  authors: 김민준, 이홍록, 김경미, 김현서, 최동수
+  venue: 2024 한국정보기술학회 대학생 논문경진대회
+  year: 2024
+  ack: Meta24
+- type: conference-domestic
+  title: 곡면에 적용 가능한 다방향 힘 감지 유연 촉각 센서 프로토타입
+  authors: 나현진, 구교운, 최동수
+  venue: 2024 한국정보기술학회 하계 종합학술대회
+  year: 2024
+  ack: NRF24
+- type: conference-domestic
+  title: 오픈소스 기반 지도 서비스를 활용한 가상 맵 생성
+  authors: 이성태, 김형민, 강동원, 김나영, 최동수, 오병우
+  venue: 2024 한국정보기술학회 대학생 논문경진대회
+  year: 2024
+- type: conference-domestic
+  title: 가상환경에서 바이오햅틱스 기반 긴장 완화 시스템을 위한 실험 설계
+  authors: 나현진, 최동수
+  venue: 2024 제 2회 한국햅틱스학술대회
+  year: 2024
+  ack: NRF24, Meta24
+- type: conference-domestic
+  title: 상안부와 중안부에서의 퍼널링 일루전 조사를 위한 실험 설계
+  authors: 전예지, 김민준, 최동수
+  venue: 2024 제 2회 한국햅틱스학술대회
+  year: 2024
+  ack: NRF24, Meta24
+- type: conference-domestic
+  title: 몰입감 향상을 위한 다감각 긴장도 제어 시스템의 개념 설계
+  authors: 나현진, 손정훈, 박주연, 최동수
+  venue: 2024 유비쿼터스 컴퓨팅과 웹 정보기술
+  year: 2024
+  ack: NRF24, Meta24
+- type: conference-domestic
+  title: 자기유변 탄성체 기반 햅틱 액추에이터를 이용한 차량용 헤드-업 햅틱 티스플레이
+  authors: 허용해, 최동수, 김상연
+  venue: 2023 제 1회 한국햅틱스학술대회
+  year: 2023
+  notes:
+    - 우수시연상
+- type: conference-domestic
+  title: 듀얼 모드 햅틱 에이터를 이용한 차량용 헤드-업 햅틱 티스플레이
+  authors: 허용해, 최동수, 김상연
+  venue: 2023 제 1회 한국햅틱스학술대회
+  year: 2023
+  notes:
+    - 초청
+- type: conference-domestic
+  title: 하이드로젤과 폴리염화비닐젤 기반 감정 공유 햅틱 스킨
+  authors: 최동수, 배진우, 이석한, 송진호, 김다완, 최승문, 방창현, 김상연
+  venue: 2023 제 1회 한국햅틱스학술대회
+  year: 2023
+  notes:
+    - 초청
+  ack: ICT23, NRF23
+- type: conference-domestic
+  title: 딥 러닝 기반 보행자 감지 신호등 프로토타입
+  authors: 나현진, 이홍록, 전예지, 최동수
+  venue: 2023 한국정보기술학회 대학생 논문경진대회
+  year: 2023
+  notes:
+    - 우수논문상 - 동상
+  ack: NRF23
+- type: conference-domestic
+  title: 가상현실 기반 지하철 화재 대응 시뮬레이션 게임 개발
+  authors: 김현서, 김경미, 최동수
+  venue: 2023 한국정보기술학회 대학생 논문경진대회
+  year: 2023
+  ack: NRF23
+- type: conference-domestic
+  title: 대상 물체의 형상 및 재질을 구분할 수 있는 머신 러닝 기반 로봇 스킨을 위한 데이터 자동 수집 환경 설계
+  authors: 서덕규, 나현진, 최동수
+  venue: 2023 한국정보기술학회 하계종합학술대회
+  year: 2023
+  ack: NRF23
+- type: conference-domestic
+  title: 언리얼 엔진 5를 활용한 3D 로그라이크 게임 개발
+  authors: 안예진, 윤정민, 김정찬, 김원렬, 최동수
+  venue: 2023 한국정보기술학회 대학생 논문경진대회
+  year: 2023
+- type: conference-domestic
+  title: 결식 우려 아동을 위한 위치 기반 아동급식카드 가맹점 안내 서비스
+  authors: 홍건우, 김수윤, 김수홍, 박수현, 최동수, 오병우
+  venue: 2023 한국정보기술학회 대학생 논문경진대회
+  year: 2023
+- type: conference-domestic
+  title: 사용자-컴퓨터 사이의 풍부한 소통을 위한 햅틱 UI
+  authors: 이석한, 황자영, 허용해, 최동수, 김상연
+  venue: 2022 한국소프트웨어종합학술대회
+  year: 2022
+  notes:
+    - 우수논문상
+- type: conference-domestic
+  title: 새로운 유연 촉감 액추에이터의 개념 설계
+  authors: 도영석, 최동수, 류시호, 이혜선, 시모가 가네쉬, 김상연
+  venue: 한국 CDE 학회 2019 동계학술대회
+  year: 2019
+- type: conference-domestic
+  title: 스마트 액추에이터를 이용한 햅틱 게임
+  authors: 이석한, 최동수, 이혜선, 김상연
+  venue: 한국 CDE 학회 2019 동계학술대회
+  year: 2019
+- type: conference-domestic
+  title: 모바일 기기를 위한 가변초점렌즈 개발
+  authors: 신은재, 최동수, 김상연
+  venue: HCI Korea 2018, 2018
+  year: 2018
+- type: conference-domestic
+  title: 서부 슈팅 게임
+  authors: 최동수, 전경진, 한상혁, 김주리, 김상연
+  venue: HCI 2012, 2012
+  year: 2012

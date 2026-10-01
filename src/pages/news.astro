@@ -1,0 +1,155 @@
+---
+import Base from "../layouts/Base.astro";
+import { load, img } from "../lib/data.js";
+
+const news = load("news");
+const host = (u) => {
+  try {
+    return new URL(u).hostname.replace(/^www\./, "");
+  } catch {
+    return u;
+  }
+};
+---
+
+<Base title="News">
+  <div class="container">
+    <header class="page-head">
+      <div class="eyebrow">Updates</div>
+      <h1>Lab News</h1>
+      <p>New grants, patents, awards and press coverage.</p>
+    </header>
+
+    <ol class="timeline">
+      {news.map((n) => (
+        <li class:list={["item reveal", { article: n.body || n.image }]}>
+          <div class="when">
+            <span class="dot"></span>
+            {n.date}
+          </div>
+          <div class="what">
+            <span class="chip accent">{n.category}</span>
+            <h2>{n.title}</h2>
+            {(n.image || n.video) && (
+              <div class="media">
+                {n.video ? (
+                  <iframe src={n.video} title={n.title} loading="lazy" allowfullscreen></iframe>
+                ) : (
+                  <img src={img(n.image)} alt="" loading="lazy" />
+                )}
+                {n.video && n.image && <img src={img(n.image)} alt="" loading="lazy" />}
+              </div>
+            )}
+            {n.body && (
+              <div class="body">
+                {n.body.map((p) => <p>{p}</p>)}
+              </div>
+            )}
+            {n.press && (
+              <details>
+                <summary>Press coverage · {n.press.length}</summary>
+                <div class="press">
+                  {n.press.map((u) => <a href={u} target="_blank" rel="noopener" class="chip">{host(u)} ↗</a>)}
+                </div>
+              </details>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Base>
+
+<style>
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 104px;
+    top: 8px;
+    bottom: 0;
+    width: 1px;
+    background: var(--line);
+  }
+  .item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 28px;
+    padding-bottom: 32px;
+  }
+  .when {
+    position: relative;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    padding-top: 2px;
+  }
+  .dot {
+    position: absolute;
+    right: -1px;
+    top: 7px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+  .article .dot {
+    background: var(--accent);
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.45;
+    margin: 8px 0 0;
+  }
+  .article h2 {
+    font-size: 22px;
+  }
+  .media {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .media img,
+  .media iframe {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: #fff;
+  }
+  .media iframe {
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+  .body p {
+    color: var(--muted);
+    font-size: 15px;
+  }
+  details summary {
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .press {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .press a {
+    text-decoration: none;
+  }
+  @media (max-width: 640px) {
+    .timeline::before { left: 5px; }
+    .item { grid-template-columns: 1fr; gap: 6px; padding-left: 24px; }
+    .dot { left: -24px; right: auto; }
+  }
+</style>

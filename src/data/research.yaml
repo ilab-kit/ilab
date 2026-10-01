@@ -1,0 +1,139 @@
+# Research areas. Each work: title, venue, year, authors, abstract, images (public/images/...), videos (embed URLs)
+
+- id: haptic-interface
+  title: Haptic Interface
+  ko: 햅틱 인터페이스
+  summary: Transparent, soft and stretchable haptic sensors and actuators built from smart materials — skins that both feel and give feedback.
+  works:
+    - title: Emotion-interactive empathetic transparent skin cushion with tailored frequency-dependent hydrogel–plasticized nonionic polyvinyl chloride interconnections
+      venue: Chemical Engineering Journal
+      year: 2022
+      images:
+        - research/haptic-interface-01.jpg
+        - research/haptic-interface-02.png
+      authors: Dong-Soo Choi, Jin Woo Bae, Seok-Han Lee, Jin Ho Song, Da Wan Kim, Seungmoon Choi, Changhyun Pang, Sang-Youn Kim
+      abstract: Using a smart polymeric material, we design a transparent and stretchable empathetic haptic skin cushion that secretly allows a target device to understand users’ emotions. The skin comprises highly transparent and stretchable conducting hydrogels and a plasticized nonionic polyvinyl chloride (PNIPVC) whose dielectric, electrical, optical, and mechanical properties are adjusted by the type, ratio, and concentration of the dual-plasticizers. Hydrogels adhere strongly to the upper and lower surfaces of the PNIPVC via covalent bonding to form durable, reliable, and sensitive empathetic skin. The skin exhibits excellent transparency and stretchability with low mechanical hysteresis. In addition, the skin senses the capacitance or resistance of the PNIPVC by varying its operating frequency, which enables the perception of various external pressures for detecting emotional touches (tapping, patting, stretching, pinching, and twisting). Thus, the skisn cushion can be used as a new tactile emotional interface system for future emotion-interactive shape-deformable materials and devices.
+    - title: Soft Bidirectional Haptic I/O Module based on Bi-convex Patterned PVC Gel
+      venue: Smart Materials and Structures
+      year: 2021
+      images:
+        - research/haptic-interface-03.png
+        - research/haptic-interface-04.png
+        - research/haptic-interface-05.png
+      authors: Dong-Soo Choi, SeongWon Jeong, Seok-Han Lee, SiHo Ryu, and Sang-Youn Kim
+      abstract: In this paper, we propose a bidirectional soft haptic I/O module that not only senses the haptic force but also generates a mechanical vibrotactile sensation. Under external pressure, the distance between the moving plate and lower electrode layer decreases, and the bpPVC gel gets compressed. These two motions make the capacitance of the proposed module change. Moreover, the application of external electric field creates an electrostatic force between the upper and lower electrode layers and generates the electric-field-induced deformation of the bpPVC gel simultaneously. As soon as the external electric field disappears, the proposed module regains its original shape through the elastic restoring forces of the bpPVC gel and planar springs. Therefore, the applied AC voltage makes the proposed module vibrate. The dielectric and mechanical properties of the bpPVC gel are measured to investigate the optimal weight ratio of the PVC and plasticizers. Experiments are conducted to measure the haptic sensing and actuating performance of the proposed method. The capacitance of the proposed haptic I/O module increases from 17.4 pF to 54.8 pF when the external pressure varied from 0 kPa to 100 kPa. On the other hand, the haptic output of the proposed I/O module is observed as 0.81 g (g = 9.8 m/s2) at 100 Hz. The results clearly indicate that the proposed haptic I/O module not only senses the static and dynamic pressure but also controls the amplitude of vibrotactile sensation. Owing to its mechanically soft structure, we expect that the proposed haptic I/O module has the potential to be applied or attached to various flexible/soft devices or the human body.
+    - title: Transparent and Soft Haptic Actuator for Interaction with Flexible/deformable Devices
+      venue: IEEE Access
+      year: 2020
+      images:
+        - research/haptic-interface-06.png
+        - research/haptic-interface-07.jpg
+      authors: Dong-Soo Choi, Seok-Han Lee, and Sang-Youn Kim
+      abstract: This study presents a transparent and soft haptic actuator based on an electroactive polymer designed to create abundant haptic sensations in flexible/deformable next-generation devices and to convey them to users. The haptic sensations are created in the form of vibrations and vary depending on the amplitude and frequency of the vibrations. The haptic actuator consists of a transparent and soft dielectric layer and two transparent and soft ionic conductive layers. The dielectric layer is sandwiched between the two ionic conductive layers, and is compressed in the thickness direction when an electric field is applied to the two ionic conductive layers. When the applied electric field is removed, the proposed haptic actuators are rapidly restored to their initial configuration. Owing to this effect, the actuator can easily create vibrations that are sufficiently strong for human perception. In this study, three different dielectric elastomers (silicone rubber, poly urethane, and acrylic polymer) are used for the dielectric layer. Experiments are conducted to investigate the haptic performance of the proposed soft vibrotactile actuators using an accelerometer. In the case of the silicone rubber-based actuator, the measured acceleration at the resonant frequency (80 Hz) is 1.408 g (g = 9.8 m/s2 ) and the response time is approximately 2.8 ms. Furthermore, the perceived intensity of the stimuli generated by the proposed actuator is verified by perceptual experiments. The results indicate that the proposed actuator can selectively stimulate human mechanoreceptors with sufficient perceptual strength.
+    - title: A Tiny Haptic Knob Based on Magnetorheological Fluids
+      venue: Applied Sciences-Basel
+      year: 2020
+      images:
+        - research/haptic-interface-08.png
+      authors: Yong Hae Heo, Dong-Soo Choi (co-first author), In-Ho Yun, and Sang-Youn Kim
+      abstract: In this paper, we propose a tiny haptic knob that creates torque feedback in consumer electronic devices. To develop the proposed haptic knob, we use a magnetorheological (MR) fluid. When an input current is applied to a solenoid coil, a magnetic field causes a change in the MR fluid’s viscosity. This change allows the proposed haptic knob to generate a resistive torque. We optimize the structure of the haptic knob, in which two operating modes of MR fluids contribute to the actuation simultaneously. We conduct magnetic path simulation and resistive torque simulation using the finite element method and perform experiments to measure the resistive torque and its torque rate according to the rotational speed and applied current. The results show that the proposed haptic knob generates sufficient torque feedback to stimulate users and creates a variety of haptic sensations.
+    - title: Development of Haptic Stylus for Manipulating Virtual Objects in Mobile Devices
+      venue: Actuators
+      year: 2020
+      images:
+        - research/haptic-interface-09.png
+      authors: Dong-Soo Choi, In-Ho Yun, Tae-Hoon Kim, SangKyu Byeon, Sang-Youn Kim
+      abstract: In mobile devices, the screen size limits conveyance of immersive experiences; haptic feedback coupled with visual feedback is expected to have a better effect to maximize the level of immersion. Therefore, this paper presents a miniature tunable haptic stylus based on magnetorheological (MR) fluids to provide kinesthetic information to users. The designed stylus has a force generation, force transmission, and housing part; moreover, in the stylus, all three operating modes of MR fluids contribute to the haptic actuation to produce a wide range of resistive force generated by MR fluids in a limited size, thereby providing a variety of pressing sensations to users. A universal testing machine was constructed to evaluate haptic performance of the proposed haptic stylus, whose resistive force was measured with the constructed setup as a function of pressed depth and input current, and by varying the pressed depth and pressing speed. Under maximum input voltage, the stylus generates a wide range of resistive force from 2.33 N to 27.47 N, whereas under maximum pressed depth it varied from 1.08 N to 27.47 N with a corresponding change in voltage input from 0 V to 3.3 V. Therefore, the proposed haptic stylus can create varied haptic sensations.
+    - title: Design of Wavy Ag Microwire Array for Mechanically Stable, Multimodal Vibrational Haptic Interface
+      venue: Advanced Functional Materials
+      year: 2019
+      images:
+        - research/haptic-interface-10.jpg
+      authors: Joohoon Kang, Jae Hoon Park, Dong‐Soo Choi, Do Hwan Kim, Sang‐Youn Kim, Jeong Ho Cho
+      abstract: A vibrotactile interface is an actuator device to convey haptic information intuitively from electronics to users. For the next‐generation of user‐friendly interface applications, the vibrotactile actuator is required to be vibration intensity/frequency controllable, mechanically stable, transparent, and have large scalability. Previously, although these requirements are satisfied via several approaches using a random network film of Ag wires or a mixture with conductive polymers, the random‐network‐based materials only have limited control on material density and uniformity, which in turn hinders precise control over vibration intensity and device transparency. Here, a new approach to assemble large‐scale Ag microwire arrays is demonstrated by involving an evaporative assembly method and is presented to overcome the current limitations. In particular, the 1D wavy structure derived from fractal designs promotes vibration intensity and cycling due to greater areal coverage and improved mechanical stability. Furthermore, by taking advantage of the precisely aligned microwires array, tunable multimode vibration frequencies are obtained by generating two different voltage frequencies. The large‐scale wavy Ag microwire array with precise spatial controllability will be directly adaptable as a user‐friendly interface in electronic applications like wearable devices, computer interfaces, and flexible mobile phones.
+    - title: Design of a Multi-Functional Module for Visually Impaired Persons
+      venue: International Journal of Precision Engineering and Manufacturing
+      year: 2018
+      images:
+        - research/haptic-interface-11.png
+      authors: Dong-Soo Choi, Tae-Heon Yang, Won-Chul Bang, and Sang-Youn Kim
+      abstract: Measuring a distance through an ultrasonic sensor and creating haptic alert information by a vibrotactile actuator are two major functions in an electronic aid for a visually impaired person. It is quite challenging to combine and to efficiently execute these two functions with a single module. Thus, this study presents a new structure that measures the distance and generates haptic information with only one module. The design focus of the proposed module is to maximize its vibrotactile amplitude and to minimize its measured distance error. In order to evaluate the performance of the proposed module, a test setup was constructed. Using the setup, the vibrotactile strength of the proposed module was investigated according to the input frequency, and then the distance between the proposed module and a target object was measured. The results show that the proposed module effectively produces haptic information while measuring the distance well between the module and a target object.
+- id: varifocal-lens
+  title: Varifocal Lens
+  ko: 가변 초점 렌즈
+  summary: Electroactive-gel lenses that change shape under an electric field, switching between convex, flat and concave for tunable focus.
+  works:
+    - title: Testing and evaluation of electro- vari-focal/chromic lens
+      venue: Smart Materials and Structures
+      year: 2021
+      images:
+        - research/varifocal-lens-01.png
+      authors: Tae-Hoon Kim, Hyun-Jeong Kim, Dong-Soo Choi, Yoon-Chae Nah, and Sang-Youn Kim
+      abstract: Constructing a compact, simple, lightweight, and universal tuneable lens is challenging. Therefore, this paper suggests a miniature electro-focus/chromic tuneable lens whose focal point and optical transmittance are independently controlled by electric power. The proposed lens uses plasticized poly (vinyl chloride) and electrochromic gels to change its curvature and its brightness according to various electric powers. Due to this effect, we can observe not only the variation of the lens’s focal point but also the change of its transmittance. Moreover, as we removed the electric power, the shape of the proposed lens and its transmittance returned back to the initial condition. Through experimentation, the focal length of the proposed lens increased from 5 mm to 14.234 mm when the electric field input was increased, and the transmittance varied from 91.85% to 3.86% with increasing in electric current.
+    - title: Electrically Adaptive and Shape-Changeable Invertible Microlens
+      venue: ACS Applied Materials & Interfaces
+      year: 2021
+      images:
+        - research/varifocal-lens-02.png
+        - research/varifocal-lens-03.png
+      videos:
+        - https://drive.google.com/file/d/1cvtHPPfjcpG2yT_XA6KL4kZ5uXUkO0Vp/preview
+      authors: Jin Woo Bae, Dong-Soo Choi (co-first author), In-Ho Yun, Dong-Heon Han, Seung-Ju Oh, Tae-Hoon Kim, Jeong Ho Cho, Liwei Lin, and Sang-Youn Kim
+      abstract: Existing soft actuators for adaptive microlenses suffer from high required input voltage, optical loss, liquid loss, and the need for assistant systems. In this study, we fabricate a polyvinyl-chloride-based gel using a new synergistic plasticization method to achieve simultaneously a high optical transparency and ultrasoft rubber-like elastic behavior with a large voltage-induced deformation under a weak electric field. By compressing the smooth gel between two sets of annular electrodes, a self-contained biconvex microlens is realized that is capable of considerable shape changes in the optical path. Each surface of the dual-curvature microlens can be independently adjusted to focus or scatter light to capture real or virtual images, yield variable focal lengths (+31.8 to −11.3 mm), and deform to various shapes to improve aberrations. In addition to simple fabrication, our microlens operates silently and consume low power (0.52 mW), making them superior to existing microlenses.
+    - title: Focus-tunable double convex lens based on non-ionic electroactive gel
+      venue: Optics Express
+      year: 2017
+      images:
+        - research/varifocal-lens-04.png
+      videos:
+        - https://drive.google.com/file/d/1CSIpTWIx_R-DJeKNx-ViIfk6yiMqj_Ld/preview
+      authors: Dong-Soo Choi, Jaeu Jeong, Eun-Jae Shin and Sang-Youn Kim
+      abstract: We propose a focus-tunable double-convex (DCX) lens based on a non-ionic PVC (nPVC) gel to be used at close conjugates. The proposed lens is composed of an nPVC gel and two plates with electrodes. Each plate has a hole whose boundary and inner part are pasted with an electrode (anode) and has another ring shaped electrode (cathode) whose center point is the same as the hole’s center. The gel is sandwiched between an upper plate and a lower plate, and it is bulged inward between the holes of two plates by applied pressure from the plates (double-convex lens shape). The lens’s focal length changed from 3 mm to 24.5 mm with applied voltages from 0 V to 400 V. We also observed that the proposed lens’s field-of-view decreased from 121.9 ° to 41.9 ° according to the applied voltages. The proposed lens brings additional benefit for users with higher transmittance (over 94%).
+    - title: High-Performance PVC Gel for Adaptive Micro-Lenses with Variable Focal Length
+      venue: Scientific Reports
+      year: 2017
+      images:
+        - research/varifocal-lens-05.png
+        - research/varifocal-lens-06.png
+      videos:
+        - https://drive.google.com/file/d/1DKaxgqu-tYyfjL0UQhh3ywZjC6xDqXMa/preview
+      authors: Jin Woo Bae, Eun-Jae Shin, Jaeu Jeong, Dong-Soo Choi, Jong Eun Lee, Byeong Uk Nam, Liwei Lin, and Sang-Youn Kim
+      abstract: This paper presents a bio-inspired adaptive micro-lens with electrically tunable focus made of non- ionic high-molecular-weight polyvinyl chloride (PVC) gel. The optical device mimics the design of the crystalline lens and ciliary muscle of the human eye. It consists of a plano-convex PVC gel micro-lens on Indium Tin Oxide (ITO) glass, confined with an annular electrode operating as an artificial ciliary muscle. Upon electrical activation, the electroactive adhesive force of the PVC gel is exerted on the annular anode electrode, which reduces the sagittal height of the plano-convex PVC gel lens, resulting in focal length variation of the micro-lens. The focal length increases from 3.8 mm to 22.3 mm as the applied field is varied from 200 V/mm to 800 V/mm, comparable to that of the human lens. The device combines excellent optical characteristics with structural simplicity, fast response speed, silent operation, and low power consumption. The results show the PVC gel micro-lens is expected to open up new perspectives on practical tunable optics.
+- id: haptic-rendering-vr
+  title: Haptic Rendering & XR
+  ko: 햅틱 렌더링 · 확장현실
+  summary: Rendering methods that turn virtual textures into touch, and immersive VR/AR/MR systems that put them to use.
+  works:
+    - title: Transparent Film-Type Vibrotactile Actuator Array and Its Haptic Rendering Using Beat Phenomenon
+      venue: Sensors
+      year: 2019
+      images:
+        - research/haptic-rendering-vr-01.png
+        - research/haptic-rendering-vr-02.png
+      authors: Dong-Soo Choi, Sang-Youn Kim
+      abstract: The most important thing in a thin and soft haptic module with an electroactive polymer actuator array is to increase its vibrotactile amplitude and to create a variety of vibrotactile sensations. In this paper, we introduce a thin film-type electroactive polymer actuator array capable of stimulating two types of human mechanoreceptors simultaneously, and we present a haptic rendering method that maximizes the actuators’ vibrational force without improving the array’s haptic performance. The increase in vibrational amplitude of the soft electroactive polymer actuator array is achieved by creating a beat vibration, which is an interference pattern of two vibrations with slightly different frequencies. The textures of a target object are translated into haptic stimuli using the proposed method. We conducted qualitative and quantitative experiments to evaluate the performance of the proposed rendering method. The results showed that this method not only amplifies the vibration’s amplitude but also haptically simulates various objects’ surfaces.
+    - title: Frequency based Tactile Rendering Method for Pin-array Tactile Devices
+      venue: Journal of Ambient Intelligence and Humanized Computing
+      year: 2019
+      images:
+        - research/haptic-rendering-vr-03.png
+        - research/haptic-rendering-vr-04.png
+      authors: Sang-Youn Kim, Yu-Joon Kim, Dong-Soo Choi, Byeong-Seok Shin
+      abstract: In interactive Internet of Things (IoT) environment, a solenoid-based tiny pin-array tactile device can become a key module to haptically simulate a surface of interconnected objects. The solenoid-based pin-array tactile device creates a large enough force and stroke to stimulate human skin and generates a wide frequency range. The solenoid-based tiny pin-array tactile device, however, brings a new issue of controlling the pin’s stroke of the tactile device. To overcome the limitation of the solenoid-based device, a new tactile rendering method is needed. In the proposed tactile rendering method, we control the operating frequency of pins, instead of controlling their stroke, to haptically simulate the surface of interconnected objects. Our experiments demonstrate that our proposed method with a pin-array tactile device is suitable for simulating the surface of interconnected objects.
+- id: soft-robotics
+  title: Soft Robotics
+  ko: 소프트 로보틱스
+  summary: Shape-adaptive grippers and gel-based robots whose stiffness and shape are controlled by magnetic or electric fields.
+  works:
+    - title: 'Beyond Human Hand: Shape-Adaptive and Reversible Magnetorheological Elastomer-Based Robot Gripper Skin'
+      venue: ACS Applied Materials & Interfaces
+      year: 2020
+      images:
+        - research/soft-robotics-01.png
+        - research/soft-robotics-02.png
+        - research/soft-robotics-03.png
+      videos:
+        - https://drive.google.com/file/d/1aOUPTzVskFw8d11q9JsbhhtlAB76FBtM/preview
+        - https://drive.google.com/file/d/1K_qTViuiIizfQ1rOZIoSL8ziqSELKlWc/preview
+      authors: Dong-Soo Choi, Tae-Hoon Kim, Seok-Han Lee, Changhyun Pang, Jin Woo Bae,* and Sang-Youn Kim*
+      abstract: Developing a simple and universal solution for gripping fragile, multiscaled, and arbitrary-shaped objects using a robot gripper is challenging. Herein, we propose a universal, shape-adaptive/retaining and reversible, hardness-variable gripper skin that serves as a resourceful solution for grasping such objects without damaging them. The proposed universal gripper skin based on a magnetorheological elastomer is attached to a robot gripper. The proposed skin takes the shape of a target object as soon as the gripper grasps the object. At this time, we solidify the gripper skin by applying a magnetic field, thereby allowing the gripper to grasp the target object easily. After releasing the objects, the magnetic field is removed and the deformed proposed gripper skin rapidly restores its original shape. The proposed adaptive gripper skin is made to grasp various target objects, such as cylinders, cuboids, and triangular prisms, based on which its grasping performance is evaluated.

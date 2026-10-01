@@ -1,0 +1,108 @@
+---
+import Base from "../layouts/Base.astro";
+import { load, img } from "../lib/data.js";
+
+const groups = load("equipment");
+const total = groups.reduce((a, g) => a + g.items.length, 0);
+---
+
+<Base title="Equipment">
+  <div class="container">
+    <header class="page-head">
+      <div class="eyebrow">Facilities</div>
+      <h1>Equipment</h1>
+      <p>{total} instruments across robotics, XR, measurement, materials and fabrication.</p>
+    </header>
+
+    <div class="tabs" role="group" aria-label="Filter by category">
+      <button class="tab" data-cat="all" aria-pressed="true">All<span class="count">{total}</span></button>
+      {groups.map((g) => (
+        <button class="tab" data-cat={g.category} aria-pressed="false">{g.category}<span class="count">{g.items.length}</span></button>
+      ))}
+    </div>
+
+    <div class="grid">
+      {groups.flatMap((g) =>
+        g.items.map((it) => (
+          <figure class="item" data-cat={g.category}>
+            <div class="pic"><img src={img(it.image)} alt={it.name} loading="lazy" /></div>
+            <figcaption>
+              <div class="name">{it.name}</div>
+              <div class="maker">{it.maker}</div>
+            </figcaption>
+          </figure>
+        ))
+      )}
+    </div>
+  </div>
+</Base>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>(".tab");
+  const items = document.querySelectorAll<HTMLElement>(".item");
+  tabs.forEach((t) =>
+    t.addEventListener("click", () => {
+      tabs.forEach((x) => x.setAttribute("aria-pressed", String(x === t)));
+      items.forEach((it, i) => {
+        const show = t.dataset.cat === "all" || it.dataset.cat === t.dataset.cat;
+        it.hidden = !show;
+        if (show) {
+          it.animate([{ opacity: 0, transform: "scale(.96)" }, { opacity: 1, transform: "none" }], { duration: 300, delay: (i % 12) * 20, fill: "backwards" });
+        }
+      });
+    })
+  );
+</script>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 16px;
+  }
+  @media (max-width: 420px) {
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  }
+  .item {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+    border-color: var(--accent);
+  }
+  .pic {
+    aspect-ratio: 1;
+    background: #fff;
+    padding: 16px;
+  }
+  .pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s;
+  }
+  .item:hover .pic img {
+    transform: scale(1.06);
+  }
+  figcaption {
+    padding: 12px 14px 14px;
+    border-top: 1px solid var(--line);
+  }
+  .name {
+    font-weight: 500;
+    font-size: 14.5px;
+    line-height: 1.35;
+  }
+  .maker {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+</style>

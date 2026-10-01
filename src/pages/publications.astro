@@ -1,0 +1,193 @@
+---
+import Base from "../layouts/Base.astro";
+import { load, highlightAuthors } from "../lib/data.js";
+
+const pubs = load("publications");
+const members = load("members");
+const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
+
+const types = [
+  { id: "all", label: "All" },
+  { id: "journal", label: "SCIE Journals" },
+  { id: "journal-other", label: "Other Int'l Journals" },
+  { id: "journal-domestic", label: "Domestic Journals" },
+  { id: "conference", label: "Int'l Conferences" },
+  { id: "conference-domestic", label: "Domestic Conferences" },
+];
+const count = (id) => (id === "all" ? pubs.length : pubs.filter((p) => p.type === id).length);
+const typeLabel = Object.fromEntries(types.map((t) => [t.id, t.label]));
+
+// Group by year, newest first
+const years = [...new Set(pubs.map((p) => p.year || 0))].sort((a, b) => b - a);
+const scholar = (t) => `https://scholar.google.com/scholar?q=${encodeURIComponent(t)}`;
+---
+
+<Base title="Publications">
+  <div class="container">
+    <header class="page-head">
+      <div class="eyebrow">Output</div>
+      <h1>Publications</h1>
+      <p><b>Bold</b> names are lab members. † equal contribution, * corresponding author.</p>
+    </header>
+
+    <div class="controls">
+      <div class="tabs" role="group" aria-label="Filter by type">
+        {types.map((t, i) => (
+          <button class="tab" data-type={t.id} aria-pressed={i === 0 ? "true" : "false"}>
+            {t.label}<span class="count">{count(t.id)}</span>
+          </button>
+        ))}
+      </div>
+      <input class="search" type="search" placeholder="Search title, author, venue…" aria-label="Search publications" />
+    </div>
+
+    <div class="list">
+      {years.map((y) => (
+        <section class="year-block" data-year={y}>
+          <h2 class="year">{y || "—"}</h2>
+          <ol>
+            {pubs.filter((p) => (p.year || 0) === y).map((p) => (
+              <li class="pub" data-type={p.type} data-text={`${p.title} ${p.authors} ${p.venue}`.toLowerCase()}>
+                <div class="pub-type">{typeLabel[p.type]}</div>
+                <h3>
+                  <a href={p.doi ? `https://doi.org/${p.doi}` : scholar(p.title)} target="_blank" rel="noopener">{p.title}</a>
+                </h3>
+                <p class="authors" set:html={highlightAuthors(p.authors, names)} />
+                <p class="venue">{p.venue}</p>
+                <div class="tags">
+                  {p.impact && <span class="chip accent">{p.impact}</span>}
+                  {p.notes?.map((n) => <span class="chip">★ {n}</span>)}
+                  {p.pdf && <a class="chip" href={p.pdf}>PDF</a>}
+                  {p.video && <a class="chip" href={p.video}>Video</a>}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))}
+      <p class="empty" hidden>No publications match.</p>
+    </div>
+  </div>
+</Base>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>(".tab");
+  const search = document.querySelector<HTMLInputElement>(".search")!;
+  const items = document.querySelectorAll<HTMLElement>(".pub");
+  const blocks = document.querySelectorAll<HTMLElement>(".year-block");
+  const empty = document.querySelector<HTMLElement>(".empty")!;
+  let type = "all";
+
+  function apply() {
+    const q = search.value.trim().toLowerCase();
+    let shown = 0;
+    items.forEach((el) => {
+      const ok = (type === "all" || el.dataset.type === type) && (!q || el.dataset.text!.includes(q));
+      el.hidden = !ok;
+      if (ok) shown++;
+    });
+    blocks.forEach((b) => (b.hidden = !b.querySelector(".pub:not([hidden])")));
+    empty.hidden = shown > 0;
+  }
+  tabs.forEach((t) =>
+    t.addEventListener("click", () => {
+      type = t.dataset.type!;
+      tabs.forEach((x) => x.setAttribute("aria-pressed", String(x === t)));
+      apply();
+    })
+  );
+  search.addEventListener("input", apply);
+
+  // Deep link: /publications?type=journal
+  const pre = new URLSearchParams(location.search).get("type");
+  if (pre) document.querySelector<HTMLButtonElement>(`.tab[data-type="${pre}"]`)?.click();
+</script>
+
+<style>
+  .controls {
+    position: sticky;
+    top: 64px;
+    z-index: 5;
+    background: var(--bg);
+    padding: 12px 0 4px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .controls .tabs {
+    margin-bottom: 12px;
+  }
+  @media (max-width: 640px) {
+    .controls { position: static; }
+  }
+  .year-block {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .year {
+    position: sticky;
+    top: 200px;
+    align-self: start;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: var(--muted);
+    margin: 0;
+  }
+  @media (max-width: 720px) {
+    .year-block { grid-template-columns: 1fr; gap: 8px; }
+    .year { position: static; font-size: 28px; }
+  }
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 22px;
+  }
+  .pub-type {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .pub h3 {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .pub h3 a {
+    text-decoration: none;
+  }
+  .authors {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 0 2px;
+  }
+  .authors :global(b) {
+    color: var(--ink);
+  }
+  .venue {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--muted);
+    margin: 0;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .tags:empty {
+    display: none;
+  }
+  .tags a {
+    text-decoration: none;
+  }
+</style>

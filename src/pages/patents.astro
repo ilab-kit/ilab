@@ -1,0 +1,110 @@
+---
+import Base from "../layouts/Base.astro";
+import { load, highlightAuthors } from "../lib/data.js";
+
+const patents = load("patents");
+const members = load("members");
+const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
+const tabs = [
+  { id: "all", label: "All" },
+  { id: "international", label: "International" },
+  { id: "registered", label: "Registered (KR)" },
+  { id: "applied", label: "Applied (KR)" },
+];
+const count = (id) => (id === "all" ? patents.length : patents.filter((p) => p.status === id).length);
+const label = { international: "International", registered: "Registered", applied: "Applied" };
+// newest first by date; international (no date) stays on top
+const sorted = [...patents].sort((a, b) => (b.date || "9999").localeCompare(a.date || "9999"));
+---
+
+<Base title="Patents">
+  <div class="container">
+    <header class="page-head">
+      <div class="eyebrow">Output</div>
+      <h1>Patents</h1>
+      <p>{count("international")} international and {count("registered")} registered Korean patents, {count("applied")} pending.</p>
+    </header>
+
+    <div class="tabs" role="group" aria-label="Filter patents">
+      {tabs.map((t, i) => (
+        <button class="tab" data-f={t.id} aria-pressed={i === 0 ? "true" : "false"}>
+          {t.label}<span class="count">{count(t.id)}</span>
+        </button>
+      ))}
+    </div>
+
+    <ul class="list">
+      {sorted.map((p) => (
+        <li data-status={p.status} class="reveal">
+          <div class="side">
+            <span class:list={["chip", { accent: p.status !== "applied" }]}>{label[p.status]}</span>
+            {p.date && <span class="date">{p.date}</span>}
+          </div>
+          <div>
+            <h3>{p.title}</h3>
+            <p class="authors" set:html={highlightAuthors(p.authors, names)} />
+            <div class="num">{p.status === "applied" ? "App. No." : p.status === "registered" ? "Reg. No." : ""} {p.number}</div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>(".tab");
+  tabs.forEach((t) =>
+    t.addEventListener("click", () => {
+      tabs.forEach((x) => x.setAttribute("aria-pressed", String(x === t)));
+      document.querySelectorAll<HTMLElement>("[data-status]").forEach((li) => {
+        li.hidden = t.dataset.f !== "all" && li.dataset.status !== t.dataset.f;
+      });
+    })
+  );
+</script>
+
+<style>
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+  li {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .date,
+  .num {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  h3 {
+    font-size: 16.5px;
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 4px;
+  }
+  .authors {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+  .authors :global(b) {
+    color: var(--ink);
+  }
+  @media (max-width: 640px) {
+    li { grid-template-columns: 1fr; gap: 8px; }
+    .side { flex-direction: row; align-items: center; }
+  }
+</style>

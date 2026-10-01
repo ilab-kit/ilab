@@ -1,0 +1,95 @@
+---
+import Base from "../layouts/Base.astro";
+import { load } from "../lib/data.js";
+
+const terms = load("lectures");
+const fmt = (t) => {
+  const [y, s] = t.split("-");
+  return { year: y, sem: s === "1" ? "Spring" : "Fall", ko: `${y}년 ${s}학기` };
+};
+---
+
+<Base title="Lectures">
+  <div class="container">
+    <header class="page-head">
+      <div class="eyebrow">Teaching</div>
+      <h1>Lectures</h1>
+      <p>Courses taught by Prof. Dong-Soo Choi at Kumoh National Institute of Technology.</p>
+    </header>
+
+    <div class="terms">
+      {terms.map((t) => {
+        const f = fmt(t.term);
+        return (
+          <section class="term reveal">
+            <div class="label">
+              <div class="y">{f.year}</div>
+              <div class="s">{f.sem} · {f.ko}</div>
+            </div>
+            <div class="courses">
+              {t.courses.map((c) => (
+                <a class="course" href={c.link} target="_blank" rel="noopener">
+                  <span>{c.name}</span>
+                  <span class="arrow">↗</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .terms {
+    border-top: 1px solid var(--line);
+  }
+  .term {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .y {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .s {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .courses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: start;
+  }
+  .course {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.25s;
+  }
+  .course:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .arrow {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  @media (max-width: 640px) {
+    .term { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>

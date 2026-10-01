@@ -1,0 +1,310 @@
+---
+import Base from "../layouts/Base.astro";
+import { load, img } from "../lib/data.js";
+
+const members = load("members");
+const prof = members.find((m) => m.group === "professor");
+const groups = [
+  { id: "graduate", label: "Graduate Students" },
+  { id: "undergraduate", label: "Undergraduate Researchers" },
+];
+const alumni = members.filter((m) => m.group === "alumni");
+const initials = (n) => n.split(/[\s-]+/).map((s) => s[0]).join("").slice(0, 2).toUpperCase();
+---
+
+<Base title="Members">
+  <div class="container">
+    <header class="page-head">
+      <div class="eyebrow">People</div>
+      <h1>Members</h1>
+      <p>The people building i Lab.</p>
+    </header>
+
+    {prof && (
+      <section class="prof reveal">
+        <div class="prof-photo">
+          {prof.photo ? <img src={img(prof.photo)} alt={prof.name} /> : <div class="avatar">{initials(prof.name)}</div>}
+        </div>
+        <div class="prof-body">
+          <div class="role">Principal Investigator</div>
+          <h2>{prof.name} <span>{prof.ko}</span></h2>
+          <div class="title">{prof.title}</div>
+          <div class="aff">{prof.affiliation}</div>
+          <div class="links">
+            <a href={`mailto:${prof.email}`} class="chip">✉ {prof.email}</a>
+            {prof.scholar && <a href={prof.scholar} class="chip" target="_blank" rel="noopener">Google Scholar ↗</a>}
+            {prof.office && <span class="chip">{prof.office}</span>}
+          </div>
+          <div class="interests">
+            {prof.interests?.map((i) => <span class="chip accent">{i}</span>)}
+          </div>
+          {prof.cv?.map((s) => (
+            <details>
+              <summary>{s.section}</summary>
+              <ul>{s.items.map((it) => <li>{it}</li>)}</ul>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {groups.map((g) => {
+      const list = members.filter((m) => m.group === g.id);
+      return list.length > 0 && (
+        <section class="group">
+          <h2 class="group-title">{g.label} <span>{list.length}</span></h2>
+          <div class="grid">
+            {list.map((m, i) => (
+              <article class="card reveal" style={`transition-delay:${i * 60}ms`} data-tilt>
+                <div class="photo">
+                  {m.photo ? <img src={img(m.photo)} alt={m.name} loading="lazy" /> : <div class="avatar">{initials(m.name)}</div>}
+                </div>
+                <div class="card-body">
+                  <h3>{m.name} <span>{m.ko}</span></h3>
+                  <div class="title">{m.title}</div>
+                  <div class="aff">{m.affiliation}</div>
+                  <div class="interests">{m.interests?.map((i) => <span class="chip">{i}</span>)}</div>
+                  {m.email && <a class="mail" href={`mailto:${m.email}`}>{m.email}</a>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      );
+    })}
+
+    {alumni.length > 0 && (
+      <section class="group">
+        <h2 class="group-title">Alumni <span>{alumni.length}</span></h2>
+        <div class="alumni">
+          {alumni.map((m) => (
+            <div class="alum reveal">
+              <div class="avatar sm">{initials(m.name)}</div>
+              <div>
+                <div class="alum-name">{m.name} {m.title && <small>{m.title}</small>}</div>
+                <div class="alum-ko">{m.ko}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</Base>
+
+<script>
+  // Subtle 3D tilt that follows the pointer
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches && matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll<HTMLElement>("[data-tilt]").forEach((card) => {
+      card.addEventListener("pointermove", (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(800px) rotateX(${-y * 6}deg) rotateY(${x * 8}deg) translateY(-4px)`;
+        card.style.setProperty("--gx", `${(x + 0.5) * 100}%`);
+        card.style.setProperty("--gy", `${(y + 0.5) * 100}%`);
+      });
+      card.addEventListener("pointerleave", () => (card.style.transform = ""));
+    });
+  }
+</script>
+
+<style>
+  .prof {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 32px;
+  }
+  @media (max-width: 760px) {
+    .prof { grid-template-columns: 1fr; padding: 20px; gap: 20px; }
+    .prof-photo { max-width: 220px; }
+  }
+  .prof-photo img,
+  .prof-photo .avatar {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+  .role {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .prof h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  h2 span,
+  h3 span {
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 0.7em;
+    margin-left: 4px;
+  }
+  .title {
+    font-weight: 500;
+  }
+  .aff {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .links,
+  .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+  .links a {
+    text-decoration: none;
+  }
+  .links a:hover {
+    color: var(--accent);
+  }
+  details {
+    margin-top: 16px;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+  details ul {
+    margin: 10px 0 0;
+    padding-left: 18px;
+    color: var(--muted);
+    font-size: 14.5px;
+  }
+  details li {
+    margin-bottom: 4px;
+  }
+
+  .group {
+    margin-top: 72px;
+  }
+  .group-title {
+    font-size: 26px;
+    font-weight: 600;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .group-title span {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--accent);
+    margin: 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.2s ease-out, box-shadow 0.3s, opacity 0.7s;
+    will-change: transform;
+  }
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(400px circle at var(--gx, 50%) var(--gy, 50%), color-mix(in oklab, var(--accent) 12%, transparent), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .card:hover {
+    box-shadow: var(--shadow);
+  }
+  .card:hover::after {
+    opacity: 1;
+  }
+  .photo {
+    aspect-ratio: 1;
+    background: var(--surface-2);
+    overflow: hidden;
+  }
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .avatar {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--accent);
+    background:
+      radial-gradient(circle, color-mix(in oklab, var(--accent) 30%, transparent) 1.2px, transparent 1.6px) 0 0 / 14px 14px,
+      var(--surface-2);
+  }
+  .avatar.sm {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .card-body {
+    padding: 18px 20px 20px;
+  }
+  .card h3 {
+    font-size: 19px;
+    margin-bottom: 4px;
+  }
+  .card .interests {
+    margin-top: 10px;
+  }
+  .mail {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+  .alumni {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .alum {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+  }
+  .alum-name {
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .alum-name small {
+    color: var(--accent);
+    font-size: 12px;
+  }
+  .alum-ko {
+    color: var(--muted);
+    font-size: 13px;
+  }
+</style>

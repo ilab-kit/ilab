@@ -1,0 +1,423 @@
+---
+import Base from "../layouts/Base.astro";
+import TactileField from "../components/TactileField.astro";
+import { load, url, img } from "../lib/data.js";
+
+const site = load("site");
+const research = load("research");
+const pubs = load("publications");
+const patents = load("patents");
+const projects = load("projects");
+const members = load("members");
+const news = load("news").slice(0, 5);
+
+const stats = [
+  { n: pubs.filter((p) => p.type === "journal").length, label: "SCIE journal papers" },
+  { n: patents.filter((p) => p.status !== "applied").length, label: "Registered patents" },
+  { n: projects.length, label: "Research projects" },
+  { n: members.filter((m) => m.group !== "alumni").length, label: "Current members" },
+];
+---
+
+<Base>
+  <section class="hero">
+    <TactileField />
+    <div class="container hero-inner">
+      <div class="eyebrow">{site.fullName} · {site.university}</div>
+      <h1>
+        We design how people <em>touch</em>, feel and interact with the digital world.
+      </h1>
+      <p class="hero-ko">{site.ko} — {site.intro.ko.split(".")[0]}.</p>
+      <div class="hero-cta">
+        <a class="btn" href={url("/research")}>Explore research</a>
+        <a class="btn ghost" href="#join">Join the lab</a>
+      </div>
+      <div class="hint" aria-hidden="true">
+        <span class="hint-dot"></span> Move your cursor or tap — the surface responds.
+      </div>
+    </div>
+  </section>
+
+  <section class="container stats">
+    {stats.map((s) => (
+      <div class="stat reveal">
+        <div class="stat-n" data-count={s.n}>{s.n}</div>
+        <div class="stat-l">{s.label}</div>
+      </div>
+    ))}
+  </section>
+
+  <section class="container intro reveal">
+    <div class="intro-label">About</div>
+    <div>
+      <p class="intro-en">{site.intro.en}</p>
+      <p class="intro-ko">{site.intro.ko}</p>
+    </div>
+  </section>
+
+  <section class="container block">
+    <div class="section-title">
+      <h2>Research areas</h2>
+      <a href={url("/research")}>All research →</a>
+    </div>
+    <div class="areas">
+      {research.map((a, i) => {
+        const cover = a.works.flatMap((w) => w.images)[a.id === "haptic-interface" ? 2 : 0];
+        return (
+          <a class="area reveal" href={url(`/research#${a.id}`)} style={`transition-delay:${i * 80}ms`}>
+            <div class="area-img">{cover && <img src={img(cover)} alt="" loading="lazy" />}</div>
+            <div class="area-body">
+              <div class="area-num">0{i + 1}</div>
+              <h3>{a.title}</h3>
+              <div class="area-ko">{a.ko}</div>
+              <p>{a.summary}</p>
+              <span class="chip">{a.works.length} featured works</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="container block">
+    <div class="section-title">
+      <h2>Lab news</h2>
+      <a href={url("/news")}>All news →</a>
+    </div>
+    <ul class="news">
+      {news.map((n) => (
+        <li class="reveal">
+          <span class="news-date">{n.date}</span>
+          <span class="chip accent">{n.category}</span>
+          <a href={url("/news")} class="news-title">{n.title}</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="container block" id="join">
+    <div class="join reveal">
+      <div class="join-text">
+        <div class="eyebrow">We're recruiting</div>
+        <h2>Build the next interface with us.</h2>
+        <p>{site.recruit.en}</p>
+        <p class="ko">{site.recruit.ko}</p>
+        <a class="btn" href={`mailto:${site.contact.email}`}>Contact Prof. Choi</a>
+      </div>
+      <div class="join-contact">
+        <iframe src={site.contact.map} title="Lab location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="addr">
+          <div>{site.contact.addressKo}</div>
+          <div class="muted">{site.contact.address}</div>
+          <div><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> · Tel. {site.contact.tel}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Count-up animation for the stats strip
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      io.unobserve(e.target);
+      const el = e.target as HTMLElement;
+      const target = Number(el.dataset.count);
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) continue;
+      const t0 = performance.now();
+      const tick = (t: number) => {
+        const p = Math.min((t - t0) / 1200, 1);
+        el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+  });
+  document.querySelectorAll("[data-count]").forEach((el) => io.observe(el));
+</script>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: min(88vh, 820px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -64px;
+    padding-top: 64px;
+    cursor: crosshair;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+  .hero-inner a {
+    pointer-events: auto;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 7.4vw, 92px);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+    max-width: 13ch;
+    margin-bottom: 24px;
+    text-shadow: 0 0 24px var(--bg), 0 0 8px var(--bg);
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero-ko {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 32px;
+    text-shadow: 0 0 12px var(--bg);
+  }
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .hero-cta .ghost {
+    background: color-mix(in oklab, var(--bg) 70%, transparent);
+  }
+  .hint {
+    margin-top: 48px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hint-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: ping 1.8s infinite;
+  }
+  @keyframes ping {
+    0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 60%, transparent); }
+    100% { box-shadow: 0 0 0 12px transparent; }
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stat {
+    padding: 28px 20px;
+    border-left: 1px solid var(--line);
+  }
+  .stat:first-child {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .stat-n {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-l {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  @media (max-width: 720px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(3) { border-left: 0; padding-left: 0; }
+    .stat:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  }
+
+  .intro {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    padding-top: 80px;
+  }
+  .intro-label {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-top: 8px;
+  }
+  .intro-en {
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+  }
+  .intro-ko {
+    color: var(--muted);
+    max-width: 720px;
+  }
+  @media (max-width: 720px) {
+    .intro { grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  .block {
+    padding-top: 96px;
+  }
+  .areas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 760px) {
+    .areas { grid-template-columns: 1fr; }
+  }
+  .area {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s, opacity 0.7s;
+  }
+  .area:hover {
+    color: var(--ink);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--accent);
+  }
+  .area-img {
+    aspect-ratio: 16 / 9;
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .area-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+    transition: transform 0.6s;
+  }
+  .area:hover .area-img img {
+    transform: scale(1.05);
+  }
+  .area-body {
+    padding: 24px;
+  }
+  .area-num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .area h3 {
+    font-size: 24px;
+    margin-bottom: 2px;
+  }
+  .area-ko {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .area p {
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .news {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+  .news li {
+    display: grid;
+    grid-template-columns: 90px auto 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .news-date {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .news-title {
+    text-decoration: none;
+    font-weight: 500;
+  }
+  @media (max-width: 640px) {
+    .news li { grid-template-columns: auto 1fr; gap: 6px 12px; }
+    .news-title { grid-column: 1 / -1; }
+  }
+
+  .join {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 24px;
+    padding: clamp(28px, 5vw, 56px);
+  }
+  .join h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 600;
+  }
+  .join p {
+    color: color-mix(in oklab, var(--bg) 75%, transparent);
+  }
+  .join .ko {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .join .btn {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  .join .btn:hover {
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .join-contact iframe {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border: 0;
+    border-radius: 14px;
+    filter: grayscale(0.4);
+  }
+  .addr {
+    font-size: 14px;
+    margin-top: 14px;
+    display: grid;
+    gap: 4px;
+  }
+  .addr .muted {
+    color: color-mix(in oklab, var(--bg) 60%, transparent);
+    font-size: 13px;
+  }
+  .addr a {
+    color: var(--bg);
+  }
+  @media (max-width: 860px) {
+    .join { grid-template-columns: 1fr; }
+  }
+</style>

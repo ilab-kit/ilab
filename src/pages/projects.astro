@@ -1,0 +1,163 @@
+---
+import Base from "../layouts/Base.astro";
+import { load } from "../lib/data.js";
+
+const projects = load("projects");
+const ongoing = projects.filter((p) => p.status === "ongoing");
+const completed = projects.filter((p) => p.status === "completed");
+const iso = (d) => (d ? d.replace(/\./g, "-") : "");
+const short = (d) => (d ? d.slice(0, 7) : "");
+---
+
+<Base title="Projects">
+  <div class="container">
+    <header class="page-head">
+      <div class="eyebrow">Funding</div>
+      <h1>Projects</h1>
+      <p>{ongoing.length} ongoing and {completed.length} completed research projects.</p>
+    </header>
+
+    <h2 class="sub">Ongoing</h2>
+    <div class="ongoing">
+      {ongoing.map((p, i) => (
+        <article class="proj reveal" style={`transition-delay:${i * 80}ms`} data-start={iso(p.start)} data-end={iso(p.end)}>
+          <div class="sponsor">{p.sponsor}</div>
+          <h3>{p.title}</h3>
+          {p.partners && <div class="partners">Partners · {p.partners}</div>}
+          <div class="bar"><span></span></div>
+          <div class="period">
+            <span>{short(p.start)}</span>
+            <span class="pct"></span>
+            <span>{short(p.end)}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <h2 class="sub">Completed</h2>
+    <ul class="done">
+      {completed.map((p) => (
+        <li class="reveal">
+          <span class="when">{short(p.start)} – {short(p.end)}</span>
+          <div>
+            <h3>{p.title}</h3>
+            <div class="sponsor">{p.sponsor}</div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+
+<script>
+  // Progress bars reflect today's date
+  const now = Date.now();
+  document.querySelectorAll<HTMLElement>(".proj").forEach((el) => {
+    const s = Date.parse(el.dataset.start!), e = Date.parse(el.dataset.end!);
+    if (isNaN(s) || isNaN(e)) return;
+    const p = Math.max(0, Math.min(1, (now - s) / (e - s)));
+    const fill = el.querySelector<HTMLElement>(".bar span")!;
+    el.querySelector(".pct")!.textContent = now < s ? "starts soon" : `${Math.round(p * 100)}%`;
+    requestAnimationFrame(() => setTimeout(() => (fill.style.width = `${Math.max(p * 100, 1.5)}%`), 200));
+  });
+</script>
+
+<style>
+  .sub {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 20px;
+  }
+  .ongoing {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    margin-bottom: 72px;
+  }
+  @media (max-width: 400px) {
+    .ongoing { grid-template-columns: 1fr; }
+  }
+  .proj {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .sponsor {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .proj .sponsor {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .proj h3 {
+    font-size: 18px;
+    line-height: 1.45;
+    font-weight: 600;
+    flex: 1;
+  }
+  .partners {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .bar {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--surface-2);
+    overflow: hidden;
+    margin-top: 16px;
+  }
+  .bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .period {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  .pct {
+    color: var(--ink);
+  }
+  .done {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+  .done li {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .when {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    padding-top: 2px;
+  }
+  .done h3 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.45;
+    margin-bottom: 2px;
+  }
+  @media (max-width: 640px) {
+    .done li { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>

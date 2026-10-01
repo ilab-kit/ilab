@@ -1,0 +1,100 @@
+# Lab news, newest first. date: YYYY-MM or YYYY. Optional: body (paragraphs), image, video, press (links)
+
+- date: '2026'
+  category: 과제 선정
+  title: 한국연구재단, 기초연구실(심화형) 선정 (2026~2029)
+- date: '2026'
+  category: 과제 선정
+  title: 중소기업기술정보진흥원(TIPA), 산학연 Collabo R&D 선정 (2026 ~ 2028)
+- date: '2026'
+  category: 과제 선정
+  title: 한국연구재단(NRF), 우수신진연구(유형B) 신규 선정 (2026 ~ 2031)
+- date: 2026-06
+  category: 특허 등록
+  title: '"비언어적 표현 개선을 위한 햅틱 피드백 제공 시스템" 특허 등록 (2026.06.01)'
+- date: '2025'
+  category: 과제 선정
+  title: 정보통신기획평가원(IITP), 정보통신·방송 기술개발사업 신규 선정 (2025~2028)
+- date: 2022-04
+  category: Press
+  title: 인간-로봇 감정교류 가능한 '감정촉각피부' 개발
+  body:
+    - 컴퓨터학과 최동수 교수(제1저자)가 참여한 연구팀이 인간과 로봇간의 감정 교류를 위한 '감정촉각피부'를 개발 했다고 4월 21일 밝혔다.
+    - 공동 연구팀은 음식포장을 위해 사용하는 '랩'에 착안, 원료인 폴리염화비닐 젤(polyvinyl chloride gel)과 물을 용매로 하는 하이드로젤(hydrogel)을 결합해 투명하면서도 잘 늘어나는 감정촉각피부를 개발하는데 성공했다. 또 폴리염화비닐 젤과 하이드로젤의 제조 비율에 따른 특성을 확인했고 투명성과 신축성이 유지되면서 효율적으로 접착할 수 있는 방법도 제시했다.
+    - 제1저자인 금오공대 최동수 교수는 “이번 연구 성과는 일상생활에서 주로 이용하는 음식물 포장용 랩에 사용되는 물질을 개량시킨 결과로, 가격이 저렴할 뿐만 아니라 투명하고 잘 늘어나는 특성을 가져 웨어러블 장치, 로봇, 의수, 스마트폰 등 여러 분야에 적용 가능할 것으로 기대된다” 라고 밝혔다.
+    - 연구결과는 “Emotion-interactive empathetic transparent skin cushion with tailored frequency-dependent hydrogel–plasticized nonionic polyvinyl chloride interconnections”라는 제목으로 화학공학 분야 국제 학술지인 '케미컬 엔지니어링 저널 (Chemical Engineering Journal)' 온라인판에 3월 31일에 게재되었다.
+  press:
+    - http://www.ggilbo.com/news/articleView.html?idxno=908524
+    - https://www.nocutnews.co.kr/news/5743793
+    - https://newsis.com/view/?id=NISX20220421_0001842655&cID=10807&pID=10800
+    - http://www.newsfreezone.co.kr/news/articleView.html?idxno=376432
+    - https://www.news1.kr/articles/?4655951
+    - http://news.tf.co.kr/read/national/1933344.htm
+    - http://www.dhnews.co.kr/news/articleView.html?idxno=204369
+    - https://www.dnews.co.kr/uhtml/view.jsp?idxno=202204211652014680634
+    - https://www.ddaily.co.kr/news/article/?no=236062
+    - http://www.dtnews24.com/news/articleView.html?idxno=723614
+    - https://news.mt.co.kr/mtview.php?no=2022042116207450124
+    - https://mdtoday.co.kr/news/view/1065595666386527
+    - http://www.busan.com/view/busan/view.php?code=2022042107282787865
+    - http://www.veritas-a.com/news/articleView.html?idxno=412572
+    - https://www.seoul.co.kr/news/newsView.php?id=20220421500101&wlog_tag3=naver
+    - https://view.asiae.co.kr/article/2022042112293437410
+    - http://www.worktoday.co.kr/news/articleView.html?idxno=24409
+    - https://www.etnews.com/20220421000065
+    - http://www.koit.co.kr/news/articleView.html?idxno=96072
+    - http://www.ccnnews.co.kr/news/articleView.html?idxno=254638
+    - http://www.ccnnews.co.kr/news/articleView.html?idxno=254608
+    - https://www.cctoday.co.kr/news/articleView.html?idxno=2160684
+    - https://www.fnnews.com/news/202204211236173880
+    - http://news.unn.net/news/articleView.html?idxno=527130
+    - http://www.whosaeng.com/sub_read.html?uid=135516&section=sc2
+    - http://news.heraldcorp.com/view.php?ud=20220421000557
+    - https://science.ytn.co.kr/program/program_view.php?s_mcd=0082&s_hcd=&key=202204211705016091
+    - https://zdnet.co.kr/view/?no=20220421101321
+    - http://www.aitimes.com/news/articleView.html?idxno=144295
+  image: news/01.jpg
+  video: https://www.youtube.com/embed/mn95HYNjFQM
+- date: 2021-03
+  category: Press
+  title: 전기장에 의해 형상 변하는 렌즈 개발
+  body:
+    - 연구팀은 복합가소화(Synergistic Plasticization) 방법을 통해 광학적으로 투명하고 고무와 같이 탄성력이 있는 고성능의 비이온성 폴리염화비닐 고분자겔이라는 스마트 물질을 제작하여 약한 전기장의 변화로도 볼록, 평면, 오목 렌즈로 형상을 다양하게 변화시켜 넓은 범위의 초점거리를 구현할 수 있게 됐다.
+    - 공동 제1저자인 최동수 교수는 “전기장에 의해 형상이 변화하는 전기활성젤을 이용한 가변 렌즈 연구로써, 타겟 광학시스템에 최적화된 렌즈의 형상 및 초점거리를 능동적으로 제어할 수 있다는 장점이 있다” 고 말했다.
+    - 연구결과는 “전기적으로 형상이 변화하는 인버터블 마이크로 렌즈(Electrically Adaptive and Shape-Changeable Invertible Microlens)”라는 제목으로 미국 화학회(ACS)가 발행하는 'ACS 응용물질 및 계면(ACS Applied Materials ＆ Interfaces)' 3월 호에 게재되었다.
+  press:
+    - https://news.joins.com/article/24010745
+    - http://www.chungnamilbo.co.kr/news/articleView.html?idxno=589794
+    - http://www.dtnews24.com/news/articleView.html?idxno=600642
+    - http://www.ccnnews.co.kr/news/articleView.html?idxno=211467
+    - http://www.sisanews24.co.kr/5723
+    - http://www.daejonilbo.com/news/newsitem.asp?pk_no=1461706
+    - http://news.unn.net/news/articleView.html?idxno=505746
+    - http://www.jbnews.com/news/articleView.html?idxno=1330200
+    - https://newsis.com/view/?id=NISX20210310_0001366054&cID=10807&pID=10800
+    - http://www.ccdailynews.com/news/articleView.html?idxno=2041476
+    - http://www.viva100.com/main/view.php?key=20210310010002690
+    - http://www.dhnews.co.kr/news/articleView.html?idxno=137869
+    - https://news.mt.co.kr/mtview.php?no=2021031010567430235
+    - http://www.ccdailynews.com/news/articleView.html?idxno=2043160
+    - https://www.news1.kr/articles/?4242955
+    - http://news.unn.net/news/articleView.html?idxno=506057
+  image: news/02.png
+- date: 2020-09
+  category: Press
+  title: 굳기 변화물질을 이용, 물체를 자유롭게 잡을 수 있는 로봇용 피부 개발
+  press:
+    - http://www.ccdailynews.com/news/articleView.html?idxno=2005920
+    - http://www.chungnamilbo.co.kr/news/articleView.html?idxno=562348
+    - http://www.daejonilbo.com/news/newsitem.asp?pk_no=1440082
+    - https://newsis.com/view/?id=NISX20200918_0001170745&cID=10807&pID=10800
+    - https://www.news1.kr/articles/?4063180
+    - http://www.newscj.com/news/articleView.html?idxno=780750
+    - http://www.dhnews.co.kr/news/articleView.html?idxno=128700
+    - http://www.dtnews24.com/news/articleView.html?idxno=587694
+    - http://www.kcilbo.com/coding/news.aspx/18/1/42275
+    - http://www.cndnews.co.kr/285413
+    - http://www.goodmorningcc.com/news/articleView.html?idxno=238715
+    - http://www.localtoday.co.kr/178339
+    - http://www.newsfreezone.co.kr/news/articleView.html?idxno=261354
+  image: news/03.jpg
