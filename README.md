@@ -19,7 +19,7 @@ Built with [Astro](https://astro.build). Pushing to `main` deploys automatically
 | `projects.yaml` | 연구과제 (`status: ongoing` / `completed`) |
 | `research.yaml` | 연구 분야와 대표 연구 |
 | `equipment.yaml` | 보유 장비 |
-| `lectures.yaml` | 강의 |
+| `lectures.yaml` | 강의와 학생 프로젝트 쇼케이스 (`video`에는 YouTube 영상 ID만 입력, 예: `ZlCjgLth4OI`) |
 
 예: 소식 추가
 

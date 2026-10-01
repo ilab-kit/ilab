@@ -1,0 +1,202 @@
+---
+// One student project: thumbnail (YouTube or image) that opens in the lightbox, team, summary, links.
+import { img } from "../lib/data.js";
+
+interface Props {
+  project: any;
+  course?: string;
+  courseLabel?: string;
+}
+const { project: p, course, courseLabel } = Astro.props;
+const thumb = p.video ? `https://i.ytimg.com/vi/${p.video}/hqdefault.jpg` : p.images?.[0] ? img(p.images[0]) : null;
+const media = p.video
+  ? JSON.stringify({ type: "video", id: p.video })
+  : p.images?.length
+    ? JSON.stringify({ type: "images", srcs: p.images.map((s) => img(s)) })
+    : null;
+const search = [p.title, p.team, p.summary, courseLabel].filter(Boolean).join(" ").toLowerCase();
+---
+
+<article class="pc" data-course={course} data-search={search}>
+  {media ? (
+    <button class="thumb" data-media={media} data-initial={p.title.slice(0, 1)} aria-label={`${p.title} ${p.video ? "영상 재생" : "이미지 보기"}`}>
+      <img src={thumb} alt="" loading="lazy" class:list={{ contain: !p.video }} data-yt={p.video ? "" : undefined} />
+      {p.video && (
+        <span class="play" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+        </span>
+      )}
+    </button>
+  ) : (
+    <div class="thumb placeholder" aria-hidden="true"><span>{p.title.slice(0, 1)}</span></div>
+  )}
+  <div class="body">
+    {courseLabel && <div class="course">{courseLabel}</div>}
+    <h3>{p.title}</h3>
+    {p.team && <div class="team">{p.team}</div>}
+    {p.summary && <p class="summary" data-clamp>{p.summary}</p>}
+    {p.links && (
+      <div class="links">
+        {p.links.map((l) => (
+          <a href={l.url} target="_blank" rel="noopener" class="link">
+            {/^GitHub/.test(l.label) ? (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
+            ) : (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+            )}
+            {l.label}
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</article>
+
+<script>
+  // YouTube serves a 120x90 grey image for deleted/private videos: fall back to the placeholder card.
+  document.querySelectorAll<HTMLImageElement>(".pc img[data-yt]").forEach((im) => {
+    const check = () => {
+      if (im.naturalWidth > 0 && im.naturalWidth <= 120) {
+        const btn = im.closest<HTMLElement>(".thumb")!;
+        btn.removeAttribute("data-media");
+        btn.classList.add("placeholder");
+        btn.innerHTML = `<span>${btn.dataset.initial || ""}</span>`;
+      }
+    };
+    if (im.complete) check();
+    else im.addEventListener("load", check);
+  });
+</script>
+
+<style>
+  .pc {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .pc:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+    border-color: color-mix(in oklab, var(--accent) 50%, var(--line));
+  }
+  .thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    padding: 0;
+    background: #111;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s, opacity 0.3s;
+  }
+  .thumb img.contain {
+    object-fit: contain;
+    background: #fff;
+  }
+  .pc:hover .thumb img {
+    transform: scale(1.04);
+  }
+  .play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 52px;
+    height: 52px;
+    margin: -26px 0 0 -26px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    padding-left: 3px;
+    background: color-mix(in oklab, var(--accent) 92%, transparent);
+    color: #fff;
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.35);
+    transition: transform 0.25s;
+  }
+  .pc:hover .play {
+    transform: scale(1.12);
+  }
+  .placeholder {
+    display: grid;
+    place-items: center;
+    cursor: default;
+    background:
+      radial-gradient(circle, color-mix(in oklab, var(--accent) 35%, transparent) 1.2px, transparent 1.6px) 0 0 / 14px 14px,
+      var(--surface-2);
+  }
+  .placeholder :global(span) {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .body {
+    padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .course {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 4px;
+  }
+  .team {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .summary {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .summary.open {
+    -webkit-line-clamp: unset;
+    display: block;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 14px;
+  }
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 12.5px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+</style>

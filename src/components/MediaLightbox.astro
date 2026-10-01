@@ -1,0 +1,78 @@
+---
+// Lightbox for [data-media] buttons: {"type":"video","id":"<YouTube ID>"} or {"type":"images","srcs":[...]}
+// Also expands clamped summaries ([data-clamp]) on click.
+---
+
+<dialog id="media-lightbox" aria-label="Media viewer">
+  <button class="close" aria-label="닫기">×</button>
+  <div class="content"></div>
+</dialog>
+
+<script>
+  const lb = document.getElementById("media-lightbox") as HTMLDialogElement;
+  const content = lb.querySelector(".content")!;
+  lb.addEventListener("close", () => (content.innerHTML = ""));
+  lb.querySelector(".close")!.addEventListener("click", () => lb.close());
+  lb.addEventListener("click", (e) => e.target === lb && lb.close());
+
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    const btn = target.closest<HTMLElement>("[data-media]");
+    if (btn) {
+      const m = JSON.parse(btn.dataset.media!);
+      content.innerHTML =
+        m.type === "video"
+          ? `<iframe src="https://www.youtube-nocookie.com/embed/${m.id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`
+          : m.srcs.map((s: string) => `<img src="${s}" alt="">`).join("");
+      lb.showModal();
+      return;
+    }
+    const clamp = target.closest<HTMLElement>("[data-clamp]");
+    if (clamp) clamp.classList.toggle("open");
+  });
+</script>
+
+<style>
+  dialog {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    width: min(1100px, 94vw);
+    max-height: 92vh;
+    overflow: auto;
+  }
+  dialog::backdrop {
+    background: rgb(0 0 0 / 0.8);
+    backdrop-filter: blur(4px);
+  }
+  .content {
+    display: grid;
+    gap: 12px;
+  }
+  .content :global(iframe) {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 12px;
+    background: #000;
+  }
+  .content :global(img) {
+    max-height: 86vh;
+    margin: 0 auto;
+    border-radius: 12px;
+    background: #fff;
+  }
+  .close {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 0;
+    background: rgb(255 255 255 / 0.15);
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+  }
+</style>

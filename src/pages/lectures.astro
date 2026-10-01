@@ -1,62 +1,136 @@
 ---
 import Base from "../layouts/Base.astro";
-import { load } from "../lib/data.js";
+import ProjectCard from "../components/ProjectCard.astro";
+import MediaLightbox from "../components/MediaLightbox.astro";
+import { load, url, img, termLabel } from "../lib/data.js";
 
-const terms = load("lectures");
-const fmt = (t) => {
-  const [y, s] = t.split("-");
-  return { year: y, sem: s === "1" ? "Spring" : "Fall", ko: `${y}년 ${s}학기` };
-};
+const courses = load("lectures");
+const terms = [...new Set(courses.map((c) => c.term))];
+const all = courses.flatMap((c) => (c.projects || []).map((p) => ({ p, c })));
+
+// Filter tabs: course families (창의설계 / 오픈소스 / ...) that have projects
+const family = (c) => c.name.replace(/\s*\d*분반.*$|\s*\(.*\)$/g, "").trim();
+const families = [...new Set(all.map(({ c }) => family(c)))];
+const thumbOf = (p) => (p.video ? `https://i.ytimg.com/vi/${p.video}/mqdefault.jpg` : p.images?.[0] ? img(p.images[0]) : null);
 ---
 
-<Base title="Lectures">
+<Base title="Lectures" description="Courses taught at Kumoh National Institute of Technology and the student projects built in them.">
   <div class="container">
     <header class="page-head">
       <div class="eyebrow">Teaching</div>
       <h1>Lectures</h1>
-      <p>Courses taught by Prof. Dong-Soo Choi at Kumoh National Institute of Technology.</p>
+      <p>
+        Courses taught by Prof. Dong-Soo Choi and the projects students built in them —
+        {courses.length} courses, {all.length} student projects.
+      </p>
     </header>
 
-    <div class="terms">
-      {terms.map((t) => {
-        const f = fmt(t.term);
-        return (
-          <section class="term reveal">
-            <div class="label">
-              <div class="y">{f.year}</div>
-              <div class="s">{f.sem} · {f.ko}</div>
+    <section>
+      <h2 class="sub">Courses</h2>
+      <div class="terms">
+        {terms.map((t) => {
+          const l = termLabel(t);
+          return (
+            <div class="term reveal">
+              <div class="label">
+                <div class="y">{l.en}</div>
+                <div class="s">{l.ko}</div>
+              </div>
+              <div class="courses">
+                {courses.filter((c) => c.term === t).map((c) => {
+                  const n = c.projects?.length || 0;
+                  const thumbs = (c.projects || []).map(thumbOf).filter(Boolean).slice(0, 4);
+                  return (
+                    <a class:list={["course", { "no-projects": n === 0 }]} href={url(`/lectures/${c.id}`)}>
+                      <div class="mosaic">
+                        {thumbs.length ? thumbs.map((s) => <img src={s} alt="" loading="lazy" />) : <span>프로젝트 준비 중</span>}
+                      </div>
+                      <div class="c-body">
+                        <div class="c-name">{c.name}</div>
+                        <div class="c-en">{c.en}</div>
+                        <div class="c-count">{n > 0 ? `${n} projects →` : "Coming soon"}</div>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
             </div>
-            <div class="courses">
-              {t.courses.map((c) => (
-                <a class="course" href={c.link} target="_blank" rel="noopener">
-                  <span>{c.name}</span>
-                  <span class="arrow">↗</span>
-                </a>
-              ))}
-            </div>
-          </section>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="showcase">
+      <div class="showcase-head">
+        <h2 class="sub">Student projects</h2>
+        <input class="search" type="search" placeholder="프로젝트, 팀 이름 검색…" aria-label="Search student projects" />
+      </div>
+      <div class="tabs" role="group" aria-label="Filter by course">
+        <button class="tab" data-f="all" aria-pressed="true">All<span class="count">{all.length}</span></button>
+        {families.map((f) => (
+          <button class="tab" data-f={f} aria-pressed="false">
+            {f}<span class="count">{all.filter(({ c }) => family(c) === f).length}</span>
+          </button>
+        ))}
+      </div>
+      <div class="grid">
+        {all.map(({ p, c }) => (
+          <ProjectCard project={p} course={family(c)} courseLabel={`${termLabel(c.term).ko} · ${c.name}`} />
+        ))}
+      </div>
+      <p class="empty" hidden>검색 결과가 없습니다.</p>
+    </section>
   </div>
+  <MediaLightbox />
 </Base>
 
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>(".showcase .tab");
+  const search = document.querySelector<HTMLInputElement>(".showcase .search")!;
+  const cards = document.querySelectorAll<HTMLElement>(".showcase .pc");
+  const empty = document.querySelector<HTMLElement>(".showcase .empty")!;
+  let f = "all";
+  function apply() {
+    const q = search.value.trim().toLowerCase();
+    let n = 0;
+    cards.forEach((el) => {
+      const ok = (f === "all" || el.dataset.course === f) && (!q || el.dataset.search!.includes(q));
+      el.hidden = !ok;
+      if (ok) n++;
+    });
+    empty.hidden = n > 0;
+  }
+  tabs.forEach((t) =>
+    t.addEventListener("click", () => {
+      f = t.dataset.f!;
+      tabs.forEach((x) => x.setAttribute("aria-pressed", String(x === t)));
+      apply();
+    })
+  );
+  search.addEventListener("input", apply);
+</script>
+
 <style>
+  .sub {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 20px;
+  }
   .terms {
     border-top: 1px solid var(--line);
   }
   .term {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 180px 1fr;
     gap: 24px;
-    padding: 22px 0;
+    padding: 24px 0;
     border-bottom: 1px solid var(--line);
   }
   .y {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
   }
   .s {
     font-size: 13px;
@@ -64,32 +138,97 @@ const fmt = (t) => {
     margin-top: 6px;
   }
   .courses {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-content: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 14px;
   }
   .course {
-    display: inline-flex;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 168px 1fr;
+    gap: 16px;
     align-items: center;
-    padding: 12px 18px;
-    border-radius: 12px;
+    padding: 10px;
+    border-radius: 14px;
     background: var(--surface);
     border: 1px solid var(--line);
     text-decoration: none;
-    font-weight: 500;
-    transition: all 0.25s;
+    color: var(--ink);
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
   }
   .course:hover {
+    color: var(--ink);
     border-color: var(--accent);
     transform: translateY(-2px);
+    box-shadow: var(--shadow);
   }
-  .arrow {
+  .mosaic {
+    aspect-ratio: 16 / 10;
+    border-radius: 9px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--surface-2);
+  }
+  .mosaic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .mosaic img:only-child {
+    grid-column: 1 / -1;
+  }
+  .mosaic span {
+    grid-column: 1 / -1;
+    display: grid;
+    place-items: center;
+    font-size: 11.5px;
     color: var(--muted);
-    font-size: 13px;
+  }
+  .c-name {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+  .c-en {
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .c-count {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 6px;
+  }
+  .course.no-projects .c-count {
+    color: var(--muted);
   }
   @media (max-width: 640px) {
     .term { grid-template-columns: 1fr; gap: 12px; }
+    .courses { grid-template-columns: 1fr; }
+    .course { grid-template-columns: 128px 1fr; }
+  }
+
+  .showcase {
+    margin-top: 80px;
+  }
+  .showcase-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .showcase-head .sub {
+    margin: 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  @media (max-width: 400px) {
+    .grid { grid-template-columns: 1fr; }
   }
 </style>

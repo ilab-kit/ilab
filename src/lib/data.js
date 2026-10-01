@@ -17,6 +17,12 @@ export function url(p = "/") {
 /** Path to a file under public/images. */
 export const img = (p) => url("/images/" + p);
 
+/** "2024-2" -> { year: "2024", ko: "2024년 2학기", en: "Fall 2024" } */
+export function termLabel(term) {
+  const [year, sem] = String(term).split("-");
+  return { year, ko: `${year}년 ${sem}학기`, en: `${sem === "1" ? "Spring" : "Fall"} ${year}` };
+}
+
 /** Wrap lab-member names in <b> for author lists. */
 export function highlightAuthors(text, names) {
   let out = text.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);

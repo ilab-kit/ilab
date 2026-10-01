@@ -1,30 +1,322 @@
-# Lectures by term (YYYY-semester). link: course page (currently the old Google Site)
+# Lectures and student project showcases.
+# term: YYYY-semester (1 = Spring, 2 = Fall). id is used in the page URL (/lectures/<id>).
+# Each project: title, team, summary, video (YouTube video ID), images (public/images/...), links (label + url).
 
-- term: 2025-1
-  courses:
-    - name: 창의설계프로젝트
-      link: https://sites.google.com/view/dschoi/lectures/2501_%EC%B0%BD%EC%9D%98%EC%84%A4%EA%B3%84%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8
-    - name: AR·VR프로그래밍
-      link: https://sites.google.com/view/dschoi/lectures/2501_arvr%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D
-- term: 2024-2
-  courses:
-    - name: 오픈소스프로젝트 (VR/AR)
-      link: https://sites.google.com/view/dschoi/lectures/2402_%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8
-- term: 2024-1
-  courses:
-    - name: 창의설계프로젝트
-      link: https://sites.google.com/view/dschoi/lectures/2401_%EC%B0%BD%EC%9D%98%EC%84%A4%EA%B3%84%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8
-- term: 2023-2
-  courses:
-    - name: 오픈소스프로젝트 (VR/AR)
-      link: https://sites.google.com/view/dschoi/lectures/2302_%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B803
-- term: 2023-1
-  courses:
-    - name: 창의설계프로젝트
-      link: https://sites.google.com/view/dschoi/lectures/2301_%EC%B0%BD%EC%9D%98%EC%84%A4%EA%B3%84%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8
-- term: 2022-2
-  courses:
-    - name: 오픈소스프로젝트 2분반 (크로스플랫폼)
-      link: https://sites.google.com/view/dschoi/lectures/2202_%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B802
-    - name: 오픈소스프로젝트 3분반 (VR/AR)
-      link: https://sites.google.com/view/dschoi/lectures/2202_%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B803
+- id: 2025-1-capstone
+  term: 2025-1
+  name: 창의설계프로젝트
+  en: Creative Design Project
+  projects: []
+- id: 2025-1-arvr
+  term: 2025-1
+  name: AR·VR프로그래밍
+  en: AR·VR Programming
+  projects: []
+- id: 2024-2-opensource
+  term: 2024-2
+  name: 오픈소스프로젝트 (VR/AR)
+  en: Open Source Project (VR/AR)
+  projects:
+    - title: 캐주얼 술래잡기 치즈인더트랩
+      team: 금오소프트
+      video: ZlCjgLth4OI
+      summary: 게임 데드 바이 데이라이트의 공포스럽고 진입장벽 높은 단점을 보완한 캐주얼하고 많은 사람들이 즐기기 쉽게 만든 술래잡기 게임 치즈인더트랩
+      links:
+        - label: GitHub
+          url: https://github.com/KumohSoft/main
+    - title: WEIRD SPACE
+      team: BGM
+      video: L5LPdHFjcx8
+      summary: 플레이 타임이 짧으면서도 다양함을 느낄 수 있도록 백룸, 몬스터 추격 등의 다양한 공포게임의 장르를 하나의 게임에서 즐길 수 있도록 했다. 최종적으로 하나의 게임을 하는 시간에 하나 이상의 게임을 하는 느낌을 느낄 수 있도록 하는 게임이다.
+      links:
+        - label: GitHub
+          url: https://github.com/MinBeom2/open-source-project-bgm
+    - title: 실내 디자인 시뮬레이터
+      team: unistd
+      video: dG_2iXYemvY
+      summary: 사용자가 자신의 집과 유사하거나 원하는 구조의 평면도를 작성하고, 그 안에서 fps 관점으로 사용자가 실내공간을 자유롭게 설계하고 다양한 브랜드의 가구를 미리 보고 배치할 수 있는 기능을 제공하는 3D 어플리케이션. 또한 이 어플은 배치한 모든 가구를 구매할 수 있는 링크가 포함되어 있는 가구 리스트를 출력해준다.
+      links:
+        - label: GitHub
+          url: https://github.com/caeyon/Interior-Design-Simulator
+    - title: ZooScape
+      team: unreal
+      video: 0fFHI820DOQ
+      summary: 동물 캐릭터를 기반으로 한 멀티플레이 러닝 액션 게임. 플레이어는 각기 고유한 스킬을 지닌 동물 캐릭터를 선택해 장애물을 피하고 아이템을 활용하며 목표 지점까지 경쟁한다.실시간 멀티플레이와 랭킹 시스템을 통해 긴장감과 성취감을 동시에 제공하는 매력적인 게임.
+      links:
+        - label: GitHub
+          url: https://github.com/OpenSource-ZooScape-2024/ZooScape_Script
+    - title: LawBlocks
+      team: H-KCB
+      video: q6m0RoN5o7s
+      summary: LawBlocks 는 메타버스 환경을 활용하여 법률 지식에 쉽게 접근하고, 게임 요소를 통해 법무사와의 상담 경험을 혁신하는 프로젝트입니다. 친근한 가상 공간에서 법률 상식 O/X 퀴즈와 문제 해결을 돕는 법무사 챗봇을 만나보세요!
+      links:
+        - label: GitHub
+          url: https://github.com/gkwhdcks9/OpenSourceProject
+    - title: 트니튼튼
+      team: 남유정이
+      images:
+        - lectures/2024-2-opensource-01.png
+        - lectures/2024-2-opensource-02.png
+      summary: 트니튼튼은 채소를 먹으며 캐릭터 ‘트니’를 키우는 게임이다. 카메라로 음식 및 얼굴을 인식하고 식사를 하는 모습을 인식할 수 있다. 음식을 섭취할 시, 코인이 나와 트니용 음식을 구매할 수 있다. 이 게임의 목적은 트니에게 음식을 골고루 먹여 올바르게 키우는 것이 목적이다. 트니에게 골고루 먹이기 위해서는 사용자 또한 골고루 먹어야하기 때문에 사용자를 올바른 식습관으로 유도한다.
+      links:
+        - label: GitHub
+          url: https://github.com/YuMinha/Teuni_Tntn/
+        - label: Video
+          url: https://youtube.com/shorts/lcnW3opOJZw?si=sTeRB4c_aPMp12t-
+    - title: Fireboy and Watergirl on VR
+      team: MonoBehaviour
+      video: Yvn_fAO1meM
+      summary: 추억의 ‘물불 게임(Fireboy and Watergirl)’을 VR에서 플레이. Fireboy와 Watergirl이 새로운 차원으로!
+      links:
+        - label: GitHub
+          url: https://github.com/MonoBehaviour4OP/Fireboy-and-Watergirl-on-VR
+- id: 2024-1-capstone
+  term: 2024-1
+  name: 창의설계프로젝트
+  en: Creative Design Project
+  projects:
+    - title: Cats Adventure
+      team: Light Bulb
+      video: DzKAlSidhBQ
+      summary: 포톤 서버를 이용한 온라인 멀티플레이 프로젝트다. 플레이어의 캐릭터인 고양이가 십이지신의 인정을 받기 위해 여러 십이지신에게 도전하는 이야기다. 직업별 스킬을 선택하고 스탯을 분배하여 다양한 패턴을 가지고 있는 보스인 십이지신에게 인정받아야 한다.
+      links:
+        - label: GitHub
+          url: https://github.com/Dyoya/CatsChallenge
+    - title: AR 비전 어드벤처
+      team: AR 비전 어드벤처
+      images:
+        - lectures/2024-1-capstone-01.png
+      summary: 아이들을 위한 증강현실(AR) 기술을 활용한 교육용 놀이 콘텐츠로, 학습 몰입감을 높이고 학습 만족도를 증진시키는 것을 목표로 한다. 햅틱 패드와 햅틱 스틱을 활용하여 물리적 피드백을 제공하여 학습의 재미를 더욱 높인다
+      links:
+        - label: GitHub
+          url: https://github.com/AR-Vision-Adventure/ARVision_Adventure
+    - title: Polingo
+      team: 탕탕특공대
+      video: I2Z43Xt7wps
+      summary: Polingo는 번역과 외국어 학습 컨텐츠 제공을 통해서 사용자의 외국어 실력 향상을 도모하는 어플리케이션이다. Polingo 앱은 수준 높은 번역 정확성과 실생활에 도움이 될 컨텐츠를 제작하고 제공하는 것을 목표로 한다.
+      links:
+        - label: GitHub
+          url: https://github.com/polingo-kumoh
+- id: 2023-2-opensource
+  term: 2023-2
+  name: 오픈소스프로젝트 (VR/AR)
+  en: Open Source Project (VR/AR)
+  projects:
+    - title: AR Glass
+      team: 1조 AR Glass
+      video: ngtpPCOMI8k
+      summary: AR글래스를 기반으로 아동용 교육 및 놀이 콘텐츠를 제작하였다. 콘텐츠에는 악기를 이용한 음악 연주가 있으며, 이는 현실과 가상 환경 사이의 상호작용을 통해 실제로 악기를 연주하는 듯한 느낌을 준다.
+      links:
+        - label: GitHub
+          url: https://github.com/Amazing-AR-Glasses/AmazingAR
+    - title: Catch The Time
+      team: 2조 GOAT
+      # video: 0VZUTWr0B-U  (YouTube에서 삭제 또는 비공개되어 재생 불가 — 다시 공개되면 주석 해제)
+      summary: 간단한 모임에서 남는 자투리 시간에 준비물 없이 쉽고 다양한 게임을 시공간의 제약을 받지 않고, 온-오프라인 모두 플레이가 가능한 종합 보드게임
+      links:
+        - label: GitHub
+          url: https://github.com/kumoh-yoobin/Time-Keeper
+    - title: 캐스트 어웨이
+      team: 3조 캐스트 어웨이
+      video: bdVxU40ssAM
+      summary: 캐스트 어웨이는 오픈 월드 생존게임으로 캐릭터는 비행기에서 추락 후 섬에 표류하게 된다. 플레이어는 자원 수집, 도구 제작, 건축, 사냥, 적대 동물과의 전투, 보스 몬스터 공략 그리고 섬을 탈출하는 엔딩 등 다양한 요소를 통해 플레이어에게 긴장감과 생존 경험을 제공한다.
+      links:
+        - label: GitHub
+          url: https://github.com/Dyoya/CastAway_OpenSource
+    - title: Space Junk Cleanup
+      team: 4조 PEFU
+      video: JN5k9gcRJoQ
+      summary: 우주쓰레기에 대한 문제를 인식하고 그것을 디펜스 게임으로 만들어 우주 쓰레기에 대한 문제 인식을 위해 만든 게임입니다. 지구를 주변으로 사용이 끝난 인공위성들이 나와 그것을 없앨 수 있는 타워를 설치해서 지구로 인공위성이 추락하지 않게 하는 디펜스 게임입니다.
+      links:
+        - label: GitHub
+          url: https://github.com/user71309876/s23_unity
+    - title: NexRunners
+      team: 5조 Hi5ive
+      video: 6JChdBldutE
+      summary: 개발한 게임은 메타버스 환경에서 다른 플레이어들과 경쟁하는 달리기 게임이다. 멀티 플레이 시스템을 통해 여러 플레이어들과 함께 목표 지점을 향해 경쟁할 수 있다. 아이템과 에너지 시스템과 같은 재미 요소를 통합하여, 매 플레이마다 새로운 즐거움을 발견할 수 있다.
+      links:
+        - label: GitHub
+          url: https://github.com/k1sihyeon/Hi5ive
+    - title: Attendance Simulation (Am I late?)
+      team: 6조 6 SIGMA
+      video: NtobHvVS_44
+      summary: 수업에 지각하는 인원들이 많아 지각에 대한 경각심을 불러 일으키기 위한 목적인 게임. 현실에서도 매일 다른 수업 시간과 강의실이 편성되어 있고, 이러한 점을 게임으로 구현한 제한 시간 내에 도착해야 하는 3인칭 캐주얼 달리기 게임이다.
+      links:
+        - label: GitHub
+          url: https://github.com/BaeJinYeol/23-OpenSource
+    - title: 교내 안전사고 교육용 3D게임
+      team: 7조 사막
+      # video: X8IpG_S35cU  (YouTube에서 삭제 또는 비공개되어 재생 불가 — 다시 공개되면 주석 해제)
+      summary: 대학교 내 안전예방 교육이 충분하지 않다고 생각되었고 이로 인해 실제 사고가 발생하고 있습니다. 이에 안전사고에 대한 예방과 경각심을 주기 위해 금오공과대학교를 배경으로 3가지 3d게임을 개발 하였다.
+      links:
+        - label: GitHub
+          url: https://github.com/Alct8749/prevent_an_accident
+    - title: 숨바꼭질
+      team: 8조 종강현실
+      video: kq-zHbWf_to
+      summary: Hide & Chick 게임을 모티브로 삼았으며, 플레이어와 동일한 모델을 사용하는 AI 객체들은 랜덤 한 행동을 하며 플레이어들은 그 행동을 흉내내면서 최대한 들키지 않게 행동한다. 최종적으로 자신을 제외한 모든 플레이어가 제거되면 승리하는 게임이다.
+    - title: 미니, 멀티 게임 만들어 보기~
+      team: 9조 종강현실
+      video: bBSDketBvS8
+      summary: 미니, 멀티 게임을 만들어 다양한 장르의 게임을 여러 사람과 즐길 수 있다. 플레이어는 방을 만들고 방에 입장할 수 있으며 꼬리잡기, 바닥 떨어져유, 점프 맵, 빠른 총잡이 게임을 경험할 수 있다. 경쟁을 통해 승자와 패자가 나뉘며 즐거움과 스릴을 느낄 수 있다.
+      links:
+        - label: GitHub
+          url: https://github.com/JinYunSe/OpenSource3Class/activity
+- id: 2023-1-capstone
+  term: 2023-1
+  name: 창의설계프로젝트
+  en: Creative Design Project
+  projects:
+    - title: 결식 우려 아동을 위한 위치 기반 아동급식카드 가맹점 안내 서비스
+      team: 수건
+      video: 1PadGhbRaXA
+      summary: 본 프로젝트는 위치 기반 아동급식카드 가맹점 조회 서비스를 개발하였다. 사용자의 현재 위치를 기반으로 주변 가맹점의 위치를 지도의 마커를 이용해 직관적으로 보여주고, 현재 위치 또는 지도의 정중앙에서 가까운 순으로 가맹점을 정렬하여 리스트로 보여준다. 사용자는 리스트에서 하나의 가맹점을 클릭하거나 마커를 클릭하여 가맹점의 이름, 대표 메뉴와 가격, 후기 정보를 확인할 수 있다. 프론트엔드는 React와 Kakao Map API를 사용하였고, 백엔드는 Django REST Framework와 SQLite를 활용하였다.
+      links:
+        - label: GitHub
+          url: https://github.com/KITtowel
+    - title: 로그라이크 게임 개발
+      team: 이즈리얼
+      video: RDuwTjGHj1A
+      summary: 게임 예측을 어렵게 하고 사용자의 긴장감을 자극하는 로그라이크 (roguelike) 장르 기반의 게임을 개발했다. 캐릭터 사망 시 이전 진행 기록을 초기화시켜 사용자는 마지막 단계까지 이동하기 위해 최적의 경로를 찾아야 한다. 또한, 귀속 성장 시스템과 게임 진행 도중 랜덤 요소를 제공해 사용자가 게임을 끝까지 진행할 수 있도록 도전 욕구를 자극시킨다.
+      links:
+        - label: GitHub
+          url: https://github.com/KITCapstone2023-IsReal/crusader-s-crypt
+    - title: S-Cooter
+      team: 제어조아
+      video: flOuhxgsWMU
+      summary: 교통사고 예방과 대처 기능을 가진 전동킥보드를 제작하였다. 예방 기능으로는 전방 장애물 감지와 자동 브레이크 기능을 포함하였다. 대처 기능으로는 넘어짐 감지와 사고 위치 전송 SMS API 기능을 포함하였다.
+      links:
+        - label: GitHub
+          url: https://github.com/like-control/ESooter_Safty_Upgrade
+    - title: '좀비 시티 디펜더 : Zombie City Defender'
+      team: 졸업시켜조
+      images:
+        - lectures/2023-1-capstone-01.png
+      summary: 새로운 창의적인 디펜스 게임으로, 좀비에게 습격당하는 상황에서 플레이어가 자신을 방어하고 생존하는 능력을 시험하는 게임입니다. 플레이어는 다양한 무기와 함께 전략적인 결정을 내리고, 능동적으로 움직여 좀비의 공격을 피하고 격퇴해야 합니다.
+      links:
+        - label: GitHub
+          url: https://github.com/creative-engineering-design/OverAll_Project
+- id: 2022-2-opensource-cross
+  term: 2022-2
+  name: 오픈소스프로젝트 2분반 (크로스플랫폼)
+  en: Open Source Project (Cross-platform)
+  projects:
+    - title: 주식 정보 제공 App
+      team: 1조 여우비
+      video: tYAhlO_otm4
+      summary: “여우의 주식 레시피”는 숭실대학교 경제학과 서준식 교수의 '다시 쓰는 주식 투자 교과서'를 기반으로 한국 주식 종목들에 대한 예상 수익률과 추천 구매가를 계산한 값을 리스트 형식으로 볼 수 있는 어플리케이션이다. 어플리케이션에서 나타내는 예상 수익률은 현재가에서 구매했을 때 1년 뒤 예상되는 수익률이며 추천 구매가는 1년 뒤 15%의 수익을 내기 위해 추천하는 매수 가격을 말한다.
+      links:
+        - label: GitHub (FE)
+          url: https://github.com/HongGunWoo/foxstock-frontend
+        - label: GitHub (BE)
+          url: https://github.com/Ludeng0727/foxstock
+    - title: 여행 일기 SNS
+      team: 2조 5IYO
+      video: OU2kYgFw5_g
+      summary: 다양한 세대가 함께 사용할 수 있는 여행 전용 SNS로, 사용자가 여행을 다녀와서 일기를 작성하여 추억을 기록하고 공유할 수 있는 애플리케이션을 개발하였다. 또한 날씨를 기반으로 여행지를 추천받을 수 있다.
+      links:
+        - label: GitHub
+          url: https://github.com/5iyo/diary
+    - title: 세탁기/건조기 예약
+      team: 3조 컴과 함께
+      images:
+        - lectures/2022-2-opensource-cross-01.png
+      summary: 기숙사의 공용 세탁기 사용은 자율적으로 진행되기 때문에 이를 관리해주기 위해 개발한 애플리케이션으로, 학생들이 세탁기 및 건조기에 대한 예약 현황을 확인하고, 원하는 시간에 예약할 수 있다.
+      links:
+        - label: GitHub
+          url: https://github.com/dormitoryClicker
+        - label: Video
+          url: https://github.com/dormitoryClicker/dormitoryClicker_Doc/blob/ver1.0/dormitoryClicker%20%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20%EC%8B%9C%EC%97%B0.mp4
+    - title: 자취 백과사전
+      team: 4조 모바일
+      video: M32EwZc6X_E
+      summary: 자취생들을 위해 만들어진 앱입니다. 자취 꿀팁 백과사전으로 가사의 효율성을 높여드리고자 합니다. 백과사전 기능뿐만 아니라 같은 자취생들과 정보를 주고받는 커뮤니티 기능을 제공하며, 주변 맛집 정보도 제공해드립니다.
+      links:
+        - label: GitHub (FE)
+          url: https://github.com/2022-opensourse-mobile/a_living_dictionary
+        - label: GitHub (BE)
+          url: https://github.com/2022-opensourse-mobile/2022-opensource-mobile-server
+    - title: 버스 노선별 주요 정보 안내
+      team: 5조 미숙
+      video: In8eihiIbeA
+      summary: 우리 앱은 금오공대와 구미역, 옥계동, 종합터미널을 지나는 모든 버스에 대한 도착정보를 알리는 기능과 인프라가 많은 버스 노선에 대한 추천 기능, 추천 노선의 주변에 존재하는 음식점 정보와 부동산 정보를 표시하는 기능을 포함하여 대학가 내에 거주하는 학생들에게 보다 더 많은 인프라를 누릴 수 있도록 돕고 대학가에 거주하지 않더라도 버스 도착 정보를 제공하여 버스를 기다리는 데 발생하는 시간적 손실을 감소시키는 것에 이바지 할 것이다.
+      links:
+        - label: GitHub
+          url: https://github.com/BUSS-team5/front-back
+    - title: 견인 차량 매칭
+      team: 6조 브라운석사
+      summary: 사설 견인 차량에게 견인 우선순위를 제공하여 견인 차량들의 불법행위를 줄이기 위한 서비스를 제공하는 프로젝트 카카오택시에서 착안하여 사설 견인 차량을 사고와 매칭해주는 어플리케이션
+      links:
+        - label: GitHub (FE)
+          url: https://github.com/Brown-master/Client
+        - label: GitHub (BE)
+          url: https://github.com/Brown-master/Server
+    - title: 온도 기반 스타일 추천
+      team: 7조 카카오입사예정자들
+      # video: hRqH1I6Y3WQ  (YouTube에서 삭제 또는 비공개되어 재생 불가 — 다시 공개되면 주석 해제)
+      summary: 최근 간절기에 일교차가 매우 심하기도 하고 옷을 입을 때 습도나 체감온도 같이 여러가지 고려해야할 사항이 많다. "오뭐입?" 어플은 날씨, 온도, 습도에 따라서 사용자에게 적절한 옷차림과 필요하다면 아우터까지 추천해줄 수 있는 어플이다.
+      links:
+        - label: GitHub
+          url: https://github.com/KakaoTakdae/oh_OOTD
+- id: 2022-2-opensource-vr
+  term: 2022-2
+  name: 오픈소스프로젝트 3분반 (VR/AR)
+  en: Open Source Project (VR/AR)
+  projects:
+    - title: 탈출 게임
+      team: 1조 유니팀
+      # video: CoXYucQHY7w  (YouTube에서 삭제 또는 비공개되어 재생 불가 — 다시 공개되면 주석 해제)
+      summary: 유니티 엔진을 사용한 3D 탈출 게임이며, 화재 상황 교육 테마 및 좀비 서바이벌 멀티 테마를 선택하여 플레이가 가능하다. 화재 상황 교육 테마의 경우 실생활에서의 활용에 초점을 맞추어 개발하였으며, 좀비 서바이벌 멀티 테마의 경우 협동 요소에 초점을 맞추어 개발하였다.
+      links:
+        - label: GitHub
+          url: https://github.com/suhye0n/OpenSourceGroup1/
+    - title: 금오메타유니버시티
+      team: 2조 오니티
+      video: v5l_IptxKSk
+      summary: 금오메타유니버시티는 신입생들이나 입학 예정자들과 같이 아직 학교의 전경과 시설들의 위치를 잘 모르는 학생들을 위해 개발되었다. 이런 학생들이 학교에 오기 전에 미리 학교를 둘러보며 자신이 수업할 건물, 복지 시설 등을 구경하거나 체험할 수 있다.
+      links:
+        - label: GitHub
+          url: https://github.com/agfalcon/MetaUniversity
+    - title: 학부매니저
+      team: 3조 -CESCO-
+      video: YehQvPknIBM
+      summary: 가상의 대학교를 배경으로 한 육성 시뮬레이터 게임. 학생을 직접 조작하여 여러 행동을 수행하고 수행한 행동을 바탕으로 스탯이 증감된다. 게임시간이 모두 경과되면 스탯의 변화 정도에 따라 다른 엔딩이 출력된다.
+      links:
+        - label: GitHub
+          url: https://github.com/OpenSourceCESCO/Opensource2D
+    - title: 금오공대 AR 투어
+      team: 4조 유니버스
+      video: fs6GoU8HAss
+      summary: 금오공대를 AR로 투어하며 학교에 대한 이해를 높여줄 수 있는 어플리케이션이다. 각 건물마다 정보를 알 수 있는 작은 이벤트가 존재한다. 그리고 투어를 하면서 소소하게 즐길 수 있는 미니게임과 사용자의 위치에 따라 발생하게 되는 삼족오 이벤트로 어플리케이션에 재미를 더하였다.
+      links:
+        - label: GitHub
+          url: https://github.com/KitYoonJeongmin/KitTourAR
+    - title: ESKG, 한국형 공포게임
+      team: 5조 KG
+      video: e0kNAENN41g
+      summary: 한국 전통 요괴(귀신)를 소재로 하여 해당 요괴(귀신)의 설화를 보여주는 등의 장치를 이용해 한국의 문화를 알리고 그와 동시에 귀신이라는 소재에 맞게 공포 요소를 넣은 1인칭 공포 게임이다.
+      links:
+        - label: GitHub
+          url: https://github.com/hardif/KG
+    - title: 런멜로우(RunMellow)
+      team: 6조 오감
+      summary: 코코아에 빠지기 싫은 마시멜로우가 미션을 수행하고 집을 탈출하는 게임이다. 게임이 시작되면 5초동안 마시멜로우가 찾아야하는 미션 아이템이 뜨고 이를 기억하여 인벤토리에 수집해야한다. 30초 타이머가 돌아가며 제한 시간 안에 탈출하지 못하면 자동으로 탈출 실패로 인정된다.
+      links:
+        - label: GitHub
+          url: https://github.com/myeonghyeonjo/GameRunMellow
+        - label: Video
+          url: https://drive.google.com/file/d/1fVszjBBMxfTeFR8zHB2PplZpOo7ra13_/view?usp=sharing
+    - title: NFT Gallery
+      team: 7조 TAECHO
+      # video: A7gaEl6xCf4  (YouTube에서 삭제 또는 비공개되어 재생 불가 — 다시 공개되면 주석 해제)
+      summary: 프로그램을 실행하는 모든 사용자가 자신의 NFT 작품을 전시하거나, 다른 사용자의 작품을 관람할 수 있는 갤러리
+      links:
+        - label: GitHub
+          url: https://github.com/bakdaehyunn/taechonftgallery
+    - title: Tps Roguelike Game(T.R.G)
+      team: 8조 random(0,37)
+      video: XvLTwWd45Ik
+      summary: 간단한 TPS 액션 게임입니다. 적들을 처치하고 동전을 모아 상자에서 좋은 성능의 무기를 획득하세요! 적들의 공격에 맞아 체력이 0이 되면 패배하고, 패배하지 않고 보스를 무찌르면 승리합니다.
+      links:
+        - label: GitHub
+          url: https://github.com/nKomsu/opensource
