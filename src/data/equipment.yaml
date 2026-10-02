@@ -17,7 +17,7 @@
     - name: RealSense
       maker: INTEL
       image: equipment/05.jpg
-- category: eXtended Reality
+- category: Extended Reality (XR)
   items:
     - name: Meta Quest 2
       maker: META
@@ -45,106 +45,106 @@
     - name: Precision Balance (FX-2000i)
       maker: A&D
       image: equipment/13.png
-    - name: Viscometer(DV2T)
+    - name: Viscometer (DV2T)
       maker: AMETEK BROOKFIELD
       image: equipment/14.jpg
-    - name: Digital Force Gauge(HP-200)
+    - name: Digital Force Gauge (HP-200)
       maker: HANDPI
       image: equipment/15.jpg
-    - name: Accelerometer(356A33)
+    - name: Accelerometer (356A33)
       maker: PCB PIEZOTRONICS
       image: equipment/16.jpg
-    - name: Logic Analyzer(Logic 8)
+    - name: Logic Analyzer (Logic 8)
       maker: SALEAE
       image: equipment/17.png
-    - name: Digital Multimeter(Fluke 101)
+    - name: Digital Multimeter (Fluke 101)
       maker: FLUKE
       image: equipment/18.jpg
-    - name: Digital Multimeter(Fluke 17B+)
+    - name: Digital Multimeter (Fluke 17B+)
       maker: FLUKE
       image: equipment/19.jpg
-    - name: Digital Multimeter(VA18B)
+    - name: Digital Multimeter (VA18B)
       maker: V&A INSTRUMENTS
       image: equipment/20.jpg
-    - name: Digital Oscilloscope(DHO804)
+    - name: Digital Oscilloscope (DHO804)
       maker: RIGOL
       image: equipment/21.jpg
-    - name: Current Probe(TCPA300)
+    - name: Current Probe (TCPA300)
       maker: TEKTRONIX
       image: equipment/22.jpg
-    - name: DC Power Supply(DP30-05TP)
+    - name: DC Power Supply (DP30-05TP)
       maker: TOYOTECH
       image: equipment/23.jpg
-    - name: DC Power Supply(DP30-05C)
+    - name: DC Power Supply (DP30-05C)
       maker: TOYOTECH
       image: equipment/24.jpg
-    - name: Waveform Generator(AG1022)
+    - name: Waveform Generator (AG1022)
       maker: OWON
       image: equipment/25.jpg
-    - name: Waveform Generator(DG822 Pro)
+    - name: Waveform Generator (DG822 Pro)
       maker: RIGOL
       image: equipment/26.jpg
-    - name: Universal Testing Machine(ST-1000)
+    - name: Universal Testing Machine (ST-1000)
       maker: SALT
       image: equipment/27.jpg
-- category: Materials · Chemical
+- category: Materials · Chemistry
   items:
-    - name: Safety Reagent Cabinet(SZ-SF01)
+    - name: Safety Reagent Cabinet (SZ-SF01)
       maker: (주)유나
       image: equipment/28.png
-    - name: Vacuum Dry Oven + Pump(BF-24VDO 24L + BF-VP01)
+    - name: Vacuum Dry Oven + Pump (BF-24VDO 24L + BF-VP01)
       maker: BNF KOREA
       image: equipment/29.png
-    - name: Vacuum Pump(LAB300)
+    - name: Vacuum Pump (LAB300)
       maker: LAB TOUCH
       image: equipment/30.png
-    - name: Planetary Centrifugal Mixer(ARE-310)
+    - name: Planetary Centrifugal Mixer (ARE-310)
       maker: THINKY
       image: equipment/31.png
-    - name: Fume Hood(YJFH1)
+    - name: Fume Hood (YJFH1)
       maker: YONGJIN LST
       image: equipment/32.jpg
-    - name: Ultrasonic Processor(VCX-750)
+    - name: Ultrasonic Processor (VCX-750)
       maker: SONICS
       image: equipment/33.jpg
-    - name: Multi-Hotplate Stirrer(SMHS-3)
+    - name: Multi-Hotplate Stirrer (SMHS-3)
       maker: DAIHAN
       image: equipment/34.png
-    - name: Ball Mill(WBM05006)
+    - name: Ball Mill (WBM05006)
       maker: DAIHAN
       image: equipment/35.png
-    - name: Hand Operated Roller(WCHO-6080G)
+    - name: Hand-Operated Roller (WCHO-6080G)
       maker: WELLCOS CORPORATION
       image: equipment/36.png
-    - name: Three Roll Mill(EXAKT 50)
+    - name: Three Roll Mill (EXAKT 50)
       maker: EXAKT
       image: equipment/37.png
-    - name: Auto Bar Coater(CT-AF300)
+    - name: Auto Bar Coater (CT-AF300)
       maker: CORETECH
       image: equipment/38.png
-    - name: Ultrasonic Cleaner(DA-968)
+    - name: Ultrasonic Cleaner (DA-968)
       maker: DADI
       image: equipment/39.jpg
 - category: Manufacturing · Processing
   items:
-    - name: Desktop 3D Printer(X1-Carbon)
+    - name: Desktop 3D Printer (X1-Carbon)
       maker: BAMBU LAB
       image: equipment/40.png
-    - name: Solder Fume Extractor(ZS-1000)
+    - name: Solder Fume Extractor (ZS-1000)
       maker: ZAVA SUCTION
       image: equipment/41.jpg
-    - name: Trinocular Microscope(Robot Z4)
+    - name: Trinocular Microscope (Robot Z4)
       maker: MECHANIC
       image: equipment/42.jpg
-    - name: Desoldering Station(857DW)
+    - name: Desoldering Station (857DW)
       maker: QUICK
       image: equipment/43.jpg
-    - name: Soldering Station(H-936)
+    - name: Soldering Station (H-936)
       maker: HAKKO
       image: equipment/44.jpg
-    - name: Soldering Station(PS-900)
+    - name: Soldering Station (PS-900)
       maker: METCAL
       image: equipment/45.jpg
-    - name: Oil-less Compressor(JQS225)
+    - name: Oil-less Compressor (JQS225)
       maker: JITOOL
       image: equipment/46.jpg

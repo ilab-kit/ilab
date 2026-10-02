@@ -313,7 +313,7 @@
       links:
         - label: GitHub
           url: https://github.com/bakdaehyunn/taechonftgallery
-    - title: Tps Roguelike Game(T.R.G)
+    - title: TPS Roguelike Game (T.R.G)
       team: 8조 random(0,37)
       video: XvLTwWd45Ik
       summary: 간단한 TPS 액션 게임입니다. 적들을 처치하고 동전을 모아 상자에서 좋은 성능의 무기를 획득하세요! 적들의 공격에 맞아 체력이 0이 되면 패배하고, 패배하지 않고 보스를 무찌르면 승리합니다.

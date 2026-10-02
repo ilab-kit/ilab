@@ -26,16 +26,16 @@
 - group: graduate
   name: Hyeon-Jin Na
   ko: 나현진
-  title: M.S./Ph.D. Integrated Course
+  title: Integrated M.S.–Ph.D. Student
   affiliation: Department of Computer·AI Convergence Engineering
   email: na@kumoh.ac.kr
   photo: members/hyeon-jin-na.jpg
-  interests: [Embedded System, IoT, HCI, Soft Robotics]
+  interests: [Embedded Systems, IoT, HCI, Soft Robotics]
 
 - group: graduate
   name: Ye-Ji Jun
   ko: 전예지
-  title: M.S. Course
+  title: M.S. Student
   affiliation: Department of Computer·AI Convergence Engineering
   email: junyj@kumoh.ac.kr
   photo: members/ye-ji-jun.jpg
@@ -44,7 +44,7 @@
 - group: graduate
   name: Min-Jun Kim
   ko: 김민준
-  title: M.S. Course
+  title: M.S. Student
   affiliation: Department of Computer·AI Convergence Engineering
   email: joun2301@kumoh.ac.kr
   photo: members/min-jun-kim.jpg

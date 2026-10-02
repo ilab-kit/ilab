@@ -23,7 +23,7 @@
   ack: NRF25, IITP25
 - type: journal
   title: Enhanced oxygen evolution reaction by controlled assembly of Co3O4 nanorods on TiB2 nanosheets
-  authors: Mruthyunjayachari Chattanahalli Devendrachari, Ramasubba Reddy Palem, Ganesh Shimog, Yong-Hae Heo, Seok-Han Lee, Harish Makri Nimbegondi Kotresh, Sang-Youn Kim*, Dong-Soo Choi*
+  authors: Mruthyunjayachari Chattanahalli Devendrachari, Ramasubba Reddy Palem, Ganesh Shimoga, Yong-Hae Heo, Seok-Han Lee, Harish Makri Nimbegondi Kotresh, Sang-Youn Kim*, Dong-Soo Choi*
   venue: Surfaces and Interfaces, Vol. 51, 104619, 2024
   year: 2024
   impact: IF 5.7, Top 17.4%
@@ -36,8 +36,8 @@
   impact: IF 7.7, Top 6.4%
 - type: journal
   title: Advancing Energy Storage Competence through Copper Phthalocyanine Stabilized Titanium Nitride Hybrid Nanocomposites for Symmetric Supercapacitors
-  authors: Mruthyunjayachari Chattanahalli Devendrachari, Ganesh Shimoga, Seok-Han Lee, Yong Hae Heo, Harish Makri Nimbegondi Kotresh, Ramasubba Reddy Palem, SangYoun Kim*, Dong-Soo Choi*
-  venue: ACS Applied Energy Materials, Vol. 6, No.21, 11199-11211, 2023
+  authors: Mruthyunjayachari Chattanahalli Devendrachari, Ganesh Shimoga, Seok-Han Lee, Yong Hae Heo, Harish Makri Nimbegondi Kotresh, Ramasubba Reddy Palem, Sang-Youn Kim*, Dong-Soo Choi*
+  venue: ACS Applied Energy Materials, Vol. 6, No. 21, 11199-11211, 2023
   year: 2023
   impact: IF 5.4, Top 26.9%
   ack: NRF23
@@ -69,7 +69,7 @@
 - type: journal
   title: Soft Bidirectional Haptic I/O Module based on Bi-convex Patterned PVC Gel
   authors: Dong-Soo Choi, SeongWon Jeong, Seok-Han Lee, SiHo Ryu, and Sang-Youn Kim*
-  venue: Smart Materials and Structures, Vol. 30. No. 4, 2021
+  venue: Smart Materials and Structures, Vol. 30, No. 4, 2021
   year: 2021
   impact: IF 3.7, Top 22.4%
 - type: journal
@@ -93,7 +93,7 @@
 - type: journal
   title: Testing and evaluation of electro- vari-focal/chromic lens
   authors: Tae-Hoon Kim, Hyun-Jeong Kim, Dong-Soo Choi, Yoon-Chae Nah*, and Sang-Youn Kim*
-  venue: Smart Materials and Structures, Vol. 30. 2021
+  venue: Smart Materials and Structures, Vol. 30, 2021
   year: 2021
   impact: IF 3.7, Top 22.4%
 - type: journal
@@ -101,7 +101,7 @@
   authors: Pattan-Siddappa Ganesh, Sang-Youn Kim*, Dong-Soo Choi, Savas Kaya*, Goncagül Serdaroğlu, Ganesh Shimoga, Eun-Jae Shin, and Seok-Han Lee
   venue: Journal of Analytical Science and Technology, Vol. 12, 2021
   year: 2021
-  impact: 'IF 2.5, Top: 54.7%'
+  impact: IF 2.5, Top 54.7%
 - type: journal
   title: Flexible Vibrotactile Actuator based on Dielectric Elastomer for Smart Handheld Devices
   authors: Yong Hae Heo, Dong-Soo Choi†, Do Eun Kim, and Sang-Youn Kim
@@ -175,13 +175,13 @@
 - type: journal-domestic
   title: 햅틱 컨트롤러를 활용한 혼합 현실 공포게임 개발
   authors: 손정훈, 박주연, 남은솔, 전예지, 최동수
-  venue: 한국정보기술학회지, Vol. 24, No.2, pp. 65-74, 2026
+  venue: 한국정보기술학회지, Vol. 24, No. 2, pp. 65-74, 2026
   year: 2026
   ack: 교내, RISE
 - type: journal-domestic
   title: 딥러닝과 깊이카메라를 활용한 안정성이 강화된 전동 킥보드
   authors: 전예지, 나현진, 이홍록, 최동수
-  venue: 한국정보기술학회지, Vol. 23, No.1, pp. 81-90, 2025
+  venue: 한국정보기술학회지, Vol. 23, No. 1, pp. 81-90, 2025
   year: 2025
 - type: journal-domestic
   title: Development of a haptic communication system for fashion image experience in a virtual environment
@@ -196,7 +196,7 @@
 - type: journal-domestic
   title: A Study on Efficiency of the Experience Oriented Self-directed Learning in the VR Vocational Training Contents
   authors: Jung-Min Shin, Dong-Soo Choi, Sang-Youn Kim, Kyoungbog Jin
-  venue: Journal of Knowledge Information Technology and Systems(KKITS), Vol. 14, No.1, pp 71-80, 2019
+  venue: Journal of Knowledge Information Technology and Systems (JKITS), Vol. 14, No. 1, pp. 71-80, 2019
   year: 2019
 - type: journal-domestic
   title: A Multi-modal Interaction Glove for Immersive Education
@@ -216,7 +216,7 @@
 - type: journal-domestic
   title: 현실감 있는 타일드 디스플레이를 위한 자연스러운 인터랙션에 대한 연구
   authors: 임성민, 최동수, 김상연, 이재협
-  venue: Journal of Knowledge Information Technology and System, Vol. 9, No. 4, pp. 435-442, 2014
+  venue: Journal of Knowledge Information Technology and Systems, Vol. 9, No. 4, pp. 435-442, 2014
   year: 2014
 - type: conference
   title: A Comparative Analysis of HRV Accuracy in ECG and PPG Sensors
@@ -267,7 +267,7 @@
   venue: The 4th International Conference on Active Materials and Soft Mechatronics (AMSM 2019)
   year: 2019
   notes:
-    - Presenter-Oral
+    - Oral presentation
 - type: conference
   title: Transparent and Soft Vibrotactile Actuator based on Silicone Rubber
   authors: Seok-Han Lee, Dong-Soo Choi, YeongSeok Do, and Sang-Youn Kim
@@ -284,54 +284,53 @@
   venue: International Conference on Big data, IoT, and Cloud computing 2019
   year: 2019
   notes:
-    - Presenter-Oral
+    - Oral presentation
 - type: conference
   title: Self-deformable varifocal lens based on electroactive gel
   authors: Dong-Soo Choi, Ganesh Shimoga, Eun-Jae Shin, and Sang-Youn Kim
   venue: SPIE Nano-, Bio-, Info-Tech Sensors and 3D Systems 2019
   year: 2019
   notes:
-    - Presenter-Oral
+    - Oral presentation
 - type: conference
   title: Design of Haptic Pen for Interaction with Virtual Environment in Mobile Devices
   authors: Sang-Youn Kim, Inho Yun, Dong-Soo Choi, Sangkyu Byeon, and Byeong-Seok Shin
   venue: World IT Congress 2019
   year: 2019
   notes:
-    - Presenter-Oral
+    - Oral presentation
 - type: conference
   title: Affordable Drilling Interface for Haptic Interaction in Virtual Environment
   authors: Dong-Soo Choi, SiHo Ryu, YeongSeok Do, Ki-Uk Kyung, Kyeongbok Jin, and Sang-Youn Kim
   venue: IEEE International Conference on Consumer Electronics (ICCE) 2019
   year: 2019
   notes:
-    - Presenter-Oral
+    - Oral presentation
 - type: conference
-  title: Conceptual Design of Soft and Transprent Vibrotactile Actuator
+  title: Conceptual Design of Soft and Transparent Vibrotactile Actuator
   authors: Dong-Soo Choi and Sang-Youn Kim
   venue: Asia Haptics 2018
   year: 2018
   notes:
-    - Presenter-Demo
+    - Demo presentation
 - type: conference
   title: Conceptual Design of Soft Thin Self-sensing Vibrotactile Actuator
   authors: SiHo Ryu, Dong-Soo Choi, and Sang-Youn Kim
   venue: Asia Haptics 2018
   year: 2018
   notes:
-    - Best demo nominated
+    - Best Demo Award nominee
 - type: conference
   title: New Haptic Rendering for Pin-Array Devices
   authors: Sang-Youn Kim, Yu-Joon Kim, Dong-Soo Choi, and Byeong-Seok Shin
-  venue: The 2018 International Conference on Future Information Technology, applications and services
+  venue: The 2018 International Conference on Future Information Technology, Applications, and Services (IFIT 2018)
   year: 2018
   notes:
-    - IFIT 2018
-    - Presenter-Oral
+    - Oral presentation
 - type: conference
   title: Soft Thin Integrated Pressure Sensor and Vibrotactile Actuator
   authors: SiHo Ryu, Dong-Soo Choi, and Sang-Youn Kim
-  venue: The 3rd International Workshop on Active Materials and Soft Mechatronics (AMSM 2018), pp. ,2018
+  venue: The 3rd International Workshop on Active Materials and Soft Mechatronics (AMSM 2018), 2018
   year: 2018
 - type: conference
   title: Application of Thin Film Focus Tunable Lens
@@ -339,7 +338,7 @@
   venue: 2018 18th International Conference on Control, Automation and Systems (ICCAS 2018), pp. 1388-1390, 2018
   year: 2018
   notes:
-    - Presenter-Oral
+    - Oral presentation
 - type: conference
   title: Evaluation of Variable Focus DCX Lens Module for Consumer Electronics
   authors: Dong-Soo Choi, Jaeu Jeong, and Sang-Youn Kim
@@ -356,21 +355,21 @@
   venue: 'LNEE, Vol. 214, pp. 905-914, 2013 (Ubiquitous Information Technologies and Applications: CUTE 2012)'
   year: 2012
   notes:
-    - Presenter-Oral
+    - Oral presentation
 - type: conference
   title: A Dragonfly with Traveling Vibrotactile Wave
-  authors: Won-Hyeong Park, Yu-Joon. Kim, Dong-Soo Choi, Sang-Youn Kim
-  venue: IEEE World Haptics Conference 2013, 201
+  authors: Won-Hyeong Park, Yu-Joon Kim, Dong-Soo Choi, Sang-Youn Kim
+  venue: IEEE World Haptics Conference 2013
   year: 2013
   notes:
-    - Best demo award
+    - Best Demo Award
 - type: conference
   title: A Cowboy Game with Motion-Haptic Feedback
   authors: Sang-Youn Kim, Dong-Soo Choi, Won-Hyung Park
   venue: 'Communications in Computer and Information Science, Vol. 351, pp. 1-7, 2012 (Computer Applications for Graphics, Grid Computing, and Industrial Environment : CGAG 2012)'
   year: 2012
   notes:
-    - Presenter-Oral
+    - Oral presentation
 - type: conference-domestic
   title: 6축 힘/토크 센서의 학습 데이터셋 구축을 위한 데이터 수집 환경 설계
   authors: 박주연, 전예지, 최동수
