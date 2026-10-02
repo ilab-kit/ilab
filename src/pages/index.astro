@@ -33,7 +33,9 @@ const stats = [
         <a class="btn ghost" href="#join">Join the lab</a>
       </div>
       <div class="hint" aria-hidden="true">
-        <span class="hint-dot"></span> Move your cursor or tap — the surface responds.
+        <span class="hint-dot"></span>
+        <span class="hint-mouse">Move your cursor or click — the surface responds.</span>
+        <span class="hint-touch">Touch or swipe — the surface responds.</span>
       </div>
     </div>
   </section>
@@ -202,6 +204,13 @@ const stats = [
     display: flex;
     align-items: center;
     gap: 10px;
+  }
+  .hint-touch {
+    display: none;
+  }
+  @media (hover: none) {
+    .hint-mouse { display: none; }
+    .hint-touch { display: inline; }
   }
   .hint-dot {
     width: 8px;

@@ -91,7 +91,8 @@
       }
       pointer.px = pointer.x; pointer.py = pointer.y;
       idleTimer += dt;
-      if (idleTimer > 1800) {
+      // Idle taps are autoplaying motion, so skip them when the user prefers reduced motion
+      if (!reduce && idleTimer > 1800) {
         idleTimer = 0;
         poke(Math.random() * W, Math.random() * H, 2.2, 2);
       }
@@ -102,22 +103,42 @@
     requestAnimationFrame(frame);
   }
 
-  const toLocal = (e: PointerEvent) => {
+  const toLocal = (x: number, y: number) => {
     const r = canvas.getBoundingClientRect();
-    return { x: e.clientX - r.left, y: e.clientY - r.top };
+    return { x: x - r.left, y: y - r.top };
   };
-  const host = canvas.parentElement!;
-  host.addEventListener("pointermove", (e) => {
-    const p = toLocal(e);
+  const moveTo = (x: number, y: number) => {
+    const p = toLocal(x, y);
     if (!pointer.active) { pointer.px = p.x; pointer.py = p.y; }
     pointer.x = p.x; pointer.y = p.y; pointer.active = true; idleTimer = 0;
-  });
-  host.addEventListener("pointerleave", () => { pointer.active = false; pointer.px = -1; });
+  };
+  const release = () => { pointer.active = false; pointer.px = -1; };
+  const tap = (x: number, y: number) => { const p = toLocal(x, y); poke(p.x, p.y, 6, 3); idleTimer = 0; };
+  const onControl = (t: EventTarget | null) => !!(t as HTMLElement)?.closest?.("a,button");
+  const host = canvas.parentElement!;
+
+  // Mouse / pen
+  host.addEventListener("pointermove", (e) => { if (e.pointerType !== "touch") moveTo(e.clientX, e.clientY); });
+  host.addEventListener("pointerleave", (e) => { if (e.pointerType !== "touch") release(); });
   host.addEventListener("pointerdown", (e) => {
-    if ((e.target as HTMLElement).closest("a,button")) return;
-    const p = toLocal(e);
-    poke(p.x, p.y, 6, 3);
+    if (e.pointerType !== "touch" && !onControl(e.target)) tap(e.clientX, e.clientY);
   });
+
+  // Touch: passive touch events keep firing while the page scrolls (pointer events get cancelled),
+  // so the ripple follows the finger even during a vertical swipe.
+  host.addEventListener("touchstart", (e) => {
+    const t = e.touches[0];
+    if (!t || onControl(e.target)) return;
+    tap(t.clientX, t.clientY);
+    pointer.active = false;
+    moveTo(t.clientX, t.clientY);
+  }, { passive: true });
+  host.addEventListener("touchmove", (e) => {
+    const t = e.touches[0];
+    if (t) moveTo(t.clientX, t.clientY);
+  }, { passive: true });
+  host.addEventListener("touchend", release, { passive: true });
+  host.addEventListener("touchcancel", release, { passive: true });
 
   new ResizeObserver(resize).observe(canvas);
   new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(canvas);
@@ -126,13 +147,9 @@
 
   readColors();
   resize();
-  if (reduce) {
-    draw();
-  } else {
-    // Opening ripple from the centre
-    setTimeout(() => poke(W * 0.72, H * 0.45, 7, 3), 300);
-    requestAnimationFrame(frame);
-  }
+  // With reduced motion the surface stays still until the visitor touches it.
+  if (!reduce) setTimeout(() => poke(W * 0.72, H * 0.45, 7, 3), 300); // opening ripple
+  requestAnimationFrame(frame);
 </script>
 
 <style>

@@ -67,6 +67,10 @@ img {
   max-width: 100%;
   display: block;
 }
+/* Component styles set display (grid/flex), which would otherwise override the hidden attribute used by filters */
+[hidden] {
+  display: none !important;
+}
 a {
   color: inherit;
   text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
