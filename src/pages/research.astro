@@ -7,7 +7,7 @@ const members = load("members");
 const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
 ---
 
-<Base title="Research" description="Haptic interfaces, varifocal lenses, haptic rendering & XR, and soft robotics.">
+<Base title="Research" description="Haptic interfaces, varifocal lenses, haptic rendering & XR, soft robotics and physical AI.">
   <div class="container">
     <header class="page-head">
       <div class="eyebrow">Research</div>
@@ -25,6 +25,7 @@ const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
       <div class="areas">
         {research.map((a, i) => (
           <section id={a.id} class="area" data-area>
+            {a.aliases?.map((al) => <span id={al} class="alias-anchor" aria-hidden="true" />)}
             <div class="area-head reveal">
               <div class="num">0{i + 1}</div>
               <h2>{a.title}</h2>
@@ -33,8 +34,8 @@ const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
             </div>
 
             {a.works.map((w) => (
-              <article class="work reveal">
-                {w.images.length > 0 && (
+              <article class:list={["work reveal", { "no-media": !w.images?.length }]}>
+                {w.images?.length > 0 && (
                   <div class="gallery" data-gallery>
                     <div class="track">
                       {w.images.map((src) => (
@@ -54,14 +55,22 @@ const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
                   <div class="meta">
                     <span class="chip accent">{w.year}</span>
                     <span class="venue">{w.venue}</span>
+                    {w.status && <span class="chip status">{w.status}</span>}
                   </div>
                   <h3>{w.title}</h3>
                   {w.authors && <p class="authors" set:html={highlightAuthors(w.authors, names)} />}
+                  {w.summary && <p class="work-summary">{w.summary}</p>}
                   {w.abstract && (
                     <details>
                       <summary>Abstract</summary>
                       <p>{w.abstract}</p>
                     </details>
+                  )}
+                  {w.related?.length > 0 && (
+                    <div class="related">
+                      <div class="related-label">Related public outputs</div>
+                      <ul>{w.related.map((r) => <li>{r}</li>)}</ul>
+                    </div>
                   )}
                   {w.videos && (
                     <div class="videos">
@@ -175,6 +184,10 @@ const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
     }
     .toc a { white-space: nowrap; border-left: 0; }
   }
+  .alias-anchor {
+    display: block;
+    scroll-margin-top: 96px;
+  }
   .area {
     scroll-margin-top: 96px;
     padding-bottom: 72px;
@@ -209,6 +222,12 @@ const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
   }
   @media (max-width: 760px) {
     .work { grid-template-columns: 1fr; gap: 16px; }
+  }
+  .work.no-media {
+    grid-template-columns: 1fr;
+  }
+  .work.no-media .work-body {
+    max-width: 760px;
   }
   .gallery {
     position: relative;
@@ -266,6 +285,37 @@ const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
     font-size: 14px;
     color: var(--muted);
     font-style: italic;
+  }
+  .status {
+    background: transparent;
+    border: 1px dashed var(--line);
+  }
+  .work-summary {
+    font-size: 15px;
+    color: var(--muted);
+    margin: 4px 0 12px;
+  }
+  .related {
+    border-top: 1px dashed var(--line);
+    padding-top: 10px;
+    margin-bottom: 12px;
+  }
+  .related-label {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  .related ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  .related li {
+    margin-bottom: 3px;
   }
   .work h3 {
     font-size: 20px;

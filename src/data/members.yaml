@@ -33,15 +33,6 @@
   interests: [Embedded Systems, IoT, HCI, Soft Robotics]
 
 - group: graduate
-  name: Ye-Ji Jun
-  ko: 전예지
-  title: M.S. Student
-  affiliation: Department of Computer·AI Convergence Engineering
-  email: junyj@kumoh.ac.kr
-  photo: members/ye-ji-jun.jpg
-  interests: [Haptics]
-
-- group: graduate
   name: Min-Jun Kim
   ko: 김민준
   title: M.S. Student
@@ -75,4 +66,5 @@
 - { group: alumni, name: Gyeongmi Kim, ko: 김경미 }
 - { group: alumni, name: Hyeonseo Kim, ko: 김현서 }
 - { group: alumni, name: Hongrok Lee, ko: 이홍록 }
+- { group: alumni, name: Ye-Ji Jun, ko: 전예지, title: M.E. }
 - { group: alumni, name: Duck-Kyu Seo, ko: 서덕규, title: M.E. }

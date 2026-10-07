@@ -64,7 +64,7 @@ const stats = [
     </div>
     <div class="areas">
       {research.map((a, i) => {
-        const cover = a.works.flatMap((w) => w.images)[a.id === "haptic-interface" ? 2 : 0];
+        const cover = a.cover || a.works.flatMap((w) => w.images || [])[0];
         return (
           <a class="area reveal" href={url(`/research#${a.id}`)} style={`transition-delay:${i * 80}ms`}>
             <div class="area-img">{cover && <img src={img(cover)} alt="" loading="lazy" />}</div>
@@ -291,8 +291,30 @@ const stats = [
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
+  /* An odd last card spans the full row, image beside text */
+  .area:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    flex-direction: row;
+  }
+  .area:last-child:nth-child(odd) .area-img {
+    flex: 0 0 50%;
+    aspect-ratio: auto;
+    min-height: 260px;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+  }
+  .area:last-child:nth-child(odd) .area-body {
+    align-self: center;
+  }
   @media (max-width: 760px) {
     .areas { grid-template-columns: 1fr; }
+    .area:last-child:nth-child(odd) { flex-direction: column; }
+    .area:last-child:nth-child(odd) .area-img {
+      aspect-ratio: 16 / 9;
+      min-height: 0;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
   }
   .area {
     display: flex;
