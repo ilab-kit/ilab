@@ -16,14 +16,14 @@ intro:
   en: >-
     We engineer the sense of touch so that robots can handle real objects and people can feel
     virtual ones. Our work spans four directions: Physical AI, where tactile sensing and learning
-    models move robots toward touch-aware manipulation; soft, stretchable haptic interfaces built
-    from smart materials; haptic rendering that turns virtual textures into touch for immersive XR
-    (VR/AR/MR); and soft robotics, from shape-adaptive gripper skins to varifocal lenses.
+    models move robots toward touch-aware manipulation; soft robotics, from shape-adaptive gripper
+    skins to varifocal lenses; stretchable haptic interfaces built from smart materials; and haptic
+    rendering that turns virtual textures into touch for immersive XR (VR/AR/MR).
   ko: >-
     촉각은 로봇이 물리 세계를 다루는 데에도, 사람이 가상 세계를 실감하는 데에도 핵심이 되는 감각입니다.
     피지컬 AI 분야에서는 촉각 센싱과 학습 모델을 결합해, 접촉 정보를 활용하는 로봇 조작을 목표로 연구하고 있습니다.
-    또한 스마트 소재로 신축성 햅틱 센서·액추에이터를 만들고, 가상의 질감을 손끝에 전하는 햅틱 렌더링을
-    몰입형 XR(VR/AR/MR)에 적용하며, 형상 적응형 그리퍼 스킨과 가변 초점 렌즈 등 소프트 로보틱스 연구도 함께 진행합니다.
+    또한 형상 적응형 그리퍼 스킨과 가변 초점 렌즈 등 소프트 로보틱스를 연구하고, 스마트 소재로 신축성 햅틱
+    센서·액추에이터를 만들며, 가상의 질감을 손끝에 전하는 햅틱 렌더링을 몰입형 XR(VR/AR/MR)에 적용합니다.
 
 recruit:
   en: >-
