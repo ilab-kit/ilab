@@ -10,6 +10,8 @@ const patents = load("patents");
 const projects = load("projects");
 const members = load("members");
 const news = load("news").slice(0, 5);
+// site.headline marks the accented word with <...>; split into [plain, accent, plain, ...]
+const headline = (site.headline || "We design how people <touch>, feel and interact with the digital world.").split(/<([^>]+)>/);
 
 const stats = [
   { n: pubs.filter((p) => p.type === "journal").length, label: "SCIE journal papers" },
@@ -25,9 +27,9 @@ const stats = [
     <div class="container hero-inner">
       <div class="eyebrow">{site.fullName} · {site.university}</div>
       <h1>
-        We design how people <em>touch</em>, feel and interact with the digital world.
+        {headline.map((part, i) => (i % 2 ? <em>{part}</em> : part))}
       </h1>
-      <p class="hero-ko">{site.ko} — {site.intro.ko.split(".")[0]}.</p>
+      <p class="hero-ko">{site.ko} — {site.heroKo || `${site.intro.ko.split(".")[0]}.`}</p>
       <div class="hero-cta">
         <a class="btn" href={url("/research")}>Explore research</a>
         <a class="btn ghost" href="#join">Join the lab</a>
@@ -174,6 +176,7 @@ const stats = [
     letter-spacing: -0.045em;
     line-height: 1.02;
     max-width: 13ch;
+    text-wrap: balance;
     margin-bottom: 24px;
     text-shadow: 0 0 24px var(--bg), 0 0 8px var(--bg);
   }

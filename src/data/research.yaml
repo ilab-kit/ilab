@@ -3,6 +3,32 @@
 #   works (newest first): title, venue, year, authors, plus optional status (chip), summary (shown openly),
 #   abstract (collapsible), images (public/images/...), videos (embed URLs), related (list of public outputs)
 
+- id: physical-ai
+  title: Physical AI
+  ko: 피지컬 AI
+  summary: Robots that sense and act through physical contact — tactile skins and soft force/torque sensors interpreted by learning models, and vision-language-action policies moving toward touch-aware manipulation.
+  works:
+    - title: Evaluation of VLA-Based Robot Manipulation Performance According to the Thickness of a Flexible Gripper Contact Layer
+      venue: Journal of Korean Institute of Information Technology
+      year: 2026
+      status: To appear · short paper
+      authors: Kang-Seok Lee, Min-Jun Kim, Young Joon Song, and Dong-Soo Choi
+      abstract: This study evaluates how the thickness of a flexible gripper contact layer affects a fine-tuned Vision-Language-Action (VLA) policy. Octo-Small is selected under a resource-constrained GPU environment and fine-tuned using 50 demonstrations. Pick-and-place experiments are conducted 20 times for each thickness of 0, 1, 2, and 3 mm. The success rates are 75.0%, 70.0%, 80.0%, and 40.0%, respectively, with more grasp attempts observed at 3 mm. These results indicate that excessive contact-layer thickness may degrade VLA-based manipulation performance by altering the gripper’s appearance and contact conditions.
+      images:
+        - research/physical-ai-01.jpg
+        - research/physical-ai-02.jpg
+    - title: Development of Soft Multi-Axis Force/Torque Sensing Cell and Learning-Based Load Inference Model
+      venue: M.S. Thesis, Kumoh National Institute of Technology
+      year: 2026
+      status: Journal paper in preparation
+      authors: Ye-Ji Jun, Dong-Soo Choi (advisor)
+      summary: Conventional multi-axis force/torque sensors are rigid and bulky, making them difficult to integrate into robot fingertips, end-effectors, and tactile skins. This thesis develops a soft multi-axis force/torque sensing cell together with a learning-based model that estimates the applied force and torque from the cell’s raw signals, accounting for the nonlinear, cross-coupled response typical of soft sensors.
+    - title: Development of Multimodal Robot Skin and Learning-based Classification Model for Identifying Shape and Material of Target Object
+      venue: M.S. Thesis, Kumoh National Institute of Technology
+      year: 2023
+      status: Journal paper in preparation
+      authors: Duck-Kyu Seo, Dong-Soo Choi (advisor)
+      summary: Robots usually recognize objects by sight, but touch can reveal properties that cameras miss. This thesis develops a multimodal robot skin for grippers, together with a learning-based classification model that identifies the shape and material of a grasped object from the skin’s signals.
 - id: haptic-interface
   title: Haptic Interface
   ko: 햅틱 인터페이스
@@ -139,29 +165,3 @@
         - https://drive.google.com/file/d/1DKaxgqu-tYyfjL0UQhh3ywZjC6xDqXMa/preview
       authors: Jin Woo Bae, Eun-Jae Shin, Jaeu Jeong, Dong-Soo Choi, Jong Eun Lee, Byeong Uk Nam, Liwei Lin, and Sang-Youn Kim
       abstract: This paper presents a bio-inspired adaptive micro-lens with electrically tunable focus made of non- ionic high-molecular-weight polyvinyl chloride (PVC) gel. The optical device mimics the design of the crystalline lens and ciliary muscle of the human eye. It consists of a plano-convex PVC gel micro-lens on Indium Tin Oxide (ITO) glass, confined with an annular electrode operating as an artificial ciliary muscle. Upon electrical activation, the electroactive adhesive force of the PVC gel is exerted on the annular anode electrode, which reduces the sagittal height of the plano-convex PVC gel lens, resulting in focal length variation of the micro-lens. The focal length increases from 3.8 mm to 22.3 mm as the applied field is varied from 200 V/mm to 800 V/mm, comparable to that of the human lens. The device combines excellent optical characteristics with structural simplicity, fast response speed, silent operation, and low power consumption. The results show the PVC gel micro-lens is expected to open up new perspectives on practical tunable optics.
-- id: physical-ai
-  title: Physical AI
-  ko: 피지컬 AI
-  summary: Robots that sense and act through physical contact — tactile skins and soft force/torque sensors interpreted by learning models, and vision-language-action policies moving toward touch-aware manipulation.
-  works:
-    - title: Evaluation of VLA-Based Robot Manipulation Performance According to the Thickness of a Flexible Gripper Contact Layer
-      venue: Journal of Korean Institute of Information Technology
-      year: 2026
-      status: To appear · short paper
-      authors: Kang-Seok Lee, Min-Jun Kim, Young Joon Song, and Dong-Soo Choi
-      abstract: This study evaluates how the thickness of a flexible gripper contact layer affects a fine-tuned Vision-Language-Action (VLA) policy. Octo-Small is selected under a resource-constrained GPU environment and fine-tuned using 50 demonstrations. Pick-and-place experiments are conducted 20 times for each thickness of 0, 1, 2, and 3 mm. The success rates are 75.0%, 70.0%, 80.0%, and 40.0%, respectively, with more grasp attempts observed at 3 mm. These results indicate that excessive contact-layer thickness may degrade VLA-based manipulation performance by altering the gripper’s appearance and contact conditions.
-      images:
-        - research/physical-ai-01.jpg
-        - research/physical-ai-02.jpg
-    - title: Development of Soft Multi-Axis Force/Torque Sensing Cell and Learning-Based Load Inference Model
-      venue: M.S. Thesis, Kumoh National Institute of Technology
-      year: 2026
-      status: Journal paper in preparation
-      authors: Ye-Ji Jun, Dong-Soo Choi (advisor)
-      summary: Conventional multi-axis force/torque sensors are rigid and bulky, making them difficult to integrate into robot fingertips, end-effectors, and tactile skins. This thesis develops a soft multi-axis force/torque sensing cell together with a learning-based model that estimates the applied force and torque from the cell’s raw signals, accounting for the nonlinear, cross-coupled response typical of soft sensors.
-    - title: Development of Multimodal Robot Skin and Learning-based Classification Model for Identifying Shape and Material of Target Object
-      venue: M.S. Thesis, Kumoh National Institute of Technology
-      year: 2023
-      status: Journal paper in preparation
-      authors: Duck-Kyu Seo, Dong-Soo Choi (advisor)
-      summary: Robots usually recognize objects by sight, but touch can reveal properties that cameras miss. This thesis develops a multimodal robot skin for grippers, together with a learning-based classification model that identifies the shape and material of a grasped object from the skin’s signals.
