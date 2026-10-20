@@ -2,6 +2,52 @@
 # term: YYYY-semester (1 = Spring, 2 = Fall). id is used in the page URL (/lectures/<id>).
 # Each project: title, team, summary, video (YouTube video ID) or drive (Google Drive file ID), images (public/images/...), links (label + url).
 
+- id: 2026-1-arvr
+  term: 2026-1
+  name: AR·VR프로그래밍
+  en: AR·VR Programming
+  projects:
+    - title: 실내 AR 내비게이션
+      team: 1조
+      images:
+        - lectures/2026-1-arvr-01.jpg
+      video: DDZA0JtSlQI
+      summary: GPS 신호가 약한 실내에서 카메라 영상의 특징 벡터를 미리 만든 위치 데이터베이스와 비교해 현재 위치를 추정한다. 이어 A* 알고리즘으로 목적지까지의 경로를 계산하고, 휴대폰 화면에 AR 화살표와 경로 라인을 띄워 길을 안내한다. 이 내비게이션은 VR 공포 게임 속 휴대폰에 넣어 검증하였다.
+      links:
+        - label: GitHub
+          url: https://github.com/sokjin3636/Quetzalcoatlus
+    - title: 혼합현실(MR) 1:1 멀티 결투 게임
+      team: 2조 VR-철권
+      images:
+        - lectures/2026-1-arvr-02.jpg
+      video: TgmsuLDbtoA
+      summary: Meta Quest 패스스루로 사용자의 실제 공간에 테이블탑 형태의 가상 배틀 필드를 띄워 1:1로 대전하는 MR 멀티 격투 게임이다. 왼손 컨트롤러로 캐릭터를 이동·점프시키고, 오른손 핸드 트래킹 제스처로 애니메이션 캐릭터의 고유 스킬을 사용한다.
+      links:
+        - label: GitHub
+          url: https://github.com/sad-meerkat/MR_Test_Last
+    - title: 마법소녀 대격돌
+      team: 3조
+      video: kTmpeKAxvcs
+      summary: 마법소녀가 되어 손동작과 육성 주문으로 마법을 부려 적을 처치하는 VR 게임이다. 핸드 트래킹으로 세 가지 손 제스처를 인식하고, 음성인식으로 주문의 정확도와 목소리 크기를 측정해 데미지에 반영한다.
+      links:
+        - label: GitHub
+          url: https://github.com/dnffk/ARVR_magic_girl
+    - title: Hands-On Lab AR
+      team: 4조 Hologram
+      drive: 1kVyNNgeiWNOEVq4qMoOCf4q_xTFmpqgr
+      images:
+        - lectures/2026-1-arvr-03.jpg
+      summary: Meta Quest 3 패스스루 환경에서 실제 책상을 실험대로 삼아 진행하는 혼합현실 화학 실험 교육 콘텐츠이다. 손 추적으로 용액병을 기울이고 용질을 넣으며 산·염기 중화 실험과 용해 비교 실험을 직접 해볼 수 있다. 단계별 안내를 따르는 연습모드와 미션을 수행하는 실전모드로 구성되어 있다.
+      links:
+        - label: GitHub
+          url: https://github.com/dokhi777/HandsOnLab-XR
+    - title: VR ArcaneBattle
+      team: 5조 VR마법대결
+      video: 7TcjzMbplCs
+      summary: Meta Quest의 손 추적을 활용한 VR 마법 전투 게임이다. 손 모양으로 화염·얼음·전기 속성을 선언해 마법을 발사하고, 양손으로 두 속성을 조합한 마법으로 보스의 배리어·돌진 같은 특수 상태에 대응한다.
+      links:
+        - label: GitHub
+          url: https://github.com/jsh42672/VR_ArcaneBattle
 - id: 2025-2-opensource
   term: 2025-2
   name: 오픈소스프로젝트 (VR/AR)
