@@ -1,5 +1,6 @@
 ---
-// ACK CODE block for one project: code, grant number and the outputs that acknowledge it (per year code).
+// ACK CODE block for one project: code, grant/NTIS numbers, output totals, and a per-year mini bar chart
+// of the outputs (papers + patents + software) that acknowledge the project.
 // The acknowledgement text in projects.yaml is kept for reference but not shown on the site.
 import { load, url } from "../lib/data.js";
 import { projectCodes, countCodes } from "../lib/ack.js";
@@ -12,41 +13,65 @@ const codes = projectCodes(p);
 const pubCount = countCodes(load("publications"));
 const patCount = countCodes(load("patents"));
 const swCount = countCodes(load("software"));
-const pubs = codes.filter((c) => pubCount[c]).map((c) => ({ code: c, n: pubCount[c] }));
-const pats = codes.filter((c) => patCount[c]).map((c) => ({ code: c, n: patCount[c] }));
-const sws = codes.filter((c) => swCount[c]).map((c) => ({ code: c, n: swCount[c] }));
 const link = (page: string, list: string[]) => url(`/${page}?ack=${list.join(",")}`);
-const total = (list: { n: number }[]) => list.reduce((a, x) => a + x.n, 0);
+const sum = (m: Record<string, number>) => codes.reduce((a, c) => a + (m[c] || 0), 0);
+const withAny = (m: Record<string, number>) => codes.filter((c) => m[c]);
+
+const totals = [
+  { label: "Papers", n: sum(pubCount), href: link("publications", withAny(pubCount)) },
+  { label: "Patents", n: sum(patCount), href: link("patents", withAny(patCount)) },
+  { label: "Software", n: sum(swCount), href: link("patents", withAny(swCount)) },
+];
+
+// One column per project year; a year links to its papers, or to patents/software if it has no papers
+const thisYY = new Date().getFullYear() % 100;
+const years = codes.map((c) => {
+  const pubs = pubCount[c] || 0;
+  const n = pubs + (patCount[c] || 0) + (swCount[c] || 0);
+  const yy = Number(c.slice(-2));
+  return { code: c, yy: c.slice(-2), n, future: yy > thisYY, href: n ? link(pubs ? "publications" : "patents", [c]) : null };
+});
+const max = Math.max(1, ...years.map((y) => y.n));
 ---
 
 <div class="ack">
   <div class="ack-head">
-    <span class="ack-label">ACK CODE</span>
-    <code class="ack-code">{p.ack}</code>
-    {p.grant && <span class="grant">{p.grant}</span>}
-    {p.ntis && <span class="grant">NTIS {p.ntis}</span>}
+    <span class="ack-code" title="ACK CODE">ACK {p.ack}</span>
+    {p.grant && <span class="ack-id">{p.grant}</span>}
+    {p.ntis && <span class="ack-id">NTIS {p.ntis}</span>}
   </div>
 
-  {pubs.length > 0 && (
-    <div class="ack-row">
-      <a class="ack-kind" href={link("publications", pubs.map((x) => x.code))}>Papers {total(pubs)}</a>
-      {pubs.map((x) => <a class="ack-chip" href={link("publications", [x.code])}>{x.code}<span>{x.n}</span></a>)}
+  <div class="ack-body">
+    <div class="totals">
+      {totals.map((t) =>
+        t.n ? (
+          <a class="total" href={t.href}><b>{t.n}</b><span>{t.label}</span></a>
+        ) : (
+          <span class="total zero"><b>0</b><span>{t.label}</span></span>
+        )
+      )}
     </div>
-  )}
-  {pats.length > 0 && (
-    <div class="ack-row">
-      <a class="ack-kind" href={link("patents", pats.map((x) => x.code))}>Patents {total(pats)}</a>
-      {pats.map((x) => <a class="ack-chip" href={link("patents", [x.code])}>{x.code}<span>{x.n}</span></a>)}
-    </div>
-  )}
-  {sws.length > 0 && (
-    <div class="ack-row">
-      <a class="ack-kind" href={link("patents", sws.map((x) => x.code))}>Software {total(sws)}</a>
-      {sws.map((x) => <a class="ack-chip" href={link("patents", [x.code])}>{x.code}<span>{x.n}</span></a>)}
-    </div>
-  )}
-  {pubs.length === 0 && pats.length === 0 && sws.length === 0 && <div class="ack-none">No outputs tagged yet</div>}
 
+    {years.length > 1 && (
+      <div class="spark" aria-label="Outputs per year">
+        {years.map((y) => {
+          const h = y.n ? 6 + (y.n / max) * 26 : 2;
+          const inner = (
+            <>
+              <span class="n">{y.n || ""}</span>
+              <span class="bar" style={`height:${h}px`} />
+              <span class="yy">’{y.yy}</span>
+            </>
+          );
+          return y.href ? (
+            <a class="col" href={y.href} title={`${y.code}: ${y.n}`}>{inner}</a>
+          ) : (
+            <span class:list={["col", "nil", { future: y.future }]} title={`${y.code}: 0`}>{inner}</span>
+          );
+        })}
+      </div>
+    )}
+  </div>
 </div>
 
 <style>
@@ -54,72 +79,104 @@ const total = (list: { n: number }[]) => list.reduce((a, x) => a + x.n, 0);
     margin-top: 14px;
     padding-top: 12px;
     border-top: 1px dashed var(--line);
-    font-size: 13px;
   }
   .ack-head {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
-  .ack-label {
+    gap: 4px 10px;
+    margin-bottom: 10px;
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
+    font-size: 11.5px;
     color: var(--muted);
   }
   .ack-code {
-    font-family: var(--mono);
-    font-size: 12.5px;
     padding: 2px 8px;
     border-radius: 6px;
     background: var(--accent-soft);
     color: var(--accent);
-  }
-  .grant {
-    font-family: var(--mono);
     font-size: 12px;
-    color: var(--muted);
   }
-  .ack-row {
+  .ack-body {
     display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 6px;
   }
-  .ack-kind {
-    font-size: 12.5px;
-    font-weight: 600;
-    color: var(--ink);
-    text-decoration: none;
-    margin-right: 2px;
+  .totals {
+    display: flex;
+    gap: 18px;
   }
-  .ack-kind:hover {
-    color: var(--accent);
-  }
-  .ack-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 2px 9px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    font-family: var(--mono);
-    font-size: 12px;
+  .total {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
     text-decoration: none;
     color: var(--ink);
   }
-  .ack-chip span {
-    color: var(--accent);
+  .total b {
+    font-size: 20px;
     font-weight: 600;
+    letter-spacing: -0.02em;
   }
-  .ack-chip:hover {
-    border-color: var(--accent);
-  }
-  .ack-none {
+  .total span {
+    font-size: 11.5px;
     color: var(--muted);
-    font-size: 12.5px;
+  }
+  a.total:hover b {
+    color: var(--accent);
+  }
+  .total.zero b {
+    color: var(--line);
+  }
+  .spark {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 56px;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 22px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .col .n {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--accent);
+    min-height: 13px;
+  }
+  .col .bar {
+    display: block;
+    width: 12px;
+    border-radius: 3px 3px 1px 1px;
+    background: var(--accent);
+    transition: opacity 0.2s;
+  }
+  .col.nil .bar {
+    background: var(--line);
+  }
+  .col.future .bar {
+    background: transparent;
+    border: 1px dashed var(--line);
+    border-bottom: 0;
+    height: 6px !important;
+  }
+  .col .yy {
+    margin-top: 4px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+  a.col:hover .bar {
+    opacity: 0.75;
+  }
+  a.col:hover .yy {
+    color: var(--accent);
   }
 </style>
