@@ -80,7 +80,25 @@
   term: 2025-1
   name: AR·VR프로그래밍
   en: AR·VR Programming
-  projects: []
+  projects:
+    - title: VR Mindfulness System
+      team: 다같이명상해요
+      images:
+        - lectures/2025-1-arvr-01.jpg
+        - lectures/2025-1-arvr-02.jpg
+      summary: 명상에 상호작용 콘텐츠를 더한 Meta Quest용 VR 명상 앱이다. 타이머로 시간을 정해 명상·호흡 가이드를 진행하고, 손을 대면 꼬리를 흔들고 짖으며 반응하는 강아지 캐릭터와 교감하거나, 원하는 행성을 골라 그 궤도를 따라 돌며 태양계를 감상할 수 있다.
+      links:
+        - label: GitHub
+          url: https://github.com/joun2301/VRMS
+        - label: Demo videos
+          url: https://github.com/joun2301/VRMS/tree/main/Docs/Demo
+    - title: VR 액션 게임
+      team: ActionAdventure
+      video: 7jxSNRHXsbc
+      summary: 맵을 탐사하며 스토리를 따라 전투를 벌이는 VR 액션 게임이다. 컨트롤러 버튼과 손목 회전 제스처로 마법을 골라 발사하며, 장비가 부딪힌 대상에 따라 다른 진동을 주는 햅틱 피드백으로 현장감을 더하는 것을 목표로 했다.
+      links:
+        - label: GitHub
+          url: https://github.com/freetaill/2025_VRARProject
 - id: 2024-2-opensource
   term: 2024-2
   name: 오픈소스프로젝트 (VR/AR)
