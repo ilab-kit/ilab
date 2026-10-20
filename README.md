@@ -16,6 +16,7 @@ Built with [Astro](https://astro.build). Pushing to `main` deploys automatically
 | `news.yaml` | 연구실 소식 (맨 위에 추가하면 최신 소식) |
 | `publications.yaml` | 논문 (`type`, `title`, `authors`, `venue`, `year`) |
 | `patents.yaml` | 특허 |
+| `software.yaml` | SW(프로그램) 등록. 등록 문서의 생년월일 등 개인정보는 넣지 않습니다 |
 | `projects.yaml` | 연구과제 (`status: ongoing` / `completed`) |
 | `research.yaml` | 연구 분야와 대표 연구 |
 | `equipment.yaml` | 보유 장비 |

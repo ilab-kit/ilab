@@ -3,8 +3,11 @@ import Base from "../layouts/Base.astro";
 import { load, highlightAuthors } from "../lib/data.js";
 import { parseAck, countCodes } from "../lib/ack.js";
 
+// Patents and registered software share this page; software items get status "software"
 const patents = load("patents");
-const ackCounts = countCodes(patents);
+const software = load("software").map((s) => ({ ...s, status: "software" }));
+const items = [...patents, ...software];
+const ackCounts = countCodes(items);
 const ackCodes = Object.keys(ackCounts).sort();
 const members = load("members");
 const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
@@ -13,19 +16,24 @@ const tabs = [
   { id: "international", label: "International" },
   { id: "registered", label: "Registered (KR)" },
   { id: "applied", label: "Applied (KR)" },
+  { id: "software", label: "Software" },
 ];
-const count = (id) => (id === "all" ? patents.length : patents.filter((p) => p.status === id).length);
-const label = { international: "International", registered: "Registered", applied: "Applied" };
+const count = (id) => (id === "all" ? items.length : items.filter((p) => p.status === id).length);
+const label = { international: "International", registered: "Registered", applied: "Applied", software: "Software" };
+const numLabel = { registered: "Reg. No.", applied: "App. No.", software: "Reg. No." };
 // newest first by date; international (no date) stays on top
-const sorted = [...patents].sort((a, b) => (b.date || "9999").localeCompare(a.date || "9999"));
+const sorted = [...items].sort((a, b) => (b.date || "9999").localeCompare(a.date || "9999"));
 ---
 
-<Base title="Patents">
+<Base title="Patents & Software" description="Patents and registered software of i Lab.">
   <div class="container">
     <header class="page-head">
       <div class="eyebrow">Output</div>
-      <h1>Patents</h1>
-      <p>{count("international")} international and {count("registered")} registered Korean patents, {count("applied")} pending.</p>
+      <h1>Patents &amp; Software</h1>
+      <p>
+        {count("international")} international and {count("registered")} registered Korean patents, {count("applied")} pending,
+        and {count("software")} registered software.
+      </p>
     </header>
 
     <div class="tabs" role="group" aria-label="Filter patents">
@@ -48,13 +56,17 @@ const sorted = [...patents].sort((a, b) => (b.date || "9999").localeCompare(a.da
       {sorted.map((p) => (
         <li data-status={p.status} data-ack={parseAck(p.ack).join(" ")} class="reveal">
           <div class="side">
-            <span class:list={["chip", { accent: p.status !== "applied" }]}>{label[p.status]}</span>
+            <span class:list={["chip", { accent: p.status !== "applied", sw: p.status === "software" }]}>{label[p.status]}</span>
             {p.date && <span class="date">{p.date}</span>}
           </div>
           <div>
             <h3>{p.title}</h3>
+            {p.summary && <p class="summary">{p.summary}</p>}
             <p class="authors" set:html={highlightAuthors(p.authors, names)} />
-            <div class="num">{p.status === "applied" ? "App. No." : p.status === "registered" ? "Reg. No." : ""} {p.number}</div>
+            <div class="num">
+              {numLabel[p.status] || ""} {p.number}
+              {p.owner && <span class="owner"> · {p.owner}</span>}
+            </div>
             {p.ack && (
               <div class="acks">
                 {parseAck(p.ack).map((c) => <button type="button" class="chip ack-chip" data-ack-chip={c} title="Show outputs with this ACK CODE">ACK {c}</button>)}
@@ -127,6 +139,15 @@ const sorted = [...patents].sort((a, b) => (b.date || "9999").localeCompare(a.da
     line-height: 1;
     cursor: pointer;
     padding: 0 4px;
+  }
+  .chip.sw {
+    background: color-mix(in oklab, #3b82f6 14%, transparent);
+    color: #3b82f6;
+  }
+  .summary {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 0 4px;
   }
   .acks {
     display: flex;

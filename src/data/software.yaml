@@ -1,0 +1,12 @@
+# Registered software (한국저작권위원회 컴퓨터프로그램 저작권 등록). Shown on the "Patents & SW" page.
+# title, number (등록번호), date (등록일, YYYY.MM.DD), owner (저작권자), authors (참여자),
+# optional summary and ack (ACK CODEs, e.g. "IITP26", matched to projects.yaml).
+# Never put birth dates or other personal details from the registration documents here.
+
+- title: 다중촉감 인터페이스용 디바이스 드라이버
+  number: C-2026-032768
+  date: 2026.07.02
+  owner: 국립금오공과대학교산학협력단
+  authors: 최동수, 나현진, 전예지, 김민준, 손정훈, 박주연, 김근희
+  summary: 스마트 소재 기반 다중촉감 인터페이스 기기를 제어하기 위한 전용 디바이스 드라이버. SPI 통신으로 디바이스 신호를 송수신하고 하드웨어와 연동해 제어한다.
+  ack: RISE

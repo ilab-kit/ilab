@@ -11,8 +11,10 @@ const { p } = Astro.props;
 const codes = projectCodes(p);
 const pubCount = countCodes(load("publications"));
 const patCount = countCodes(load("patents"));
+const swCount = countCodes(load("software"));
 const pubs = codes.filter((c) => pubCount[c]).map((c) => ({ code: c, n: pubCount[c] }));
 const pats = codes.filter((c) => patCount[c]).map((c) => ({ code: c, n: patCount[c] }));
+const sws = codes.filter((c) => swCount[c]).map((c) => ({ code: c, n: swCount[c] }));
 const link = (page: string, list: string[]) => url(`/${page}?ack=${list.join(",")}`);
 const total = (list: { n: number }[]) => list.reduce((a, x) => a + x.n, 0);
 ---
@@ -36,7 +38,13 @@ const total = (list: { n: number }[]) => list.reduce((a, x) => a + x.n, 0);
       {pats.map((x) => <a class="ack-chip" href={link("patents", [x.code])}>{x.code}<span>{x.n}</span></a>)}
     </div>
   )}
-  {pubs.length === 0 && pats.length === 0 && <div class="ack-none">No outputs tagged yet</div>}
+  {sws.length > 0 && (
+    <div class="ack-row">
+      <a class="ack-kind" href={link("patents", sws.map((x) => x.code))}>Software {total(sws)}</a>
+      {sws.map((x) => <a class="ack-chip" href={link("patents", [x.code])}>{x.code}<span>{x.n}</span></a>)}
+    </div>
+  )}
+  {pubs.length === 0 && pats.length === 0 && sws.length === 0 && <div class="ack-none">No outputs tagged yet</div>}
 
 </div>
 
