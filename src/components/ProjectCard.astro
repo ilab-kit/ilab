@@ -1,5 +1,5 @@
 ---
-// One student project: thumbnail (YouTube or image) that opens in the lightbox, team, summary, links.
+// One student project: thumbnail (YouTube, Google Drive video or image) that opens in the lightbox, team, summary, links.
 import { img } from "../lib/data.js";
 
 interface Props {
@@ -8,20 +8,25 @@ interface Props {
   courseLabel?: string;
 }
 const { project: p, course, courseLabel } = Astro.props;
-const thumb = p.video ? `https://i.ytimg.com/vi/${p.video}/hqdefault.jpg` : p.images?.[0] ? img(p.images[0]) : null;
+// A listed image wins over the YouTube thumbnail (e.g. when the video's thumbnail shows people)
+const ytThumb = p.video && !p.images?.length;
+const thumb = p.images?.[0] ? img(p.images[0]) : p.video ? `https://i.ytimg.com/vi/${p.video}/hqdefault.jpg` : null;
+const playable = Boolean(p.video || p.drive);
 const media = p.video
   ? JSON.stringify({ type: "video", id: p.video })
-  : p.images?.length
-    ? JSON.stringify({ type: "images", srcs: p.images.map((s) => img(s)) })
-    : null;
+  : p.drive
+    ? JSON.stringify({ type: "drive", id: p.drive })
+    : p.images?.length
+      ? JSON.stringify({ type: "images", srcs: p.images.map((s) => img(s)) })
+      : null;
 const search = [p.title, p.team, p.summary, courseLabel].filter(Boolean).join(" ").toLowerCase();
 ---
 
 <article class="pc" data-course={course} data-search={search}>
   {media ? (
-    <button class="thumb" data-media={media} data-initial={p.title.slice(0, 1)} aria-label={`${p.title} ${p.video ? "영상 재생" : "이미지 보기"}`}>
-      <img src={thumb} alt="" loading="lazy" class:list={{ contain: !p.video }} data-yt={p.video ? "" : undefined} />
-      {p.video && (
+    <button class="thumb" data-media={media} data-initial={p.title.slice(0, 1)} aria-label={`${p.title} ${playable ? "영상 재생" : "이미지 보기"}`}>
+      {thumb && <img src={thumb} alt="" loading="lazy" class:list={{ contain: !p.video }} data-yt={ytThumb ? "" : undefined} />}
+      {playable && (
         <span class="play" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
         </span>
