@@ -34,7 +34,7 @@ const sorted = [...patents].sort((a, b) => (b.date || "9999").localeCompare(a.da
           {t.label}<span class="count">{count(t.id)}</span>
         </button>
       ))}
-      <select class="ack-select" aria-label="Filter by ACK CODE">
+      <select class="select ack-select" aria-label="Filter by ACK CODE">
         <option value="">All ACK CODEs</option>
         {ackCodes.map((c) => <option value={c}>{c} ({ackCounts[c]})</option>)}
       </select>
@@ -107,15 +107,6 @@ const sorted = [...patents].sort((a, b) => (b.date || "9999").localeCompare(a.da
 </script>
 
 <style>
-  .ack-select {
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    color: var(--ink);
-    font: inherit;
-    font-size: 14px;
-  }
   .ack-active {
     display: inline-flex;
     align-items: center;

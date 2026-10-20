@@ -47,7 +47,7 @@ const scholar = (t) => `https://scholar.google.com/scholar?q=${encodeURIComponen
       </div>
       <div class="filters-row">
         <input class="search" type="search" placeholder="Search title, author, venue…" aria-label="Search publications" />
-        <select class="ack-select" aria-label="Filter by ACK CODE">
+        <select class="select ack-select" aria-label="Filter by ACK CODE">
           <option value="">All ACK CODEs</option>
           {ackCodes.map((c) => <option value={c}>{c} ({ackCounts[c]})</option>)}
         </select>
@@ -171,15 +171,6 @@ const scholar = (t) => `https://scholar.google.com/scholar?q=${encodeURIComponen
     align-items: center;
     gap: 10px;
     margin-bottom: 8px;
-  }
-  .ack-select {
-    padding: 9px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    color: var(--ink);
-    font: inherit;
-    font-size: 14px;
   }
   .ack-active {
     display: inline-flex;

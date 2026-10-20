@@ -8,6 +8,8 @@
   venue: 'Microchemical Journal, Vol. 227, 118564, Aug. 2026'
   year: 2026
   impact: IF 5.2
+  doi: 10.1016/j.microc.2026.118564
+  ack: IITP26
 - type: journal
   title: Electret gel interfaces of phthalo blue and plasticized PVC for enhanced vibrotactile actuation
   authors: Ganesh Shimoga, Eun-jae Shin, Seok-Han Lee, Mruthyunjayachari Chattanahalli Devendrachari, Dong-Soo Choi, Sang-Youn Kim*
