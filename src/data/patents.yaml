@@ -1,4 +1,5 @@
 # Patents. status: international | registered | applied
+# Optional ack: ACK CODEs (e.g. "NRF25, IITP25") matched to projects.yaml
 
 - title: 폴리머 기반 가변 렌즈 및 이를 위한 전기활성 폴리머와 그 제조 방법
   authors: 김상연, 박원형, 배진우, 신은재, 여명, 최동수, 남병욱, 최은진

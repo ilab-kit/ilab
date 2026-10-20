@@ -1,8 +1,15 @@
 ---
 import Base from "../layouts/Base.astro";
 import { load, highlightAuthors } from "../lib/data.js";
+import { parseAck, countCodes } from "../lib/ack.js";
 
 const pubs = load("publications");
+// ACK CODE filter options, grouped by prefix (NRF, IITP, ...) with newest year first
+const ackCounts = countCodes(pubs);
+const ackCodes = Object.keys(ackCounts).sort((a, b) => {
+  const pa = a.replace(/\d+$/, ""), pb = b.replace(/\d+$/, "");
+  return pa === pb ? b.localeCompare(a) : pa.localeCompare(pb);
+});
 const members = load("members");
 const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
 
@@ -38,7 +45,17 @@ const scholar = (t) => `https://scholar.google.com/scholar?q=${encodeURIComponen
           </button>
         ))}
       </div>
-      <input class="search" type="search" placeholder="Search title, author, venue…" aria-label="Search publications" />
+      <div class="filters-row">
+        <input class="search" type="search" placeholder="Search title, author, venue…" aria-label="Search publications" />
+        <select class="ack-select" aria-label="Filter by ACK CODE">
+          <option value="">All ACK CODEs</option>
+          {ackCodes.map((c) => <option value={c}>{c} ({ackCounts[c]})</option>)}
+        </select>
+        <span class="ack-active" hidden>
+          ACK: <b></b>
+          <button type="button" class="ack-clear" aria-label="Clear ACK filter">×</button>
+        </span>
+      </div>
     </div>
 
     <div class="list">
@@ -47,7 +64,7 @@ const scholar = (t) => `https://scholar.google.com/scholar?q=${encodeURIComponen
           <h2 class="year">{y || "—"}</h2>
           <ol>
             {pubs.filter((p) => (p.year || 0) === y).map((p) => (
-              <li class="pub" data-type={p.type} data-text={`${p.title} ${p.authors} ${p.venue}`.toLowerCase()}>
+              <li class="pub" data-type={p.type} data-ack={parseAck(p.ack).join(" ")} data-text={`${p.title} ${p.authors} ${p.venue}`.toLowerCase()}>
                 <div class="pub-type">{typeLabel[p.type]}</div>
                 <h3>
                   <a href={p.doi ? `https://doi.org/${p.doi}` : scholar(p.title)} target="_blank" rel="noopener">{p.title}</a>
@@ -59,6 +76,7 @@ const scholar = (t) => `https://scholar.google.com/scholar?q=${encodeURIComponen
                   {p.notes?.map((n) => <span class="chip">{/award|nominee|상/i.test(n) ? `★ ${n}` : n}</span>)}
                   {p.pdf && <a class="chip" href={p.pdf}>PDF</a>}
                   {p.video && <a class="chip" href={p.video}>Video</a>}
+                  {parseAck(p.ack).map((c) => <button type="button" class="chip ack-chip" data-ack-chip={c} title="Show outputs with this ACK CODE">ACK {c}</button>)}
                 </div>
               </li>
             ))}
@@ -76,19 +94,47 @@ const scholar = (t) => `https://scholar.google.com/scholar?q=${encodeURIComponen
   const items = document.querySelectorAll<HTMLElement>(".pub");
   const blocks = document.querySelectorAll<HTMLElement>(".year-block");
   const empty = document.querySelector<HTMLElement>(".empty")!;
+  const ackSelect = document.querySelector<HTMLSelectElement>(".ack-select")!;
+  const ackActive = document.querySelector<HTMLElement>(".ack-active")!;
   let type = "all";
+  let ack: Set<string> | null = null; // ACK CODEs to show; null = no ACK filter
+
+  function setAck(codes: string[] | null) {
+    ack = codes && codes.length ? new Set(codes) : null;
+    ackSelect.value = ack && ack.size === 1 ? [...ack][0] : "";
+    ackActive.hidden = !ack;
+    ackActive.querySelector("b")!.textContent = ack ? [...ack].join(", ") : "";
+    const params = new URLSearchParams(location.search);
+    if (ack) params.set("ack", [...ack].join(","));
+    else params.delete("ack");
+    const qs = params.toString();
+    history.replaceState(null, "", `${location.pathname}${qs ? `?${qs}` : ""}`);
+    apply();
+  }
 
   function apply() {
     const q = search.value.trim().toLowerCase();
     let shown = 0;
     items.forEach((el) => {
-      const ok = (type === "all" || el.dataset.type === type) && (!q || el.dataset.text!.includes(q));
+      const codes = el.dataset.ack ? el.dataset.ack.split(" ") : [];
+      const ok =
+        (type === "all" || el.dataset.type === type) &&
+        (!q || el.dataset.text!.includes(q)) &&
+        (!ack || codes.some((c) => ack!.has(c)));
       el.hidden = !ok;
       if (ok) shown++;
     });
     blocks.forEach((b) => (b.hidden = !b.querySelector(".pub:not([hidden])")));
     empty.hidden = shown > 0;
   }
+  ackSelect.addEventListener("change", () => setAck(ackSelect.value ? [ackSelect.value] : null));
+  ackActive.querySelector(".ack-clear")!.addEventListener("click", () => setAck(null));
+  document.querySelectorAll<HTMLButtonElement>("[data-ack-chip]").forEach((b) =>
+    b.addEventListener("click", () => {
+      setAck([b.dataset.ackChip!]);
+      document.querySelector(".controls")?.scrollIntoView({ block: "start" });
+    })
+  );
   tabs.forEach((t) =>
     t.addEventListener("click", () => {
       type = t.dataset.type!;
@@ -98,9 +144,12 @@ const scholar = (t) => `https://scholar.google.com/scholar?q=${encodeURIComponen
   );
   search.addEventListener("input", apply);
 
-  // Deep link: /publications?type=journal
-  const pre = new URLSearchParams(location.search).get("type");
+  // Deep links: /publications?type=journal and /publications?ack=NRF24,NRF25
+  const params = new URLSearchParams(location.search);
+  const pre = params.get("type");
   if (pre) document.querySelector<HTMLButtonElement>(`.tab[data-type="${pre}"]`)?.click();
+  const preAck = params.get("ack");
+  if (preAck) setAck(preAck.split(",").map((s) => s.trim()).filter(Boolean));
 </script>
 
 <style>
@@ -115,6 +164,52 @@ const scholar = (t) => `https://scholar.google.com/scholar?q=${encodeURIComponen
   }
   .controls .tabs {
     margin-bottom: 12px;
+  }
+  .filters-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .ack-select {
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+    font-size: 14px;
+  }
+  .ack-active {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 6px 4px 12px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 12.5px;
+  }
+  .ack-clear {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+  }
+  .ack-chip {
+    border: 0;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    cursor: pointer;
+  }
+  .ack-chip:hover {
+    color: var(--accent);
   }
   @media (max-width: 640px) {
     .controls { position: static; }

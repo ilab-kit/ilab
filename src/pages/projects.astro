@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import AckBlock from "../components/AckBlock.astro";
 import { load } from "../lib/data.js";
 
 const projects = load("projects");
@@ -30,6 +31,7 @@ const short = (d) => (d ? d.slice(0, 7) : "");
             <span class="pct"></span>
             <span>{short(p.end)}</span>
           </div>
+          {p.ack && <AckBlock p={p} />}
         </article>
       ))}
     </div>
@@ -42,6 +44,7 @@ const short = (d) => (d ? d.slice(0, 7) : "");
           <div>
             <h3>{p.title}</h3>
             <div class="sponsor">{p.sponsor}</div>
+            {p.ack && <AckBlock p={p} />}
           </div>
         </li>
       ))}

@@ -1,6 +1,6 @@
 # Publications. Newest first within each type.
 # type: journal | journal-other | journal-domestic | conference | conference-domestic
-# Optional: doi, pdf, video, impact, notes (awards etc.), ack (funding code, not shown on site)
+# Optional: doi, pdf, video, impact, notes (awards etc.), ack (ACK CODEs, e.g. "NRF25, IITP25" — matched to projects.yaml for acknowledgement tracking)
 
 - type: journal
   title: Direct covalently functionalized carbon substrates with macromolecular cobalt phthalocyanine for advanced bisphenol a detection
@@ -178,6 +178,15 @@
   authors: Dong-Soo Choi, Jaeu Jeong, Eun-Jae Shin, and Sang-Youn Kim*
   venue: International Journal of Applied Engineering Research, Vol. 12, No. 23, pp.13286-13294, 2017
   year: 2017
+- type: journal-domestic
+  title: 그리퍼 유연 접촉층의 두께에 따른 VLA 기반 로봇 조작 성능 평가
+  authors: 이강석, 김민준, 송영준*, 최동수*
+  venue: 한국정보기술학회지, 2026
+  year: 2026
+  notes:
+    - Short paper
+    - To appear
+  ack: NRF26, BRL26, RISE
 - type: journal-domestic
   title: 햅틱 컨트롤러를 활용한 혼합 현실 공포게임 개발
   authors: 손정훈, 박주연, 남은솔, 전예지, 최동수

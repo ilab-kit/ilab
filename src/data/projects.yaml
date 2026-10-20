@@ -1,4 +1,10 @@
 # Research projects. status: ongoing | completed
+# ack: ACK CODE used to track acknowledgements in outputs. "NRF##" means NRF + last two digits of the year
+#      (NRF25 = 2025 output of this project). Codes are matched to the "ack" field of publications/patents.
+#      A code without ## (e.g. TIPA25) is used as is.
+# ackYears: optional [from, to] (two-digit years) when the default (start year ~ end year) would overlap
+#      with another project that uses the same prefix.
+# grant / acknowledgement (ko, en): grant number and the acknowledgement text to copy into papers.
 
 - title: 생체 연조직 모사 하이브리드 구동형 인공 인대 및 딥러닝 기반 3D 형상 재구성/제어 시스템 개발
   sponsor: 과학기술정보통신부/한국연구재단/우수연구-신진연구(유형B)
@@ -6,6 +12,10 @@
   start: 2026.03.01
   end: 2031.02.28
   ack: NRF##
+  grant: RS-2026-25490371
+  acknowledgement:
+    ko: 이 성과는 정부(과학기술정보통신부)의 재원으로 한국연구재단의 지원을 받아 수행된 연구임(RS-2026-25490371).
+    en: This work was supported by the National Research Foundation of Korea(NRF) grant funded by the Korea government(MSIT) (RS-2026-25490371).
 - title: 유연 소재 기반 고해상도 다중촉감 인터페이스 모듈 기술
   sponsor: 과학기술정보통신부/정보통신기획평가원/초감각인지공간컴퓨팅기술개발
   status: ongoing
@@ -13,6 +23,10 @@
   end: 2028.12.31
   ack: IITP##
   partners: KAIST, 한국기술교육대, KIST, 서울대, 비햅틱스
+  grant: RS-2025-02303658
+  acknowledgement:
+    ko: 이 논문은 2025년도 정부(과학기술정보통신부)의 재원으로 정보통신기획평가원의 지원을 받아 수행된 연구임. (No. RS-2025-02303658, 유연 소재 기반 고해상도 다중촉감 인터페이스 모듈 기술)
+    en: This work was supported by Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT)(No. RS-2025-02303658, Soft material-based high-resolution multi-modal haptic interface module)
 - title: 가혹환경 바이오 공정 자동화 시스템 제어·운영 SW 개발 및 기능 고도화
   sponsor: 중소기업벤처부/중소기업기술정보진흥원/산학연CollaboR&D (사업화 단계)
   status: ongoing
@@ -20,6 +34,10 @@
   end: 2028.03.31
   ack: TIPA##
   partners: 충북그리드
+  grant: RS-2026-25530659
+  acknowledgement:
+    ko: 본 성과물은 중소벤처기업부에서 지원하는 20**년도 산학연 Collabo R&D사업(RS-2026-25530659)의 연구수행으로 인한 결과물임을 밝힙니다.
+    en: This work was supported by project for Collabo R&D between Industry, University, and Research Institute funded by Korea Ministry of SMEs and Startups in 20**.(RS-2026-25530659)
 - title: 다개체 제조환경에서의 조작 숙련성 개선을 위한 고정밀 디지털트윈 기술 개발
   sponsor: 과학기술정보통신부/한국연구재단/기초연구실(심화형)
   status: ongoing
@@ -27,12 +45,17 @@
   end: 2029.06.30
   ack: BRL##
   partners: 금오공대(고성능 과학계산 연구실, 인간중심AX연구실, 몰입형 미디어 및 그래픽스 탐구 연구실)
+  grant: RS-2026-25516934
+  acknowledgement:
+    ko: 이 성과는 정부(과학기술정보통신부)의 재원으로 한국연구재단의 지원을 받아 수행된 연구임(RS-2026-25516934).
+    en: This work was supported by the National Research Foundation of Korea(NRF) grant funded by the Korea government(MSIT) (RS-2026-25516934).
 - title: 감정 공유 로봇을 위한 피부의 거칠기/강성 표현이 가능한 신축성 햅틱 스킨 개발 및 이를 위한 통합 햅틱 렌더링 기법 연구
   sponsor: 과학기술정보통신부/한국연구재단/우수신진연구지원사업
   status: completed
   start: 2021.03.01
   end: 2026.02.28
   ack: NRF##
+  ackYears: [21, 25] # NRF26 onward belongs to the 2026 우수연구-신진연구 project above
 - title: 경북 네트워크형 캠퍼스 SW아카데미
   sponsor: 과학기술정보통신부/정보통신기획평가원/캠퍼스SW아카데미
   status: completed

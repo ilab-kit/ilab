@@ -1,0 +1,116 @@
+---
+// ACK CODE block for one project: code, grant number and the outputs that acknowledge it (per year code).
+// The acknowledgement text in projects.yaml is kept for reference but not shown on the site.
+import { load, url } from "../lib/data.js";
+import { projectCodes, countCodes } from "../lib/ack.js";
+
+interface Props {
+  p: any;
+}
+const { p } = Astro.props;
+const codes = projectCodes(p);
+const pubCount = countCodes(load("publications"));
+const patCount = countCodes(load("patents"));
+const pubs = codes.filter((c) => pubCount[c]).map((c) => ({ code: c, n: pubCount[c] }));
+const pats = codes.filter((c) => patCount[c]).map((c) => ({ code: c, n: patCount[c] }));
+const link = (page: string, list: string[]) => url(`/${page}?ack=${list.join(",")}`);
+const total = (list: { n: number }[]) => list.reduce((a, x) => a + x.n, 0);
+---
+
+<div class="ack">
+  <div class="ack-head">
+    <span class="ack-label">ACK CODE</span>
+    <code class="ack-code">{p.ack}</code>
+    {p.grant && <span class="grant">{p.grant}</span>}
+  </div>
+
+  {pubs.length > 0 && (
+    <div class="ack-row">
+      <a class="ack-kind" href={link("publications", pubs.map((x) => x.code))}>Papers {total(pubs)}</a>
+      {pubs.map((x) => <a class="ack-chip" href={link("publications", [x.code])}>{x.code}<span>{x.n}</span></a>)}
+    </div>
+  )}
+  {pats.length > 0 && (
+    <div class="ack-row">
+      <a class="ack-kind" href={link("patents", pats.map((x) => x.code))}>Patents {total(pats)}</a>
+      {pats.map((x) => <a class="ack-chip" href={link("patents", [x.code])}>{x.code}<span>{x.n}</span></a>)}
+    </div>
+  )}
+  {pubs.length === 0 && pats.length === 0 && <div class="ack-none">No outputs tagged yet</div>}
+
+</div>
+
+<style>
+  .ack {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+    font-size: 13px;
+  }
+  .ack-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .ack-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .ack-code {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+  .grant {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .ack-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .ack-kind {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    margin-right: 2px;
+  }
+  .ack-kind:hover {
+    color: var(--accent);
+  }
+  .ack-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .ack-chip span {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .ack-chip:hover {
+    border-color: var(--accent);
+  }
+  .ack-none {
+    color: var(--muted);
+    font-size: 12.5px;
+  }
+</style>

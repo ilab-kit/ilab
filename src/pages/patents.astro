@@ -1,8 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
 import { load, highlightAuthors } from "../lib/data.js";
+import { parseAck, countCodes } from "../lib/ack.js";
 
 const patents = load("patents");
+const ackCounts = countCodes(patents);
+const ackCodes = Object.keys(ackCounts).sort();
 const members = load("members");
 const names = members.flatMap((m) => [m.name, m.ko].filter(Boolean));
 const tabs = [
@@ -31,11 +34,19 @@ const sorted = [...patents].sort((a, b) => (b.date || "9999").localeCompare(a.da
           {t.label}<span class="count">{count(t.id)}</span>
         </button>
       ))}
+      <select class="ack-select" aria-label="Filter by ACK CODE">
+        <option value="">All ACK CODEs</option>
+        {ackCodes.map((c) => <option value={c}>{c} ({ackCounts[c]})</option>)}
+      </select>
+      <span class="ack-active" hidden>
+        ACK: <b></b>
+        <button type="button" class="ack-clear" aria-label="Clear ACK filter">×</button>
+      </span>
     </div>
 
     <ul class="list">
       {sorted.map((p) => (
-        <li data-status={p.status} class="reveal">
+        <li data-status={p.status} data-ack={parseAck(p.ack).join(" ")} class="reveal">
           <div class="side">
             <span class:list={["chip", { accent: p.status !== "applied" }]}>{label[p.status]}</span>
             {p.date && <span class="date">{p.date}</span>}
@@ -44,6 +55,11 @@ const sorted = [...patents].sort((a, b) => (b.date || "9999").localeCompare(a.da
             <h3>{p.title}</h3>
             <p class="authors" set:html={highlightAuthors(p.authors, names)} />
             <div class="num">{p.status === "applied" ? "App. No." : p.status === "registered" ? "Reg. No." : ""} {p.number}</div>
+            {p.ack && (
+              <div class="acks">
+                {parseAck(p.ack).map((c) => <button type="button" class="chip ack-chip" data-ack-chip={c} title="Show outputs with this ACK CODE">ACK {c}</button>)}
+              </div>
+            )}
           </div>
         </li>
       ))}
@@ -53,17 +69,89 @@ const sorted = [...patents].sort((a, b) => (b.date || "9999").localeCompare(a.da
 
 <script>
   const tabs = document.querySelectorAll<HTMLButtonElement>(".tab");
+  const ackSelect = document.querySelector<HTMLSelectElement>(".ack-select")!;
+  const ackActive = document.querySelector<HTMLElement>(".ack-active")!;
+  let status = "all";
+  let ack: Set<string> | null = null;
+
+  function apply() {
+    document.querySelectorAll<HTMLElement>("[data-status]").forEach((li) => {
+      const codes = li.dataset.ack ? li.dataset.ack.split(" ") : [];
+      li.hidden = (status !== "all" && li.dataset.status !== status) || (!!ack && !codes.some((c) => ack!.has(c)));
+    });
+  }
+  function setAck(codes: string[] | null) {
+    ack = codes && codes.length ? new Set(codes) : null;
+    ackSelect.value = ack && ack.size === 1 ? [...ack][0] : "";
+    ackActive.hidden = !ack;
+    ackActive.querySelector("b")!.textContent = ack ? [...ack].join(", ") : "";
+    const params = new URLSearchParams(location.search);
+    if (ack) params.set("ack", [...ack].join(","));
+    else params.delete("ack");
+    const qs = params.toString();
+    history.replaceState(null, "", `${location.pathname}${qs ? `?${qs}` : ""}`);
+    apply();
+  }
   tabs.forEach((t) =>
     t.addEventListener("click", () => {
+      status = t.dataset.f!;
       tabs.forEach((x) => x.setAttribute("aria-pressed", String(x === t)));
-      document.querySelectorAll<HTMLElement>("[data-status]").forEach((li) => {
-        li.hidden = t.dataset.f !== "all" && li.dataset.status !== t.dataset.f;
-      });
+      apply();
     })
   );
+  ackSelect.addEventListener("change", () => setAck(ackSelect.value ? [ackSelect.value] : null));
+  ackActive.querySelector(".ack-clear")!.addEventListener("click", () => setAck(null));
+  document.querySelectorAll<HTMLButtonElement>("[data-ack-chip]").forEach((b) => b.addEventListener("click", () => setAck([b.dataset.ackChip!])));
+  const preAck = new URLSearchParams(location.search).get("ack");
+  if (preAck) setAck(preAck.split(",").map((s) => s.trim()).filter(Boolean));
 </script>
 
 <style>
+  .ack-select {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+    font-size: 14px;
+  }
+  .ack-active {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 6px 4px 12px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 12.5px;
+  }
+  .ack-clear {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+  }
+  .acks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .ack-chip {
+    border: 0;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    cursor: pointer;
+  }
+  .ack-chip:hover {
+    color: var(--accent);
+  }
   .list {
     list-style: none;
     margin: 0;
