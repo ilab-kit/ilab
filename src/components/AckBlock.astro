@@ -24,6 +24,7 @@ const total = (list: { n: number }[]) => list.reduce((a, x) => a + x.n, 0);
     <span class="ack-label">ACK CODE</span>
     <code class="ack-code">{p.ack}</code>
     {p.grant && <span class="grant">{p.grant}</span>}
+    {p.ntis && <span class="grant">NTIS {p.ntis}</span>}
   </div>
 
   {pubs.length > 0 && (
