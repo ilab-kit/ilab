@@ -61,7 +61,21 @@
   term: 2025-1
   name: 창의설계프로젝트
   en: Creative Design Project
-  projects: []
+  projects:
+    - title: StrengthHub
+      team: 겸인지용
+      video: K3oqOxbbsh4
+      summary: 운동 기록, 커뮤니티, 상급자 피드백을 하나로 묶은 헬스 보조 웹 서비스이다. 날짜별 운동량을 잔디 형태의 달력으로 기록하고, 인체 모형도로 부위별 운동법을 안내하며, 릴스형 운동 챌린지와 상급자와의 1:1 피드백(Share+) 기능을 제공한다.
+      links:
+        - label: GitHub (Server)
+          url: https://github.com/Brave-Guys/Server
+    - title: Scrap Land
+      team: 남유정이
+      video: Z9WMlBXOxy8
+      summary: 환경오염으로 황폐해진 지구에서 쓰레기를 모아 업사이클링으로 아이템을 만들며 살아남는 로우폴리 3D 크래프팅 게임이다. 기계와 조합대로 재료를 가공해 아이템을 만들고, 이를 판매하거나 집에 인테리어로 설치해 7일 동안 매일 정해진 해피지구력 목표를 채워야 한다.
+      links:
+        - label: GitHub
+          url: https://github.com/suyeon419/ScrapLand
 - id: 2025-1-arvr
   term: 2025-1
   name: AR·VR프로그래밍
