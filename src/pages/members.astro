@@ -36,6 +36,7 @@ const initials = (n) => n.split(/[\s-]+/).map((s) => s[0]).join("").slice(0, 2).
             {prof.office && <span class="chip">{prof.office}</span>}
           </div>
           <div class="interests">
+            {prof.focus?.map((i) => <span class="chip focus">{i}</span>)}
             {prof.interests?.map((i) => <span class="chip accent">{i}</span>)}
           </div>
           {prof.cv?.map((s) => (
@@ -110,6 +111,11 @@ const initials = (n) => n.split(/[\s-]+/).map((s) => s[0]).join("").slice(0, 2).
 </script>
 
 <style>
+  .chip.focus {
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 600;
+  }
   .prof {
     display: grid;
     grid-template-columns: 280px 1fr;

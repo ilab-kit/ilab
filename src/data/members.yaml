@@ -10,7 +10,8 @@
   office: "#238, Digital Bldg."
   photo: members/prof-dong-soo-choi.jpg
   scholar: https://scholar.google.com/citations?user=lIQVSJsAAAAJ&hl=ko
-  interests: [Immersive VR/AR, Haptics, Transparent Pressure Sensor, 3D Touch Sensor, Vibrotactile Actuator, Focus-tunable Lens]
+  focus: [Physical AI, Robotic Manipulation] # shown first, as filled chips
+  interests: [Tactile Sensing & Robot Skin, Soft Robotics, Haptic Interfaces, Smart Materials, Immersive VR/AR]
   cv:
     - section: Positions
       items:
